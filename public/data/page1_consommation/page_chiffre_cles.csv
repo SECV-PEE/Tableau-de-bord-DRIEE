@@ -1,0 +1,28 @@
+id,chiffre_cles,mot_cle,description,description_sup,source,lien
+consommation_1,92%,,d’énergie importée ,"seulement 8% de l'énergie consommée est produite localement.
+Source: SDES (2017)",ROSE,
+consommation_2,45%,,liées aux besoins en chaleur des bâtiments,"eau chaude sanitaire, chauffage des bâtiments. Source: ROSE",DRIEE Feuille de route,
+consommation_3,63%,,d’énergie fossile,"produits pétroliers, charbon, gaz naturel. Source: ROSE",Source: ROSE,Plaquette du ROSE
+emission_1,10%,,des émissions de gaz à effet de serre  (GES) nationales,42 MteqCO2 émis en Île-de-France en 2017 (scopes 1 et 2). Source: ROSE,AIRPARIF,
+emission_2,-22%,,d’émissions de GES en 2017 par rapport à 2005,objectif SRCAE : -28 % en 2020 par rapport à 2005,AIRPARIF,
+emission_3,54%,,part des GES émise par le secteur du bâtiment, 30% sont émis par les transports routiers,AIRPARIF,
+production_1,"6,8%",,des consommations énergétiques couvertes par des ENR&R produites localement,contre 18 % au niveau national,Plaquette du ROSE,
+production_2,92%,,part de la chaleur dans la production locale d’ENR&R ,"reste de la production : 7,4 % d’électricité, 4,6 % de gaz",Plaquette du ROSE & DRIEE TDB en chaleur,
+production_3,1ère,région,"pour les livraisons annuelles
+de chaleur par des réseaux",Avec 45 % des livraisons nationales,Plaquette du ROSE,
+precarite_1,"7,5%",,de ménages franciliens vulnérables énergétiquement (soit 358 000),"avec une facture de chauffage supérieure à 8 % de leurs revenus. Source : INSEE, 2018.",Insee Dossier Île-de-France,
+precarite_2,808376,ménages,"éligibles au chèque énergie en 2019. Source : DGEC, DRIHL",valeur entre 48 et 277 €,DGEC,
+precarite_3,1 270 €,,dépense annuelle moyenne de chauffage en Île-de-France,inférieur de 200€ à la moyenne nationale,"INSEE Analyses (DRIEA, DRIHL)",
+bati_1,72%,,part de ce que représentent les bâtiment construits avant 1980,"dans les consommations du secteur. Source: ADEME, Recensement de DPE ","ADEME, Recensement de DPE",
+bati_2,18%,,"des résidences principales consomment plus de 331kwh/m².an (classes F, G) en 2018",soit 958 483 logements. Source : CGDD/SDES,Données de DPE (Opendata de l'ADEME),
+bati_3,90%,,des certificats d’économies d’énergie (CEE) délivrés en 2017 concernent le secteur du bâtiment,"soit 43.4 Twhcumac, dont 62 % de CEE précarité. Source : DGEC",DRIEE fichier de CEE,
+transport_1,43 millions ,de déplacements,effectués chaque jour en Île-de-France en 2018,"3,8 par habitant, 18 km en moyenne, près de 70% en dehors de Paris (source : EGT H2020-IDF Mobilité-OMNIL-DRIEA)","TDB du observatoire de mobilité, Enquêt globale transport http://www.omnil.fr/IMG/pdf/presentation_egt_v_publique_vf.pdf
+",
+transport_2,+9%,,d’usage de modes actifs en Île-de-France en 2018 par rapport à 2010,+14% d’usage de transports collectifs en 2018 par rapport à 2010 (source : EGT H2020-IDF Mobilité-OMNIL-DRIEA),TDB du observatoire de mobilité,
+transport_3,-12%,,d'énergie consommée par les transports routiers en 2017 par rapport à 2005,dont -3% par rapport à 2015. Source : ROSE,Plaquette du ROSE,
+chaleur_1,52%,,part d’ENR&R dans les réseaux de chaleur,"chaleur fatale (28%), géothermie (11%), biomasse (9%), autres ENR&R (4%) (données SNCU)",DRIEE Feuille de route,
+chaleur_2,110,réseaux,de chaleur et de froid en 2018,15 % des réseaux français,Plaquette ROSE,
+chaleur_3,"1,1 millions",d’équivalent-logements,raccordés aux réseaux de chaleur franciliens en 2018,"potentiel de 2,5 millions d’équivalent-logements supplémentaires raccordables",Plaquette du ROSE,
+autre_enr_1,22%,,de l’objectif à 2030 fixé par le SCRAE pour la méthanisation atteint en 2019,capacité de production des sites de méthanisation en 2019 : 888 GWh,DRIEE,
+autre_enr_2,"3,2%",,de l’objectif à 2030 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2017,production d’électricité photovoltaïque en 2017 : 76 GWh,Plaquette du ROSE,
+autre_enr_3,"3,4%",,de l’objectif à 2030 fixé par le SCRAE pour l’électricité éolienne atteint en 2017,production d’électricité éolienne en 2017 : 92 GWh,Plaquette du ROSE,

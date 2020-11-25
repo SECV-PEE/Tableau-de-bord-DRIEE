@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:400,600");
+
+body{
+    width : 100%;
+    min-width: 800px;
+    height: 100%;
+    min-height: 800px;
+    margin: 0 auto;
+    font-family:'Montserrat', sans-serif;
+    padding-left: 0em;
+    padding-right: 0em;
+}
+
+button{
+    margin: 1em 0 2em 0;
+    background-color: #15607A;
+    color: #fff;
+    border-radius:5px;
+    border: none;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: #FF8900; /* Green */
+    color: white;
+}
+
+.button-region{
+    margin-left: 220px;
+}
+
+a{
+    color: #c0c0c0;
+    font-size: 12px;
+
+}
+
+h1{
+    color: #474747;
+}
+
+h2{
+    color: #474747;
+    margin-bottom: 1em;
+}
+h3{
+    color: #696969;
+    margin: 2em 0 1em 0;
+}
+
+h4{
+    color: #696969;
+    margin-bottom: 1em;
+}
+
+#logo-pref{
+    position: relative;
+    float: right;
+    object-fit: contain;
+    top: -10px;
+}
+
+.description{
+    margin: 1em 0 3em 0;
+}
+
+.grand-titre{
+    margin: 2em 0 1em 0;
+
+}
+#container_linechart{
+    margin-bottom: 0em;
+
+}
+
+#container_inner_cartes{
+    margin: 0 auto;
+    text-align: left;
+}
+.container{
+    display: flex;
+    margin-right: 3em;
+    float: left;
+}
+
+.container-chiffres{
+    width: 1000px;
+    height: 200px;
+    display: inline-flex;
+}
+
+.chiffre-gros{
+    margin: 0.3em 0 0 0;
+    font-size: 40px;
+    color:  #ff8900;
+}
+
+.mots-cles{
+    margin: 0;
+    font-size: 15px;
+    color:  #ff8900;
+}
+
+.description{
+    font-size: 12px;
+    color:  #ff8900;
+}
+
+.text{
+    font-size: 15px;
+    color: #383838;
+}
+
+.chiffre-cles{
+    width: 250px;
+    height: 150px;
+    font-size: 10px;
+    background-color: #ffffff;
+    border: solid #ff8900 2px;
+    border-radius: 20px;
+    padding: 5px 10px 10px 10px;
+    margin: 1.5em;
+    text-align: center;
+}
+
+#container_conso{
+    margin-bottom: 3em;
+}
+
+.carte{
+    width: 450px;
+    border-right-style: solid;
+    border-width: 2px;
+    border-color:  #cacaca;
+    margin-right: 2em;
+}
+
+.header{
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.header:hover .img-unite{
+    display: block;
+}
+
+.header p{
+    text-decoration: underline;
+}
+
+.header .img-unite{
+    display: none;
+    float:left;
+}
+
+#info-logo{
+    margin-top: 16px;
+    margin-right: 15px;
+}
+
+
+#container_general{
+    margin-top: 14em;
+}
+
+.separateur {
+    margin-top: 2.5em;
+    margin-bottom: 1em;
+    width: 900px;
+    border-top: solid #ACC0D8 1px;
+}
+
+.sep_small{
+    width: 200px;
+    height: 1px;
+    border-top: solid #ACC0D8 1px;
+    margin: 0;
+}
+
+.tt {
+    font-size: 10px;
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    padding: 5px;
+    border-radius:5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: solid 1px black;
+    display: none;
+}
+
+
+.mobilite-container{
+    width: 900px;
+    height: 350px;
+    display: inline-flex;
+}
+
+.mobilite-carte{
+    width: 450px;
+    height: 330;
+}
+
+.chaleur-container{
+    width: 900px;
+    height: 520px;
+    display: inline-flex;
+}
+
+.container-enr{
+    width: 900px;
+    height: 450px;
+    display: inline-flex;
+}   
+
+#emission_cartes{
+    position:relative; 
+    top:-620px; left:530px;
+}
+
+
+#button-annee{
+    margin: 2em 2em 0 0;
+
+}
+
+.logo{
+    width: 220px;
+    height: 90px;
+}
+/* debut dataBlock*/
+.bloc-general {
+    height: 150px;
+    display: inline-flex;
+    position: relative;
+    padding-bottom: 0.8em;
+}
+
+.bloc-general .block {
+    margin:0 2% 1% 2%;
+    position: relative;
+}
+
+.bloc-general .block .face.face1 {
+    width: 200px;
+    height: 120px;
+    transition: 0.5s;
+    padding: 1s5px;
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transform: translateY(30px);
+    border: #18A1CD solid 2px;
+    border-style: none none solid none;
+
+}
+
+.bloc-general .block:hover .face.face1 {
+    transform: translateY(0px);
+}
+
+.bloc-general .block .face.face1 .contenu {
+    margin: 1px;
+    opacity: 1;
+    transition: 0.5s;
+
+}
+
+.bloc-general .block:hover .face.face1 .contenu {
+    opacity: 1;
+
+}
+
+.bloc-general .block .face.face1 .contenu h3 {
+    margin: 3px 0 0;
+    padding: 0;
+    color: #ff8900;
+    text-align: center;
+    font-size: 2em;
+    font-weight: 600;
+}
+
+.bloc-general .block .face.face1 .contenu h4 {
+    margin: 0 0 2px 0;
+    padding: 0;
+    color: #ff8900;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+.bloc-general .block .face.face1 .contenu p {
+    margin: 2px 0 0;
+    padding: 0;
+    color: #ff8900;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.75em;
+}
+
+.bloc-general .block .face.face2 {
+    width: 200px;
+    height: 60px;
+    transition: 0.5s;
+    position: relative;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateY(-30px);
+}
+
+.bloc-general .block:hover .face.face2 {
+    transform: translateY(0);
+}
+
+.bloc-general .block .face.face2 .contenu p {
+    font-size: 0.6em;
+    color: #6b6b6b;
+    margin: 0;
+    padding: 5px;
+    font-weight: 500;
+}
+
+.node rect {
+    cursor: move;
+    fill-opacity: .9;
+    shape-rendering: crispEdges;
+  }
+   
+  .node text {
+    pointer-events: none;
+    text-shadow: 0 1px 0 #fff;
+  }
+   
+  .link {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+  }
+   
+  .link:hover {
+    stroke-opacity: .5;
+  }
+
+
+.img-precarite{
+    margin: 2em 1.5em 3em 3em;
+}
+
+#production-subcarte{
+    text-align: center;
+    padding-left: 2em;
+}
+
+#sankey_chart{
+    margin-top: 0.5em;
+}

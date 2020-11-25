@@ -1,0 +1,37 @@
+﻿id,chiffre_cles,mot_cle,description,description_sup,source,lien
+consommation_1,92%,Importée,d’énergie consommée en île-de-France est importée.,"Seul 8% de l'énergie consommée est produite localement.
+Source: SDES (2017)",ROSE,
+consommation_2,45%,,utilisée en chaleur des bâtiments.,"eau chaude sanitaire, chauffage des bâtiments",DRIEE Feuille de route,
+consommation_3,35%,de gaz fossile,30% d'électricité; 28% de produits pétroliers,Source: ROSE,Plaquette du ROSE,
+emission_1,+56%,,par rapport à l'objectif (2017).,3135 kgeq CO2 ont été émis pour un objectif de 2000 kgeqCO2 pour respecter l'objectif 2°C,AIRPARIF,
+emission_2,38 092,kteq CO2,sont émis en île-de-France en 2017 (Scope 1 et 2).,0.98 teqCO2 = 1 aller retour Paris New-York,AIRPARIF,
+emission_3,36%,,"issus du résidentiel, 30% issus du secteur routier (2017).",87.5% à Métropole du Paris,AIRPARIF,
+production_1,"6,8%",,taux de couverture des consommations énergétiques par ENR&R.,contre 18 % au niveau national,Plaquette du ROSE,
+production_2,1ère,région,"pour les livraisons annuelles
+de chaleur par des réseaux.
+",avec 50 % des livraisons nationales,Plaquette du ROSE,
+production_3,Chaleur,gaz et électricité,les trois sources principales énergétiques en île-de-France,représentent 70 % du développement des ENR&R en île-de-France.,Plaquette du ROSE & DRIEE TDB en chaleur,
+precarite_1,"863500
+",ménages,"sont sous la critère de précarité énergétique en île-de-France.
+",452 600 ménages « précaires » et 410 900 ménages « vulnérables ».,Insee Dossier Île-de-France,
+precarite_2,"2/3
+","des ménages
+","vulnérables sont sous le seuil de pauvreté.
+","358 000 ménages sont concernés,
+soit 7,5 % des ménages franciliens.","INSEE Analyses (DRIEA, DRIHL)",
+precarite_3,"1270€
+",,"Dépense annuelle moyenne de chauffage en île-de-France.
+",Inférieur de 200€ à la moyenne nationale.,"INSEE Analyses (DRIEA, DRIHL)",
+bati_1,"71,6%",,d’énergie est consommée par les logements construit avant 1980.,"Source: ADEME, Recensement de DPE ","ADEME, Recensement de DPE",
+bati_2,"60,7%",,"des logements consomment plus de 230kwh/m2/an. (classe E, F, G).",dépassent presque 4 fois que l'objectif de SRCAE en 2050,Données de DPE (Opendata de l'ADEME),
+bati_3,48 663,GWhc,d’énergie sont économisées selon les certificats CEE (2017).,dont 55% representé par les CEE précarité,DRIEE fichier de CEE,
+transport_1,43 millions ,déplacements,s'effectuent chaque jour en île-de-France.,"3,8 par habitant, 18 km en moyenne, près de 70% en dehors de Paris","TDB du observatoire de mobilité, Enquêt globale transport http://www.omnil.fr/IMG/pdf/presentation_egt_v_publique_vf.pdf
+",
+transport_2,10%,,de l’usage de mode actifs en Île-de-France par rapport au 2010.,+20% de l’usage de trasnports collectifs par rapport au 2010.,TDB du observatoire de mobilité,
+transport_3,-12%,,d'énergie consommée en 2017 par rapport à 2005.,"dont -2,7% entre 2015 et 2017.",Plaquette du ROSE,
+chaleur_1,51%,de ENR&R,le taux de chaleur renouvelable parmi la production de ENR&R.,"La chaleur est issue de 3 sources : les déchets, la biomasse et la géothermie.",DRIEE Feuille de route,
+chaleur_2,"13,2%",,issu de la biomasse (2019).,9%: part de géothermie profonde dans la production de ENR&R (2019),DRIEE fichier de Biomasse & Géothermie,
+chaleur_3,300 000,Habitants,alimentés en chaleur par les réseaux franciliens.,"1,1 million d’équivalents logements.",Plaquette du ROSE,
+autre_enr_1,"3,2%",de l'objectif,de productivité des parcs photovoltaïques (2017).,77 GWh pour un objectif SRCAE 2030 à 2400 GWh.,Plaquette du ROSE,
+autre_enr_2,"22,3%",de l'objectif,de productivité des sites de méthanisation (2017).,890 GWh pour un objectif SRCAE 2030 de 2000 GWh.,DRIEE,
+autre_enr_3,"3,4%",de l'objectif,de productivité des parcs éoliens (2017).,92 GWh pour un objectif SRCAE 2030 à 2700 GWh.,Plaquette du ROSE,
