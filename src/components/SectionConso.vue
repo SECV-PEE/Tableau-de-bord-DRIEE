@@ -1,11 +1,11 @@
 <template>
-  <div id="section-conso">
+  <div id="section-conso" class="section-conso">
     <div class="separateur">
       <h1 class="grand-titre">{{data.nom}}</h1>
     </div>
     <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
     <h3 class="grand-titre">Consommation énergétique par EPCI en Île-de-France</h3>
-    <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a">Source: AIRPARIF, ROSE</a>
+    <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: AIRPARIF, ROSE</a>
     <div id="container_conso" class="container">
       <div id="container_carte_conso" class="carte" style="width: 450px;">
         <div id="button-annee">
@@ -67,5 +67,8 @@ export default {
 </script>
 
 <style>
-
+.section-conso {
+  padding: inherit;
+  justify-items: center;
+}
 </style>

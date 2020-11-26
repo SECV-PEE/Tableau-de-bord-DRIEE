@@ -54,12 +54,15 @@ export default {
     display:flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     width: 100%;;
   }
 
   .dc-container .dc-general-container {
     display:flex;
     flex-direction: row;
+    justify-content: center;
+    /* display: inline-flex; */
     align-items: center;
     width: 100%
   }

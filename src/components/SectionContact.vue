@@ -18,6 +18,10 @@ export default {
 </script>
 
 <style>
+.section-contact {
+  padding: inherit;
+}
+
 .mail-icon {
   text-decoration: none;
 }

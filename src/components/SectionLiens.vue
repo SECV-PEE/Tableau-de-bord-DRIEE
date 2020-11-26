@@ -1,5 +1,5 @@
 <template>
-  <div id="section-liens">
+  <div id="section-liens" class="section-liens">
     <div class="separateur">
       <h1 class="grand-titre">Liens utiles</h1>
     </div>
@@ -17,7 +17,12 @@ export default {
 </script>
 
 <style>
-  .liens {
-    font-size: 20px;
-  }
+.liens {
+  font-size: 20px;
+}
+
+.section-liens {
+  padding: inherit;
+}
+
 </style>

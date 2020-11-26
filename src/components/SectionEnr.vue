@@ -1,5 +1,5 @@
 <template>
-    <div id="section-enr">
+    <div id="section-enr" class="section-enr">
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
@@ -91,5 +91,9 @@ export default {
 </script>
 
 <style>
+
+.section-enr {
+  padding: inherit;
+}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div id="section-preca">
+    <div id="section-preca" class="section-preca">
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
@@ -32,5 +32,9 @@ export default {
 </script>
 
 <style>
+
+.section-preca {
+  padding: inherit;
+}
 
 </style>

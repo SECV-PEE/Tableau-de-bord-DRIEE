@@ -52,6 +52,7 @@
     align-items: center;
     justify-items: center;
     width: 100%;
+    text-decoration: none;
   }
 
   .home-icon {

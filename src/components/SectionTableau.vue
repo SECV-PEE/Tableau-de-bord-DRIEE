@@ -56,6 +56,7 @@ export default {
 <style>
 
 .tableau_de_bord {
+  width: 100%;
   margin: auto;
   justify-items: center;
   padding-right: 6em;

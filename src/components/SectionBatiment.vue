@@ -1,5 +1,5 @@
 <template>
-    <div id="section-batiment">
+    <div id="section-batiment" class="section-bati">
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
@@ -47,5 +47,9 @@ export default {
 </script>
 
 <style>
+
+.section-bati {
+  padding: inherit;
+}
 
 </style>

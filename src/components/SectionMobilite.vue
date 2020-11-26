@@ -1,5 +1,5 @@
 <template>
-    <div id="section-mobilite">
+    <div id="section-mobilite" class="section-mobi">
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
@@ -54,5 +54,9 @@ export default {
 </script>
 
 <style>
+
+.section-mobi {
+  padding: inherit;
+}
 
 </style>

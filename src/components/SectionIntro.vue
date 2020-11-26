@@ -47,4 +47,9 @@ export default {
 </script>
 
 <style>
+
+.section-intro {
+  padding: inherit;
+}
+
 </style>

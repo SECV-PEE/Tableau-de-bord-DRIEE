@@ -1,12 +1,12 @@
 <template>
-    <div id="section-emiss">
+    <div id="section-emiss" class="section-emiss">
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
       <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
       <div id="emission_container_generale" style="width: 900px; height: 700px">
         <h3>Émissions de gaz à effet de serre (GES) par EPCI en Île-de-France</h3>
-        <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a">Source: AIRPARIF, ROSE</a>
+        <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: AIRPARIF, ROSE</a>
         <div class="carte" style="width: 450px; height: 600px;">
           <div id="button-emission">
             <h4>Années disponibles</h4>
@@ -62,5 +62,9 @@ export default {
 </script>
 
 <style>
+
+.section-emiss {
+  padding: inherit;
+}
 
 </style>

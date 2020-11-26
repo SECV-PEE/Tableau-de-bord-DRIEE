@@ -1,5 +1,5 @@
 <template>
-    <div id="section-chaleur">
+    <div id="section-chaleur" class="section-chaleur">
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
@@ -65,5 +65,9 @@ export default {
 </script>
 
 <style>
+
+.section-chaleur {
+  padding: inherit;
+}
 
 </style>

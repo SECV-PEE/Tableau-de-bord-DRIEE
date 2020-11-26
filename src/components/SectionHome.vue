@@ -1,5 +1,5 @@
 <template>
-  <div id="section-home">
+  <div id="section-home" class="section-home">
     <p>
       <router-link to="/tableau-de-bord">Accéder au tableau</router-link>
     </p>
@@ -27,4 +27,9 @@ export default {
 </script>
 
 <style>
+
+.section-home {
+  padding: inherit;
+}
+
 </style>

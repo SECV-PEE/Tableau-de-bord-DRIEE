@@ -39,6 +39,7 @@ export default {
 
 <style>
 .section-accueil {
+  padding: inherit;
   margin-top: 1em;
   justify-items: center;
 }
