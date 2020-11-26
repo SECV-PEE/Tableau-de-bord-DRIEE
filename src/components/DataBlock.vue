@@ -70,13 +70,18 @@ export default {
         margin: 1.5em;
         text-align: center;
         align-items: center;
+        vertical-align: middle;
     }
 
     .dc-general-container .db-block .db-face1 {
         align-items: center;
         justify-content: center;
         background: white;
+        display: flex;
+        flex-direction: column;
         z-index: 1;
+        padding-top: auto;
+        padding-bottom: auto;
     }
 
     .dc-intro-container .db-block .db-face1 {

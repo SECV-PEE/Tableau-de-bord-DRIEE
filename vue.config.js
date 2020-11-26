@@ -1,5 +1,5 @@
 module.exports = {
-  publicPath: '/Tableau-de-bord-DRIEE/',
+  publicPath: process.env.NODE_ENV === "production" ? '/Tableau-de-bord-DRIEE/' : "/",
   "transpileDependencies": [
     "vuetify"
   ]

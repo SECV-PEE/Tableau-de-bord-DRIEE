@@ -26,7 +26,14 @@ button:hover {
     color: white;
 }
 
-.button-region{
+.button-conso {
+    font: 400 13.3333px Arial;
+    padding: 1px 6px; 
+}
+
+.button-region {
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
     margin-left: 220px;
 }
 

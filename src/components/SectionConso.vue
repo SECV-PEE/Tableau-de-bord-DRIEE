@@ -4,12 +4,6 @@
       <h1 class="grand-titre">{{data.nom}}</h1>
     </div>
     <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
-    <h3 class="grand-titre">Équilibre énergétique régional</h3>
-    <a href="https://opendata.reseaux-energies.fr/explore/dataset/equilibre-regional-mensuel-prod-conso-brute/information/?disjunctive.region">Source: Open Data Réseaux Énergies</a>
-    <img :src="`${path}${img_page}/legend_equilibre.png`" style="width: 680px; height: 51px;" alt="legend">
-    <div id="equilibre-regional" style="width: 900px; height: 400px;"></div>
-    <div id="tooltip_equilibre"></div> 
-    <script2 :src="`${path}data/page1_consommation/page1_equilibre.js`"></script2>
     <h3 class="grand-titre">Consommation énergétique par EPCI en Île-de-France</h3>
     <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a">Source: AIRPARIF, ROSE</a>
     <div id="container_conso" class="container">
@@ -17,11 +11,11 @@
         <div id="button-annee">
           <h4 style="color: #696969; font-size: 0.8em;">Années disponibles</h4>
           <div class="sep_small"></div>
-          <button onclick="change_year('2017')">2017</button>
-          <button onclick="change_year('2015')">2015</button>
-          <button onclick="change_year('2012')">2012</button>
-          <button onclick="change_year('2010')">2010</button>
-          <button onclick="change_year('2005')">2005</button>
+          <button class="button-conso" onclick="change_year('2017')">2017</button>
+          <button class="button-conso" onclick="change_year('2015')">2015</button>
+          <button class="button-conso" onclick="change_year('2012')">2012</button>
+          <button class="button-conso" onclick="change_year('2010')">2010</button>
+          <button class="button-conso" onclick="change_year('2005')">2005</button>
         </div>
         <img id="legend_02" :src="`${path}${img_page}/legend_conso.png`" alt="legend" style="width: 450px; height: 78px; margin-top: 0em;">
         <svg id="container" width="450" height="375">
