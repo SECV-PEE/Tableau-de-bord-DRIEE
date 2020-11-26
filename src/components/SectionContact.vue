@@ -3,8 +3,11 @@
     <div class="separateur">
       <h1 class="grand-titre">Contact</h1>
     </div>
-    <h2>Pour toute question ou suggestion, n'hésitez pas à nous contacter</h2>
-    <h4>Florence Lévy, chargée de mission transition énergétique: florence.levy@developpement-durable.gouv.fr</h4>
+    <h4>Pour toute question ou suggestion, n'hésitez pas à nous contacter 
+      <a class="mail-icon" href="mailto:florence.levy@developpement-durable.gouv.fr">
+        <v-icon large>mdi-email</v-icon>
+      </a>
+    </h4>
   </div>
 </template>
 
@@ -13,3 +16,9 @@ export default {
   name: 'SectionContact',
 }
 </script>
+
+<style>
+.mail-icon {
+  text-decoration: none;
+}
+</style>

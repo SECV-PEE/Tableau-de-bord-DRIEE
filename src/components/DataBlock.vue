@@ -76,7 +76,7 @@ export default {
     .dc-general-container .db-block .db-face1 {
         align-items: center;
         justify-content: center;
-        background: white;
+        background: transparent;
         display: flex;
         flex-direction: column;
         z-index: 1;
