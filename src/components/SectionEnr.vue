@@ -38,7 +38,7 @@
             </svg>
             <img :src="`${path}${img_page}/legend_prod_pie.png`" width="115" height="200" alt="legend">
           </div>
-          <h4>Évolution de la production annuelle régionale d'électricité renouvelable</h4>
+          <h4 style="margin-top:30px">Évolution de la production annuelle régionale d'électricité renouvelable</h4>
           <svg id="linechart_prod" height="180" width="420"></svg>
         </div>
       </div>
