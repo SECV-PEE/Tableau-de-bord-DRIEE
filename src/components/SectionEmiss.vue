@@ -8,14 +8,14 @@
         <h3>Émissions de gaz à effet de serre (GES) par EPCI en Île-de-France</h3>
         <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: AIRPARIF, ROSE</a>
         <div class="carte" style="width: 450px; height: 600px;">
-          <div id="button-emission">
-            <h4>Années disponibles</h4>
+          <div id="button-annee">
+            <h4 style="color: #696969; font-size: 0.8em;">Années disponibles</h4>
             <div class="sep_small"></div>
-            <button onclick="change_year_emission('2017')">2017</button>
-            <button onclick="change_year_emission('2015')">2015</button>
-            <button onclick="change_year_emission('2012')">2012</button>
-            <button onclick="change_year_emission('2010')">2010</button>
-            <button onclick="change_year_emission('2005')">2005</button>
+            <button class="button-map" onclick="change_year_emission('2017')">2017</button>
+            <button class="button-map" onclick="change_year_emission('2015')">2015</button>
+            <button class="button-map" onclick="change_year_emission('2012')">2012</button>
+            <button class="button-map" onclick="change_year_emission('2010')">2010</button>
+            <button class="button-map" onclick="change_year_emission('2005')">2005</button>
           </div>
           <img :src="`${path}${img_page}/legend_emiss.png`" alt="legend" width="450" height="67">
           <svg id="emission_container" width="450" height="350">

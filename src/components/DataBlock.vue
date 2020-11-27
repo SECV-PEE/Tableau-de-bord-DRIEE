@@ -4,7 +4,7 @@
             <div class="db-face1">
                 <div class="db-contenu">
                     <h3 class="db-chiffre">{{data.chiffre}}</h3>
-                    <h4 class="db-mot-cle" v-if="data.motClé">{{data.motClé}}</h4>
+                    <h4 class="db-mot-cle" v-if="data.motCle">{{data.motCle}}</h4>
                     <p class="db-texte">{{data.texte}}</p>
                 </div>
             </div>
@@ -18,7 +18,7 @@
             <div class="db-face1">
                 <div class="db-contenu">
                     <h1 class="db-chiffre">{{data.chiffre}}</h1>
-                    <h3 class="db-mot-cle">{{data.motClé}}</h3>
+                    <h3 class="db-mot-cle">{{data.motCle}}</h3>
                     <p class="db-texte">{{data.texte}}</p>
                 </div>
             </div>

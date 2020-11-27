@@ -11,11 +11,11 @@
         <div id="button-annee">
           <h4 style="color: #696969; font-size: 0.8em;">Années disponibles</h4>
           <div class="sep_small"></div>
-          <button class="button-conso" onclick="change_year('2017')">2017</button>
-          <button class="button-conso" onclick="change_year('2015')">2015</button>
-          <button class="button-conso" onclick="change_year('2012')">2012</button>
-          <button class="button-conso" onclick="change_year('2010')">2010</button>
-          <button class="button-conso" onclick="change_year('2005')">2005</button>
+          <button class="button-map" onclick="change_year('2017')">2017</button>
+          <button class="button-map" onclick="change_year('2015')">2015</button>
+          <button class="button-map" onclick="change_year('2012')">2012</button>
+          <button class="button-map" onclick="change_year('2010')">2010</button>
+          <button class="button-map" onclick="change_year('2005')">2005</button>
         </div>
         <img id="legend_02" :src="`${path}${img_page}/legend_conso.png`" alt="legend" style="width: 450px; height: 78px; margin-top: 0em;">
         <svg id="container" width="450" height="375">
@@ -39,9 +39,9 @@
       <h4>Répartition de la consommation par type d'énergie</h4>
       <svg id="container_treemap" height="300" width="900"></svg>
     </div>
-    <div id="tooltip" class="tt" style="display: none; top: 3176px; left: 609px;"></div>
-    <div id="tooltip2" class="tt" style="display: none; top: 3245px; left: 737px;"></div>
-    <div id="tooltip_tree" class="tt" style="display: none; top: 3757px; left: 748px;"></div>
+    <div id="tooltip" class="tt"></div>
+    <div id="tooltip2" class="tt"></div>
+    <div id="tooltip_tree" class="tt"></div>
     <script2 :src="`${path}data/page1_consommation/page1_consomm.js`"></script2>
   </div>
 </template>

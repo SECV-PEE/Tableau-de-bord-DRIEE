@@ -3,7 +3,7 @@
     <div class="text-circle">
       <v-img class="db-stack-top" contain :height="`${data.img_size[0]}`" :width="`${data.img_size[1]}`" :src="`${path}${data.img}`"></v-img>
       <h3>{{ data.chiffre }}</h3>
-      <h4>{{ data.motClé }}</h4>
+      <h4>{{ data.motCle }}</h4>
       <p v-if="data.texte">{{ data.texte }}</p>
       <span class="db-tooltiptext">{{ data.description }}</span>
     </div>

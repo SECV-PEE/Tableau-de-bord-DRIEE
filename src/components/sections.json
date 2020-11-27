@@ -3,7 +3,7 @@
         "up": {
             "data1": {
                 "chiffre": "92%",
-                "motClé": "d'énergie importée",
+                "motCle": "d'énergie importée",
                 "texte": "",
                 "description": "L’Île-de-France est la région française qui présente la plus forte dépendance énergétique. La production locale d’énergie renouvelable et de récupération ne couvre que 6,8 % des consommations.",
                 "img": "pylone2.png",
@@ -11,7 +11,7 @@
             },
             "data2": {
                 "chiffre": "63%",
-                "motClé": "d'énergie fossile",
+                "motCle": "d'énergie fossile",
                 "texte": "",
                 "description": "L’énergie consommée en Île-de-France est majoritairement fossile. Les principaux types d’énergie consommés sont le gaz (35 %, quasi exclusivement fossile), l’électricité (30 %) et les produits pétroliers (28 %).",
                 "img": "Petrole2.png",
@@ -19,7 +19,7 @@
             },
             "data3": {
                 "chiffre": "45%",
-                "motClé": "des consommations",
+                "motCle": "des consommations",
                 "texte": "liées au chauffage des bâtiments",
                 "description": "Les consommations énergétiques franciliennes sont majoritairement rattachées au secteur du bâtiment (63 %) et servent surtout à couvrir les besoins en chaleur des bâtiments (eau chaude et chauffage). Vient ensuite le secteur des transports, responsable de 24 % des consommations.",
                 "img": "immeubles.png",
@@ -29,7 +29,7 @@
         "down": {
             "data4": {
                 "chiffre": "110",
-                "motClé": "réseaux de chaleur",
+                "motCle": "réseaux de chaleur",
                 "texte": "",
                 "description": "L’Île-de-France est la première région française en nombre de réseaux de chaleur (15 % des réseaux français) et en livraison annuelle de chaleur par ces réseaux, avec 11,5 TWh en 2018 soit 45 % des livraisons françaises. Le taux moyen d’ENR&R de ces réseaux est de 52 %.",
                 "img": "reseaux_chaleur.png",
@@ -37,7 +37,7 @@
             },
             "data5": {
                 "chiffre": "1 million",
-                "motClé": "d'habitants",
+                "motCle": "d'habitants",
                 "texte": "chauffés par la géothermie",
                 "description": "L’Île-de-France bénéficie d’un potentiel exceptionnel pour la géothermie. Avec une soixantaine d’installations de géothermie profonde en fonctionnement, elle présente la plus grande densité d’opérations au monde et représente plus de 80 % de la production géothermique nationale.",
                 "img": "geothermie.png",
@@ -50,17 +50,17 @@
         "datas": {
             "data1": {
                 "chiffre": "92%",
-                "motClé": "d’énergie importée",
+                "motCle": "d’énergie importée",
                 "texte": "seulement 8% de l'énergie consommée est produite localement"
             },
             "data2": {
                 "chiffre": "45%",
-                "motClé": "liées aux besoins en chaleur des bâtiments",
+                "motCle": "liées aux besoins en chaleur des bâtiments",
                 "texte": "chauffage, eau chaude sanitaire"
             },
             "data3": {
                 "chiffre": "63 %",
-                "motClé": "d’énergie fossile",
+                "motCle": "d’énergie fossile",
                 "texte": "produits pétroliers, charbon, gaz naturel"
             }
         }
@@ -70,17 +70,17 @@
         "datas": {
             "data1": {
                 "chiffre": "10%",
-                "motClé": "des émissions de gaz à effet de serre nationales",
+                "motCle": "des émissions de gaz à effet de serre nationales",
                 "texte": "42 MteqCO2 émis en Île-de-France en 2017 (scopes 1 et 2)"
             },
             "data2": {
                 "chiffre": "-22%",
-                "motClé": "d’émissions de GES en 2017 par rapport à 2005",
+                "motCle": "d’émissions de GES en 2017 par rapport à 2005",
                 "texte": "objectif SRCAE : -28 % en 2020 par rapport à 2005"
             },
             "data3": {
                 "chiffre": "54%",
-                "motClé": "part des GES émise par le secteur du bâtiment",
+                "motCle": "part des GES émise par le secteur du bâtiment",
                 "texte": " 30% sont émis par les transports routiers"
             }
         }
@@ -90,17 +90,17 @@
         "datas": {
             "data1": {
                 "chiffre": "7,5%",
-                "motClé": "de ménages franciliens vulnérables énergétiquement (soit 358 000)",
+                "motCle": "de ménages franciliens vulnérables énergétiquement (soit 358 000)",
                 "texte": "avec une facture de chauffage supérieure à 8 % de leurs revenus"
             },
             "data2": {
                 "chiffre": "808376",
-                "motClé": "ménages éligibles au chèque énergie en 2019",
+                "motCle": "ménages éligibles au chèque énergie en 2019",
                 "texte": "valeur entre 48 et 277 €"
             },
             "data3": {
                 "chiffre": "1 270 €",
-                "motClé": "dépense annuelle moyenne de chauffage en Île-de-France",
+                "motCle": "dépense annuelle moyenne de chauffage en Île-de-France",
                 "texte": "inférieure de 200€ à la moyenne nationale"
             }
         }
@@ -110,17 +110,17 @@
         "datas": {
             "data1": {
                 "chiffre": "72%",
-                "motClé": "part de ce que représentent les bâtiment construits avant 1980",
+                "motCle": "part de ce que représentent les bâtiment construits avant 1980",
                 "texte": "dans les consommations du secteur. Source: ADEME, Recensement de DPE "
             },
             "data2": {
                 "chiffre": "18 %",
-                "motClé": "des résidences principales consomment plus de 331kwh/m².an (classes F, G)",
+                "motCle": "des résidences principales consomment plus de 331kwh/m².an (classes F, G)",
                 "texte": "soit 958 483 logements (2018). Source : CGDD/SDES"
             },
             "data3": {
                 "chiffre": "90%",
-                "motClé": "des certificats d’économies d’énergie (CEE) délivrés en 2017 concernent le secteur du bâtiment",
+                "motCle": "des certificats d’économies d’énergie (CEE) délivrés en 2017 concernent le secteur du bâtiment",
                 "texte": "soit 43.4 Twhcumac, dont 62 % de CEE précarité. Source : DGEC"
             }
         }
@@ -130,17 +130,17 @@
         "datas": {
             "data1": {
                 "chiffre": "43 millions",
-                "motClé": "de déplacements effectués chaque jour en Île-de-France",
+                "motCle": "de déplacements effectués chaque jour en Île-de-France",
                 "texte": "3,8 par habitant, 18 km en moyenne, près de 70% en dehors de Paris  (source : EGT H2020-IDF Mobilité-OMNIL-DRIEA)"
             },
             "data2": {
                 "chiffre": "+9%",
-                "motClé": "d’usage de modes actifs en Île-de-France en 2018 par rapport à 2010",
+                "motCle": "d’usage de modes actifs en Île-de-France en 2018 par rapport à 2010",
                 "texte": "+14% d’usage de transports collectifs en 2018 par rapport à 2010 (source : EGT H2020-IDF Mobilité-OMNIL-DRIEA)"
             },
             "data3": {
                 "chiffre": "-12%",
-                "motClé": "d'énergie consommée par les transports routiers en 2017 par rapport à 2005",
+                "motCle": "d'énergie consommée par les transports routiers en 2017 par rapport à 2005",
                 "texte": "dont -3% par rapport à 2015"
             }
         }
@@ -150,17 +150,17 @@
         "datas": {
             "data1": {
                 "chiffre": "52%",
-                "motClé": "part d’ENR&R dans les réseaux de chaleur",
+                "motCle": "part d’ENR&R dans les réseaux de chaleur",
                 "texte": "chaleur fatale (28%), géothermie (11%), biomasse (9%), autres ENR&R (4%) (Source : SNCU)"
             },
             "data2": {
                 "chiffre": "110",
-                "motClé": "réseaux de chaleur et de froid en 2018",
+                "motCle": "réseaux de chaleur et de froid en 2018",
                 "texte": "15 % des réseaux français"
             },
             "data3": {
                 "chiffre": "1,1 millions",
-                "motClé": "d’équivalent-logements raccordés aux réseaux de chaleur franciliens en 2018",
+                "motCle": "d’équivalent-logements raccordés aux réseaux de chaleur franciliens en 2018",
                 "texte": "potentiel de 2,5 millions d’équivalent-logements supplémentaires raccordables"
             }
         }
@@ -170,17 +170,17 @@
         "datas": {
             "data1": {
                 "chiffre": "22%",
-                "motClé": "de l’objectif à 2030 fixé par le SCRAE pour la méthanisation atteint en 2019",
+                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour la méthanisation atteint en 2019",
                 "texte": "capacité de production des sites de méthanisation en 2019 : 888 GWh"
             },
             "data2": {
                 "chiffre": "3,2%",
-                "motClé": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2017",
+                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2017",
                 "texte": "production d’électricité photovoltaïque en 2017 : 76 GWh"
             },
             "data3": {
                 "chiffre": "3,4%",
-                "motClé": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité éolienne atteint en 2017",
+                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité éolienne atteint en 2017",
                 "texte": "production d’électricité éolienne en 2017 : 92 GWh"
             }
         }

@@ -32,7 +32,11 @@ export default {
 
 <style>
 @import './TDB_DRIEE_CSS.css';
-  
+
+.v-main__wrap {
+  position: unset !important;
+}
+
 .v-application {
   position: relative;
   font-family:'Montserrat', sans-serif;

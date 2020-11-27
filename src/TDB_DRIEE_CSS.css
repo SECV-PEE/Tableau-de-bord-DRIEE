@@ -26,7 +26,8 @@ button:hover {
     color: white;
 }
 
-.button-conso {
+.button-map {
+    margin: 1em 0.4em 2em 0;
     font: 400 13.3333px Arial;
     padding: 1px 6px; 
 }
@@ -37,7 +38,7 @@ button:hover {
     margin-left: 220px;
 }
 
-a{
+a {
     color: #c0c0c0;
     font-size: 12px;
 

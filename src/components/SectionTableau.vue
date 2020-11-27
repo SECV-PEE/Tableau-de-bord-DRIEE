@@ -63,4 +63,8 @@ export default {
   padding-left: 6em;
 }
 
+.tableau_de_bord a {
+  color: #c0c0c0 !important;
+}
+
 </style>
