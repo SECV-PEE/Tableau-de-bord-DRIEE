@@ -2,7 +2,7 @@
   <div class="dc-container">
     <template v-if="intro">
       <div class="dc-intro-container">
-        <img :src="`${path}/${data.img}`" alt="logo" class="dc-logo">
+        <img @click="$vuetify.goTo(data.section, options)" :src="`${path}/${data.img}`" alt="logo" class="dc-logo">
         <template v-for="data in data.datas">
           <DataBlock :key="data.key" :data="data" v-bind:intro="true"></DataBlock>
         </template>
@@ -44,6 +44,10 @@ export default {
   .dc-logo {
     width: 220px;
     height: 90px;
+  }
+
+  .dc-logo:hover{
+    cursor: pointer;
   }
 
   .dc-container {
