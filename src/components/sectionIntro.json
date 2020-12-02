@@ -1,6 +1,7 @@
 {
     "sub1": {
         "conso": {
+            "section": "#section-conso",
             "img": "consomm_logo.png",
             "datas":{
                 "data1": {
@@ -24,6 +25,7 @@
             }
         },
         "ges": {
+            "section": "#section-emiss",
             "img": "emiss_logo.png",
             "datas":{
                 "data1": {
@@ -47,6 +49,7 @@
             }
         },
         "production": {
+            "section": "#section-chaleur",
             "img": "prod_logo.png",
             "datas":{
                 "data1": {
@@ -70,6 +73,7 @@
             }
         },
         "precarite": {
+            "section": "#section-preca",
             "img": "precarite_logo.png",
             "datas":{
                 "data1": {
@@ -95,6 +99,7 @@
     },
     "sub2": {
         "batiment": {
+            "section": "#section-batiment",
             "img": "bati_logo.png",
             "datas":{
                 "data1": {
@@ -118,6 +123,7 @@
             }
         },
         "transport": {
+            "section": "#section-mobilite",
             "img": "transport_logo.png",
             "datas":{
                 "data1": {
@@ -141,6 +147,7 @@
             }
         },
         "chaleur": {
+            "section": "#section-chaleur",
             "img": "chaleur_logo.png",
             "datas":{
                 "data1": {
@@ -165,6 +172,7 @@
         },
         "enr": {
             "img": "enr_autre_logo.png",
+            "section": "#section-enr",
             "datas":{
                 "data1": {
                     "chiffre": "22%",

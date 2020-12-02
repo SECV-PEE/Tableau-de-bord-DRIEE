@@ -3,7 +3,6 @@
     <!-- SUBSECTION 1 -->
     <h1 class="grand-titre">Chiffres clés</h1>
     <h2 >Profil énergétique francilien</h2>
-    <p>Passez le curseur sur les chiffres pour en savoir plus.</p>
     <div class="header">
       <div id="info-logo">
         <img :src="`${path}${img_page}/info.png`" width="24" height="20" alt="">
