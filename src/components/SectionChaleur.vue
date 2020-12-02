@@ -9,8 +9,8 @@
           <h4>Production d'énergie par géothermie en Île-de-France</h4>
           <a href="">Source: DRIEE</a>
           <div id="chaleur-button">
-            <button onclick="update_sites_gth()">Nombre de sites</button>
-            <button onclick="update_prod_gth()">Production</button>
+            <button class="button-prod" onclick="update_sites_gth()">Nombre de sites</button>
+            <button class="button-prod" onclick="update_prod_gth()">Production</button>
           </div>
           <svg id="chaleur_container_1" width="450" height="375">
             <g id="body_chaleur_gth"></g>
@@ -25,8 +25,8 @@
           <h4>Production d'énergie par les installations collectives de biomasse en Île-de-France</h4>
           <a href="">Source: DRIEE</a>
           <div id="chaleur-button">
-            <button onclick="update_sites_bio()">Nombre de sites</button>
-            <button onclick="update_prod_bio()">Production</button>
+            <button class="button-prod" onclick="update_sites_bio()">Nombre de sites</button>
+            <button class="button-prod" onclick="update_prod_bio()">Production</button>
           </div>
           <svg id="chaleur_container_2" width="450" height="375">
             <g id="body_chaleur_biomasse"></g>

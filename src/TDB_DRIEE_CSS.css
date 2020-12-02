@@ -32,10 +32,21 @@ button:hover {
     padding: 1px 6px; 
 }
 
+.button-map:active {
+    background-color: #FF8900; /* Green */
+    color: white;
+}
+
 .button-region {
     font: 400 13.3333px Arial;
     padding: 1px 6px;
     margin-left: 220px;
+}
+
+.button-prod {
+    margin: 1em 0.4em 2em 0;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px; 
 }
 
 a {

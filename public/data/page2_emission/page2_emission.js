@@ -18,7 +18,6 @@ Promise.all([
 ]).then((datasources)=>{
     mapInfo = datasources[1];
     data_emiss = datasources[0];
-    update_chiffre_emission();
     line_emiss = get_history_emiss(data_emiss);
     drawLineChart_emiss(line_emiss);
     data_emiss = annee_filter_emission(data_emiss);
@@ -31,14 +30,21 @@ Promise.all([
 function get_history_emiss(data){
     let years = data.map(function(d){return d.annee;});
     years = [...new Set(years)]
+    population = {
+        '2005': 11532,
+        '2010': 11786,
+        '2012': 11898,
+        '2015': 12082,
+        '2017': 12174
+    }
     let history = []
     for (let y of years){
         history.push({
             annee: y,
-            emission_totale: d3.sum(data.filter(function(d){return d.annee === y;}),
+            emission_totale: d3.sum(data.filter(function(d){return d.annee === y && d.secteur === "Totale";}),
                 d=>d.emission),
-            emission_moyenne: d3.sum(data.filter(function(d){return d.annee === y;}),
-            d=>d.emission)/12150
+            emission_moyenne: d3.sum(data.filter(function(d){return d.annee === y && d.secteur === "Totale";}),
+            d=>d.emission)/population[y]
         });
     }
     return history;
@@ -64,24 +70,6 @@ function drawLineChart_emiss(data){
 }
 
 var selectedEPCI = undefined;
-
-function update_chiffre_emission(){
-    d3.csv("data/page2_emission/page2_chiffres_cles.csv").then((data)=>{
-        chiffre_01 = data.filter(function(d){return d.id === "chiffre_1";});
-        chiffre_02 = data.filter(function(d){return d.id === "chiffre_2";});
-        chiffre_03 = data.filter(function(d){return d.id === "chiffre_3";});
-        set_html("page2_chiffre1", chiffre_01[0].chiffre_cles);
-        set_html("page2_chiffre2", chiffre_02[0].chiffre_cles);
-        set_html("page2_chiffre3", chiffre_03[0].chiffre_cles);
-        set_html("page2_mot1", chiffre_01[0].mots_cles);
-        set_html("page2_mot2", chiffre_02[0].mots_cles);
-        set_html("page2_mot3", chiffre_03[0].mots_cles);
-        set_html("page2_des1", chiffre_01[0].description);
-        set_html("page2_des2", chiffre_02[0].description);
-        set_html("page2_des3", chiffre_03[0].description);
-    })
-}
-
 
 function annee_filter_emission(data){
     return data.filter(function(d){return d.annee === annee_e;});

@@ -9,8 +9,8 @@
           <h4>Production d'énergie par méthanisation en Île-de-France</h4>
           <a href="">Source: DRIEE</a>
           <div id="enr-button">
-            <button onclick="update_sites_methan()">Nombre de sites</button>
-            <button onclick="update_prod_methan()">Production</button>
+            <button class="button-prod" onclick="update_sites_methan()">Nombre de sites</button>
+            <button class="button-prod" onclick="update_prod_methan()">Production</button>
           </div>
           <svg id="enr_container_1" width="450" height="450">
             <g id="body_enr_methan"></g>

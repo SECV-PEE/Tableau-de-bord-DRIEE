@@ -35,18 +35,23 @@ export default {
 
 .v-main__wrap {
   position: unset !important;
+  margin: 0 auto;
 }
 
 .v-application {
   position: relative;
   font-family:'Montserrat', sans-serif;
   line-height: 1;
-  margin: auto;
+  margin: 0 auto;
 }
 
 .body {
-  width: 100%;
-  margin: auto;
+  width: 1280px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  margin: 0 auto;
   padding-left: 0;
   padding-right: 0;
 }

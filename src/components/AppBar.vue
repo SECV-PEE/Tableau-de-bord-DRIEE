@@ -1,7 +1,8 @@
 <template>
   <v-app-bar class="header-appbar" color="#e5edf5ff" style="position: sticky" fixed dense>
     <v-tabs centered>
-      <v-icon class="home-icon" @click="$vuetify.goTo('#section-header', options)">mdi-home</v-icon>
+      <v-tab @click="$vuetify.goTo('#section-header', options)">
+      <v-icon>mdi-home</v-icon></v-tab>
       <v-tab class="text-center" @click="$vuetify.goTo('#section-intro', options)">Chiffres Clés</v-tab>
       <v-tab class="text-center">
         <v-menu offset-y open-on-hover>

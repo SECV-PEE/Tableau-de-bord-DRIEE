@@ -21,8 +21,6 @@ Promise.all([
     d3.csv("data/page1_consommation/airparif_consommation_epci.csv"),
     d3.json("data/page1_consommation/EPCI-ile-de-france.geojson")
 ]).then((datasources)=>{
-    update_chiffre_cles();
-    update_chiffre_consommation();
     mapInfo = datasources[1];
     data = datasources[0];
     let line_data = get_history(data);
@@ -33,11 +31,16 @@ Promise.all([
     drawPie(sec_info);
     prepare_data(mapInfo, data);
     drawMap(data, mapInfo, "conso_tot");
-    drawLineChart(line_data);
+    drawLineChart(line_data); //use conso_normale
 })
 
 function set_html(id, text){
     document.getElementById(id).innerHTML = text;
+}
+
+function draw_region(){
+    draw_pie_region;
+    drawMap();
 }
 
 function draw_pie_region(){
@@ -102,156 +105,6 @@ function get_energieInfo(data){
         "Taux": conso_b/conso_totale
     }];
     return eng_info;
-}
-
-function update_chiffre_consommation(){
-    d3.csv("data/page1_consommation/page1_chiffres_cles.csv").then((data)=>{
-        chiffre_01 = data.filter(function(d){return d.id === "chiffre_1";});
-        chiffre_02 = data.filter(function(d){return d.id === "chiffre_2";});
-        chiffre_03 = data.filter(function(d){return d.id === "chiffre_3";});
-        set_html("page1_chiffre1", chiffre_01[0].chiffre_cles);
-        set_html("page1_chiffre2", chiffre_02[0].chiffre_cles);
-        set_html("page1_chiffre3", chiffre_03[0].chiffre_cles);
-        set_html("page1_mot1", chiffre_01[0].mots_cles);
-        set_html("page1_mot2", chiffre_02[0].mots_cles);
-        set_html("page1_mot3", chiffre_03[0].mots_cles);
-        set_html("page1_des1", chiffre_01[0].description);
-        set_html("page1_des2", chiffre_02[0].description);
-        set_html("page1_des3", chiffre_03[0].description);
-    })
-}
-
-function update_chiffre_cles(){
-    d3.csv("data/page1_consommation/page_chiffre_cles.csv").then((data)=>{
-        consomm_1 = data.filter(function(d){return d.id === "consommation_1";});
-        consomm_2 = data.filter(function(d){return d.id === "consommation_2";});
-        consomm_3 = data.filter(function(d){return d.id === "consommation_3";});
-        emission_1 = data.filter(function(d){return d.id === "emission_1";});
-        emission_2 = data.filter(function(d){return d.id === "emission_2";});
-        emission_3 = data.filter(function(d){return d.id === "emission_3";});
-        production_1 = data.filter(function(d){return d.id === "production_1";});
-        production_2 = data.filter(function(d){return d.id === "production_2";});
-        production_3 = data.filter(function(d){return d.id === "production_3";});
-        precarite_1 = data.filter(function(d){return d.id === "precarite_1";});
-        precarite_2 = data.filter(function(d){return d.id === "precarite_2";});
-        precarite_3 = data.filter(function(d){return d.id === "precarite_3";});
-        bati_1 = data.filter(function(d){return d.id === "bati_1";});
-        bati_2 = data.filter(function(d){return d.id === "bati_2";});
-        bati_3 = data.filter(function(d){return d.id === "bati_3";});
-        transport_1 = data.filter(function(d){return d.id === "transport_1";});
-        transport_2 = data.filter(function(d){return d.id === "transport_2";});
-        transport_3 = data.filter(function(d){return d.id === "transport_3";});
-        chaleur_1 = data.filter(function(d){return d.id === "chaleur_1";});
-        chaleur_2 = data.filter(function(d){return d.id === "chaleur_2";});
-        chaleur_3 = data.filter(function(d){return d.id === "chaleur_3";});
-        autre_enr_1 = data.filter(function(d){return d.id === "autre_enr_1";});
-        autre_enr_2 = data.filter(function(d){return d.id === "autre_enr_2";});
-        autre_enr_3 = data.filter(function(d){return d.id === "autre_enr_3";});
-        set_html("consomm_1_chiffre", consomm_1[0].chiffre_cles);
-        set_html("consomm_2_chiffre", consomm_2[0].chiffre_cles);
-        set_html("consomm_3_chiffre", consomm_3[0].chiffre_cles);
-        set_html("consomm_1_description", consomm_1[0].description);
-        set_html("consomm_2_description", consomm_2[0].description);
-        set_html("consomm_3_description", consomm_3[0].description);
-        set_html("consomm_1_des_sup", consomm_1[0].description_sup);
-        set_html("consomm_2_des_sup", consomm_2[0].description_sup);
-        set_html("consomm_3_des_sup", consomm_3[0].description_sup);
-        set_html("consomm_1_mot_cle", consomm_1[0].mot_cle);
-        set_html("consomm_2_mot_cle", consomm_2[0].mot_cle);
-        set_html("consomm_3_mot_cle", consomm_3[0].mot_cle);
-        
-        set_html("emission_1_chiffre", emission_1[0].chiffre_cles);
-        set_html("emission_2_chiffre", emission_2[0].chiffre_cles);
-        set_html("emission_3_chiffre", emission_3[0].chiffre_cles);
-        set_html("emission_1_description", emission_1[0].description);
-        set_html("emission_2_description", emission_2[0].description);
-        set_html("emission_3_description", emission_3[0].description);
-        set_html("emission_1_des_sup", emission_1[0].description_sup);
-        set_html("emission_2_des_sup", emission_2[0].description_sup);
-        set_html("emission_3_des_sup", emission_3[0].description_sup);
-        set_html("emission_1_mot_cle", emission_1[0].mot_cle);
-        set_html("emission_2_mot_cle", emission_2[0].mot_cle);
-        set_html("emission_3_mot_cle", emission_3[0].mot_cle);
-
-        set_html("production_1_chiffre", production_1[0].chiffre_cles);
-        set_html("production_2_chiffre", production_2[0].chiffre_cles);
-        set_html("production_3_chiffre", production_3[0].chiffre_cles);
-        set_html("production_1_description", production_1[0].description);
-        set_html("production_2_description", production_2[0].description);
-        set_html("production_3_description", production_3[0].description);
-        set_html("production_1_des_sup", production_1[0].description_sup);
-        set_html("production_2_des_sup", production_2[0].description_sup);
-        set_html("production_3_des_sup", production_3[0].description_sup);
-        set_html("production_1_mot_cle", production_1[0].mot_cle);
-        set_html("production_2_mot_cle", production_2[0].mot_cle);
-        set_html("production_3_mot_cle", production_3[0].mot_cle);
-                
-        set_html("precarite_1_chiffre", precarite_1[0].chiffre_cles);
-        set_html("precarite_2_chiffre", precarite_2[0].chiffre_cles);
-        set_html("precarite_3_chiffre", precarite_3[0].chiffre_cles);
-        set_html("precarite_1_description", precarite_1[0].description);
-        set_html("precarite_2_description", precarite_2[0].description);
-        set_html("precarite_3_description", precarite_3[0].description);
-        set_html("precarite_1_des_sup", precarite_1[0].description_sup);
-        set_html("precarite_2_des_sup", precarite_2[0].description_sup);
-        set_html("precarite_3_des_sup", precarite_3[0].description_sup);
-        set_html("precarite_1_mot_cle", precarite_1[0].mot_cle);
-        set_html("precarite_2_mot_cle", precarite_2[0].mot_cle);
-        set_html("precarite_3_mot_cle", precarite_3[0].mot_cle);
-
-
-        set_html("bati_1_chiffre", bati_1[0].chiffre_cles);
-        set_html("bati_2_chiffre", bati_2[0].chiffre_cles);
-        set_html("bati_3_chiffre", bati_3[0].chiffre_cles);
-        set_html("bati_1_description", bati_1[0].description);
-        set_html("bati_2_description", bati_2[0].description);
-        set_html("bati_3_description", bati_3[0].description);
-        set_html("bati_1_des_sup", bati_1[0].description_sup);
-        set_html("bati_2_des_sup", bati_2[0].description_sup);
-        set_html("bati_3_des_sup", bati_3[0].description_sup);
-        set_html("bati_1_mot_cle", bati_1[0].mot_cle);
-        set_html("bati_2_mot_cle", bati_2[0].mot_cle);
-        set_html("bati_3_mot_cle", bati_3[0].mot_cle);
-        
-        set_html("transport_1_chiffre", transport_1[0].chiffre_cles);
-        set_html("transport_2_chiffre", transport_2[0].chiffre_cles);
-        set_html("transport_3_chiffre", transport_3[0].chiffre_cles);
-        set_html("transport_1_description", transport_1[0].description);
-        set_html("transport_2_description", transport_2[0].description);
-        set_html("transport_3_description", transport_3[0].description);
-        set_html("transport_1_des_sup", transport_1[0].description_sup);
-        set_html("transport_2_des_sup", transport_2[0].description_sup);
-        set_html("transport_3_des_sup", transport_3[0].description_sup);
-        set_html("transport_1_mot_cle", transport_1[0].mot_cle);
-        set_html("transport_2_mot_cle", transport_2[0].mot_cle);
-        set_html("transport_3_mot_cle", transport_3[0].mot_cle);
-        
-        set_html("chaleur_1_chiffre", chaleur_1[0].chiffre_cles);
-        set_html("chaleur_2_chiffre", chaleur_2[0].chiffre_cles);
-        set_html("chaleur_3_chiffre", chaleur_3[0].chiffre_cles);
-        set_html("chaleur_1_description", chaleur_1[0].description);
-        set_html("chaleur_2_description", chaleur_2[0].description);
-        set_html("chaleur_3_description", chaleur_3[0].description);
-        set_html("chaleur_1_des_sup", chaleur_1[0].description_sup);
-        set_html("chaleur_2_des_sup", chaleur_2[0].description_sup);
-        set_html("chaleur_3_des_sup", chaleur_3[0].description_sup);
-        set_html("chaleur_1_mot_cle", chaleur_1[0].mot_cle);
-        set_html("chaleur_2_mot_cle", chaleur_2[0].mot_cle);
-        set_html("chaleur_3_mot_cle", chaleur_3[0].mot_cle);
-        
-        set_html("autre_enr_1_chiffre", autre_enr_1[0].chiffre_cles);
-        set_html("autre_enr_2_chiffre", autre_enr_2[0].chiffre_cles);
-        set_html("autre_enr_3_chiffre", autre_enr_3[0].chiffre_cles);
-        set_html("autre_enr_1_description", autre_enr_1[0].description);
-        set_html("autre_enr_2_description", autre_enr_2[0].description);
-        set_html("autre_enr_3_description", autre_enr_3[0].description);
-        set_html("autre_enr_1_des_sup", autre_enr_1[0].description_sup);
-        set_html("autre_enr_2_des_sup", autre_enr_2[0].description_sup);
-        set_html("autre_enr_3_des_sup", autre_enr_3[0].description_sup);
-        set_html("autre_enr_1_mot_cle", autre_enr_1[0].mot_cle);
-        set_html("autre_enr_2_mot_cle", autre_enr_2[0].mot_cle);
-        set_html("autre_enr_3_mot_cle", autre_enr_3[0].mot_cle);
-    })
 }
 
 function showTooltip(nom, conso, coords){
@@ -556,7 +409,7 @@ function prepare_data(mapInfo, data){
                 d.energie === e),d=>d.consommation);
         }
         par_energie["PP_CMS"] = d3.sum(data.filter(d=>d.epci === c.epci && 
-            d.energie === "PP + CMS"),d=>d.consommation);
+            d.energie === "PP_CMS"),d=>d.consommation);
         par_secteur["TOT"] = d3.sum(data.filter(d=>d.epci === c.epci),d=>d.consommation);
         dataSecteur[epci] = par_secteur;
         dataEnergie[epci] = par_energie;
@@ -590,14 +443,21 @@ function annee_filter(data){
 function get_history(data){
     let years = data.map(function(d){return d.annee;});
     years = [...new Set(years)]
+    population = {
+        '2005': 11532,
+        '2010': 11786,
+        '2012': 11898,
+        '2015': 12082,
+        '2017': 12174
+    }
     let history = []
     for (let y of years){
         history.push({
             Annee: y,
             Consommation_totale: d3.sum(data.filter(function(d){return d.annee === y;}),
-                d=>d.consommation)/1000,
+                d=>d.consommation_normale)/1000,
             Consommation_moyenne: d3.sum(data.filter(function(d){return d.annee === y;}),
-            d=>d.consommation)/12150
+            d=>d.consommation_normale)/population[y]
         });
     }
     return history;

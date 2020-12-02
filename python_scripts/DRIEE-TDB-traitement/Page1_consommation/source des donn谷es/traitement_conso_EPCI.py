@@ -11,7 +11,6 @@ list_epci = pd.read_csv("liste_communes_EPCI.csv")
 donnees = pd.read_csv("AIRPARIF_conso.csv")
 
 annee = donnees["annee"].unique()
-print(annee)
 epci = list_epci["EPCI"].unique()
 secteurs = donnees["secteur"].unique()
 energie = donnees["energie"].unique()
@@ -28,8 +27,7 @@ epci_n = list()
 nom_epci_n = list()
 secteur_n = list()
 energie_n = list()
-consomm_n_reelle = list()
-consomm_n_normal = list()
+consomm_n = list()
 
 for a in annee:
     annee_filter = donnees[donnees["annee"] == a]
@@ -39,18 +37,25 @@ for a in annee:
             sec_filter = epci_filter[epci_filter["secteur"] == sect]
             for eng in energie:
                 eng_filter = sec_filter[sec_filter["energie"] == eng]
-                consom_finale_reelle = eng_filter.sum(axis=0,skipna=True)["conso_reel_mwh"]
-                consom_finale_normal = eng_filter.sum(axis=0,skipna=True)["conso_normal_mwh"]
+                consom_finale = eng_filter.sum(axis=0,skipna=True)["conso_reel_mwh"]
                 annee_n.append(a)
                 epci_n.append(e)
                 secteur_n.append(sect)
                 energie_n.append(eng)
-                consomm_n_reelle.append(consom_finale_reelle)
-                consomm_n_normal.append(consom_finale_normal)
+                consomm_n.append(consom_finale)
                 nom_epci_n.append(get_nom_epci(e))
 
-energie_n = [eng.replace("PP + CMS","PP_CMS") for eng in energie_n]
+energie_n = energie_n.replace("PP + CMS","PP_CMS")
 epci_donnees = {"annee": annee_n, "epci": epci_n, "nom_epci": nom_epci_n,
-                "secteur": secteur_n, "energie": energie_n, "consommation": consomm_n_reelle, "consommation_normale": consomm_n_normal}
+                "secteur": secteur_n, "energie": energie_n, "consommation": consomm_n}
 df = pd.DataFrame(epci_donnees)
 df.to_csv("airparif_consommation_epci.csv")
+
+
+
+
+
+
+
+
+

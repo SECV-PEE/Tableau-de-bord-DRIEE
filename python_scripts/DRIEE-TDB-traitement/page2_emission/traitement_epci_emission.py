@@ -12,7 +12,7 @@ donnees = pd.read_csv("airparif_emission_GES.csv", dtype={'annee':str,'insee':st
 
 annee = donnees["annee"].unique()
 epci = list_epci["EPCI"].unique()
-sectuers = ["Agriculture","Residentiel","Industrie","Tertiaire","Totale",
+secteurs = ["Agriculture","Residentiel","Industrie","Tertiaire","Totale",
 "Transport_R","Transport_A","Production-Energie"]
 
 epci_nom = dict()
@@ -32,7 +32,7 @@ for a in annee:
     annee_filter = donnees[donnees["annee"] == a]
     for e in epci:
         epci_filter = annee_filter[annee_filter["epci"] == e]
-        for s in sectuers:
+        for s in secteurs:
             sec_filter = epci_filter[epci_filter["secteur"] == s]
             filter_sum = sec_filter.sum(axis=0,skipna=True)["emission"]
             annee_n.append(a)
@@ -43,6 +43,8 @@ for a in annee:
             else: secteur_n.append(s)
             emission.append(filter_sum)
 
+print("emission")
+print(emission)
 epci_donnees = {"annee": annee_n, "epci": epci_n, "epci_nom": nom_epci_n,
                 "secteur": secteur_n, "emission": emission}
 df = pd.DataFrame(epci_donnees)
