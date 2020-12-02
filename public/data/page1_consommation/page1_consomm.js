@@ -39,8 +39,11 @@ function set_html(id, text){
 }
 
 function draw_region(){
-    draw_pie_region;
-    drawMap();
+    d3.select("#selected_epci")
+        .style("visibility", "hidden");
+    d3.select("#btn-region")
+        .style("background-color", "#FF8900")
+    draw_pie_region();
 }
 
 function draw_pie_region(){
@@ -105,6 +108,15 @@ function get_energieInfo(data){
         "Taux": conso_b/conso_totale
     }];
     return eng_info;
+}
+
+function showSelectedEPCI(nom)
+{
+    d3.select("#selected_epci")
+        .style("visibility", "visible")
+        .html(nom);
+    d3.select("#btn-region")
+        .style("background-color", "#15607A")
 }
 
 function showTooltip(nom, conso, coords){
@@ -514,6 +526,7 @@ function drawMap(data, mapInfo, sec){
         })
         .on("click", d=> {
             selectedEPCI = d.properties.nom;
+            showSelectedEPCI(selectedEPCI);
             conso_totale = d.properties.conso_elec+d.properties.conso_bois+
                 d.properties.conso_gn+d.properties.conso_pp_cms+d.properties.conso_urb;
             let pie_data = [{

@@ -22,7 +22,7 @@ button{
 }
 
 button:hover {
-    background-color: #FF8900; /* Green */
+    background-color: #FF8900;
     color: white;
 }
 
@@ -32,15 +32,19 @@ button:hover {
     padding: 1px 6px; 
 }
 
-.button-map:active {
-    background-color: #FF8900; /* Green */
-    color: white;
-}
-
 .button-region {
+    margin: 1em 0.4em 2em 0;
     font: 400 13.3333px Arial;
     padding: 1px 6px;
-    margin-left: 220px;
+}
+
+.button-epci {
+    visibility: hidden;
+    background-color: #FF8900;
+    color: white;
+    margin: 1em 0.4em 2em 0;
+    font: 400 13.3333px Arial;
+    padding: 1px 6px;
 }
 
 .button-prod {
@@ -240,7 +244,7 @@ h4{
 
 
 #button-annee{
-    margin: 2em 2em 0 0;
+    margin: 0;
 
 }
 
