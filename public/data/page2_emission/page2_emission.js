@@ -133,6 +133,7 @@ function drawEmissMap(mapInfo){
         })
         .on("click", d=> {
             selectedEPCI = d.properties.nom;
+            showSelectedEPCIEmiss(selectedEPCI);
             let pie_data = [{
                 "Nom": d.properties.nom,
                 "Secteur": "Agriculture",
@@ -165,6 +166,15 @@ function drawEmissMap(mapInfo){
         drawPieEmiss(pie_data);
 
         });
+}
+
+function showSelectedEPCIEmiss(nom)
+{
+    d3.select("#selected_epci_emiss")
+        .style("visibility", "visible")
+        .html(nom);
+    d3.select("#btn-region-emiss")
+        .style("background-color", "#15607A")
 }
 
 function showEmissTooltip_pie(nom, sec, emiss, coords){
@@ -232,6 +242,10 @@ function drawPieEmiss(data){
 }
 
 function draw_pie_emiss_region(){
+    d3.select("#selected_epci_emiss")
+        .style("visibility", "hidden");
+    d3.select("#btn-region-emiss")
+        .style("background-color", "#FF8900")
     d3.csv("data/page2_emission/airparif_emission_epci.csv").then((data)=>{
         data = annee_filter_emission(data);
         var sec_info = get_emissionInfo(data);
@@ -239,6 +253,22 @@ function draw_pie_emiss_region(){
     })
 }
 
+function change_btn_emiss_year(a)
+{
+    years = ["2005", "2010", "2012", "2015", "2017"];
+    btn_name = "#btn-emiss-" + a;
+    for (year of years) {
+        if (year === a) {
+            d3.select(btn_name)
+                .style("background-color", "#FF8900");
+        }
+        else {
+            btn = "#btn-emiss-" + year;
+            d3.select(btn)
+                .style("background-color", "#15607A");
+        }
+    }
+}
 
 function change_year_emission(a){
     d3.csv("data/page2_emission/airparif_emission_epci.csv").then((data_s)=>{
@@ -247,7 +277,8 @@ function change_year_emission(a){
         var sec_info = get_emissionInfo(data_emiss);
         drawPieEmiss(sec_info);
         prepare_emiss_data(mapInfo, data_emiss);
-        
+        change_btn_emiss_year(a);
+
         let cScale = d3.scaleLinear()
         .domain([0, 400, 800, 2000, 4000, 30000])
         .range(["#18A1CD","#09A785", "#0AD8A2","#FFD29B","#FFB55F","#FF8900"]);
@@ -265,6 +296,7 @@ function change_year_emission(a){
             })
             .on("click", d=> {
                 selectedEPCI = d.properties.nom;
+                showSelectedEPCIEmiss(selectedEPCI);
                 let pie_data = [{
                     "Nom": d.properties.nom,
                     "Secteur": "Agriculture",

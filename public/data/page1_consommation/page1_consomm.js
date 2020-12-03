@@ -323,6 +323,23 @@ function update_tree(eng_info){
         .attr("fill", "white")
 }
 
+function change_btn_year(a)
+{
+    years = ["2005", "2010", "2012", "2015", "2017"];
+    btn_name = "#btn-" + a;
+    for (year of years) {
+        if (year === a) {
+            d3.select(btn_name)
+                .style("background-color", "#FF8900");
+        }
+        else {
+            btn = "#btn-" + year;
+            d3.select(btn)
+                .style("background-color", "#15607A");
+        }
+    }
+}
+
 function change_year(a){
     d3.csv("data/page1_consommation/airparif_consommation_epci.csv").then((data_s)=>{
         annee_c = a;
@@ -334,6 +351,7 @@ function change_year(a){
         drawPie(sec_info);
         prepare_data(mapInfo, data_n);
 
+        change_btn_year(a);
         let maxConso = d3.max(mapInfo.features,
             d => d.properties.conso_tot);
 
@@ -353,6 +371,7 @@ function change_year(a){
             })
             .on("click", d=> {
                 selectedEPCI = d.properties.nom;
+                showSelectedEPCI(selectedEPCI);
                 conso_totale = d.properties.conso_elec+d.properties.conso_bois+
                     d.properties.conso_gn+d.properties.conso_pp_cms+d.properties.conso_urb;
                 let pie_data = [{
