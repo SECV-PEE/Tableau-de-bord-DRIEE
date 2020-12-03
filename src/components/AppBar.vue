@@ -13,7 +13,7 @@
             <v-list-item-group>
               <v-list-item @click="$vuetify.goTo('#section-conso', options)">Consommations énergétiques</v-list-item>
               <v-list-item @click="$vuetify.goTo('#section-emiss', options)">Émissions de GES</v-list-item>
-              <v-list-item @click="$vuetify.goTo('#section-emiss', options)">Qualité de l'air</v-list-item>
+              <v-list-item @click="$vuetify.goTo('#section-air', options)">Qualité de l'air</v-list-item>
             </v-list-item-group>
           </v-list>
         </v-menu>

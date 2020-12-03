@@ -48,6 +48,30 @@
                 }
             }
         },
+        "air": {
+            "section": "#section-air",
+            "img": "air_logo.png",
+            "datas": {
+                "data1": {
+                    "chiffre": "10 000",
+                    "motCle": "",
+                    "texte": "décès prématurés par an",
+                    "description": "Répercussion économique: 1% du PIB francilien"
+                },
+                "data2": {
+                    "chiffre": "500 000",
+                    "motCle": "",
+                    "texte": "Franciliens exposés à des dépassements de NO²",
+                    "description": "Dépassements de la valeur limite en 2019"
+                },
+                "data3": {
+                    "chiffre": "42%",
+                    "motCle": "",
+                    "texte": "des émissions de PM2,5 dues à la combustion du bois dans des appareils individuels",
+                    "description": "Première source devant le trafic routier"
+                }
+            }
+        },
         "production": {
             "section": "#section-chaleur",
             "img": "prod_logo.png",
@@ -83,7 +107,7 @@
                     "description": "avec une facture de chauffage supérieure à 8 % de leurs revenus. Source : INSEE, 2018."
                 },
                 "data2": {
-                    "chiffre": "808376",
+                    "chiffre": "808 376",
                     "motCle": "ménages",
                     "texte": "éligibles au chèque énergie en 2019.",
                     "description": "valeur entre 48 et 277 € Source : DGEC, DRIHL"

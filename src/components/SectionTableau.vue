@@ -4,6 +4,7 @@
     <SectionIntro :path="publicPath"></SectionIntro>
     <SectionConso :path="publicPath" :data=SectionsJSON.conso></SectionConso>
     <SectionEmiss :path="publicPath" :data=SectionsJSON.ges></SectionEmiss>
+    <SectionAir :path="publicPath" :data=SectionsJSON.air></SectionAir>
     <SectionPreca :path="publicPath" :data=SectionsJSON.preca></SectionPreca>
     <SectionBatiment :path="publicPath" :data=SectionsJSON.bati></SectionBatiment>
     <SectionMobilite :path="publicPath" :data=SectionsJSON.mobilite></SectionMobilite>
@@ -19,6 +20,7 @@ import SectionAccueil from "@/components/SectionAccueil.vue"
 import SectionIntro from "@/components/SectionIntro.vue"
 import SectionConso from "@/components/SectionConso.vue"
 import SectionEmiss from "@/components/SectionEmiss.vue"
+import SectionAir from "@/components/SectionAir.vue"
 import SectionPreca from "@/components/SectionPreca.vue"
 import SectionBatiment from "@/components/SectionBatiment.vue"
 import SectionMobilite from "@/components/SectionMobilite.vue"
@@ -36,6 +38,7 @@ export default {
     SectionIntro: SectionIntro,
     SectionConso: SectionConso,
     SectionEmiss: SectionEmiss,
+    SectionAir: SectionAir,
     SectionPreca: SectionPreca,
     SectionBatiment: SectionBatiment,
     SectionMobilite: SectionMobilite,

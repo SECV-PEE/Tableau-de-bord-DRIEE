@@ -361,5 +361,6 @@ function get_emissionInfo(data){
         "Secteur": "Production_Energie",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Production_Energie"),d=>d.emission)
     }];
+    console.log(sec_info);
     return sec_info;
 }

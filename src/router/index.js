@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import SectionTableau from '@/components/SectionTableau.vue'
 import SectionConso from '@/components/SectionConso.vue'
 import SectionEmiss from '@/components/SectionEmiss.vue'
+import SectionAir from '@/components/SectionAir.vue'
 import SectionPreca from "@/components/SectionPreca.vue"
 import SectionBatiment from "@/components/SectionBatiment.vue"
 import SectionMobilite from "@/components/SectionMobilite.vue"
@@ -46,7 +47,7 @@ export default new Router({
     {
       path: '/air',
       name: 'air',
-      component: SectionEmiss
+      component: SectionAir
     },
     {
       path: '/reno',
