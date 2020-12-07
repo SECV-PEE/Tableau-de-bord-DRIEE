@@ -4,7 +4,7 @@
         <h1 class="grand-titre">{{data.nom}}</h1>
       </div>
       <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
-      <div id="air_container" style="width: 900px; height: 700px">
+      <div id="air_container" style="width: 900px; height: 800px">
           <h3>Répartition des émissions par secteur</h3>
           <div id="container_pies" style="display: inline-flex; margin-top: 15px">
             <div id="container_pie_nox" style="margin-left: 5em; margin-right: 3em">
@@ -23,6 +23,16 @@
                   <g id="piechart_air_pm" transform="translate(110,110)"></g>
                 </svg>
               </div>
+            </div>
+          </div>
+          <div id="container_charts" style="display: inline-flex; margin-top: 40px">
+            <div id="dimple_air">
+              <h4>Population francilienne exposée à des dépassements des valeurs limites</h4>
+              <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: AIRPARIF, ROSE</a>
+            </div>
+            <div class="mobilite-carte" id="air_linechart_NO2">
+              <h4 style="margin-top:40px">Concentration moyenne en dioxyde d'azote (NO2) </h4>
+              <a href="https://data-airparif-asso.opendata.arcgis.com/datasets/mes-idf-annuel-no2">Source: AIRPARIF</a>
             </div>
           </div>
         <div id="tooltip_air_pie" class="tt"></div>
