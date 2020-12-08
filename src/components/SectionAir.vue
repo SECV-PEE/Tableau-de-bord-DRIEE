@@ -6,17 +6,16 @@
       <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
       <div id="air_container" style="width: 900px; height: 800px">
           <h3>Répartition des émissions par secteur</h3>
-          <div id="container_pies" style="display: inline-flex; margin-top: 15px">
-            <div id="container_pie_nox" style="margin-left: 5em; margin-right: 3em">
-              <h4 style="text-align: center;">NOx</h4>
+          <div id="container_pies" style="display: inline-flex;">
+            <div id="container_pie_nox" style="margin-left: 5em; margin-right: 1em">
+              <h4 style="margin-left: 100px">NOx</h4>
               <div>
-                <svg id="container_pie_air" height="220" width="240">
+                <svg id="container_pie_air" height="250" width="550">
                   <g id="piechart_air" transform="translate(110,110)"></g>
                 </svg>
               </div>
             </div>
-            <img :src="`${path}${img_page}/legend_pie_air.png`" width="140" height="200" style="margin-top: 20px">
-            <div id="container_pie_pm" style="margin-right: 5em; margin-left: 3em">
+            <div id="container_pie_pm" style="margin-right: 5em; margin-left: 0">
               <h4 style="text-align: center;">PM10</h4>
               <div>
                 <svg id="container_pie_air_pm" height="220" width="240">

@@ -66,7 +66,6 @@ function drawDimple_air(data){
     let no_column = data.map(function(d) {
         return +d["NO2"]
     });
-    console.log(no_column)
     var y = d3.scaleLinear()
         .domain([0, d3.max(pm_column)])
         .range([height, 0])
@@ -231,6 +230,8 @@ function drawPieNox(data) {
     let body_air = d3.select("#piechart_air");
     let bodyHeight = 220;
 
+    var keys = ["Industrie", "Branche énergie", "Déchets", "Résidentiel", "Tertiaire", "Chantiers",
+    "Transport routier", "Transport ferroviaire et fluvial", "Plateformes aéroportuaires", "Agriculture", "Émissions naturelles"]
     data = data.map(d => ({
         secteur: d.Secteur,
         nox: +d.NOx,
@@ -239,9 +240,8 @@ function drawPieNox(data) {
     let pie = d3.pie()
         .value(d => d.nox);
     let colorScale_nox = d3.scaleOrdinal()
-        .domain(["Industrie", "Branche énergie", "Déchets", "Résidentiel", "Tertiaire", "Chantiers",
-    "Transport routier", "Transport ferroviaire et fluvial", "Plateformes aéroportuaires", "Agriculture", "Émissions naturelles"])
-        .range(["#09A785", "#FF8900", "#EE5126", "#FFB55F", "#15607A", "#1D81A2", "#18A1CD", "#B5E0F9", "#F9E7B5", "##E2F9B5", "#DDB5F9"])
+        .domain(keys)
+        .range(["#EE5126", "#FF8900", "#FFB55F", "#FBDB23", "#26cc45", "#09A785", "#18A1CD", "#0055ff", "#5326cc", "#b926cc", "#ff9cdb"])
     let arc = d3.arc()
         .outerRadius(bodyHeight / 2)
         .innerRadius(70);
@@ -249,7 +249,34 @@ function drawPieNox(data) {
         .data(pie(data))
         .enter()
         .append("g")
-        
+    
+        // Add one dot in the legend for each name.
+    var size = 5
+    var svg = d3.select("#piechart_air");
+    x_dot = 200;
+    y_dot = -100;
+    svg.selectAll("dots")
+    .data(keys)
+    .enter()
+    .append("rect")
+        .attr("x", x_dot)
+        .attr("y", function(d,i){ return y_dot + i*(size+15)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("width", size)
+        .attr("height", size)
+        .style("fill", function(d){ return colorScale_nox(d)})
+
+    // Add one dot in the legend for each name.
+    svg.selectAll("labels")
+    .data(keys)
+    .enter()
+    .append("text")
+        .attr("x", x_dot + size*2)
+        .attr("y", function(d,i){ return y_dot + i*(size+15) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", "#696969")
+        .text(function(d){ return d})
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+
     g.append("path")
         .attr("d", arc)
         .attr("fill", d => {
@@ -278,7 +305,7 @@ function drawPiePm(data) {
     let colorScale_pm = d3.scaleOrdinal()
         .domain(["Industrie", "Branche énergie", "Déchets", "Résidentiel", "Tertiaire", "Chantiers",
     "Transport routier", "Transport ferroviaire et fluvial", "Plateformes aéroportuaires", "Agriculture"])
-        .range(["#09A785", "#FF8900", "#EE5126", "#FFB55F", "#15607A", "#1D81A2", "#18A1CD", "#B5E0F9", "#F9E7B5", "##E2F9B5"])
+        .range(["#EE5126", "#FF8900", "#FFB55F", "#FBDB23", "#26cc45", "#09A785", "#18A1CD", "#0055ff", "#5326cc", "#b926cc", "#ff9cdb"])
     let arc = d3.arc()
         .outerRadius(bodyHeight / 2)
         .innerRadius(70);
