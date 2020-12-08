@@ -8,7 +8,7 @@
         <div id="mobi_deplacement">
           <h4>Nombre de déplacements quotidiens selon le mode en 2018</h4>
           <a href="http://www.omnil.fr/IMG/pdf/presentation_egt_v_publique_vf.pdf">Source:EGTH2020-Île-de-France Mobilités-OMNIL-DRIEA/Résultats partiels 2018</a>
-          <img :src="`${path}${img_page}/infog_mobilite.png`" width="880">
+          <img :src="`${path}${img_page}/infog_mobilite.png`" style="margin-top: 30px; margin-bottom: 30px" width="880">
         </div>
         <div id="mobi_critair">
           <h4>Répartition des immatriculations en Île-de-France par Crit'Air et par type d'énergie</h4>
