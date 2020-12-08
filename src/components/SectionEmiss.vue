@@ -43,6 +43,15 @@
         <div id="tooltip_emission_pie" class="tt">Tooltip</div>
         <script2 :src="`${path}data/page2_emission/page2_emission.js`"></script2>
       </div>
+      <div class="outro">
+        <div id="info-logo">
+          <img :src="`${path}info.png`" width="24" height="20">
+        </div>
+        <p class="ensavoirplus">En savoir plus</p>
+      </div>
+      <div class="hide">
+        <p class="info-txt" v-html="data.outro"></p>
+      </div>
     </div>
 </template>
 

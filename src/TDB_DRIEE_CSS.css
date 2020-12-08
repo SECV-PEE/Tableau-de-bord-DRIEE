@@ -159,9 +159,41 @@ h4{
     margin-right: 2em;
 }
 
+.ensavoirplus {
+  text-decoration: underline;
+  font-weight: bold;
+  color:  #474747;
+}
+
 .header{
-    display: inline-flex;
-    vertical-align: middle;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.outro {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.hide {
+  display: none;
+  border: solid #ff8900 2px;
+  border-radius: 20px; 
+  padding: 20px;
+}
+
+.info-txt {
+  text-align: justify;
+}
+
+.header:hover + .hide {
+  display: block;
+  color:  #474747;
+}
+
+.outro:hover + .hide {
+  display: block;
+  color:  #474747;
 }
 
 .header:hover .img-unite{
@@ -178,8 +210,7 @@ h4{
 }
 
 #info-logo{
-    margin-top: 16px;
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 

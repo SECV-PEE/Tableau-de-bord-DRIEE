@@ -46,7 +46,8 @@
         }
     },
     "conso": {
-        "nom": "BILAN DE LA CONSOMMATION ÉNERGETIQUE",
+        "nom": "CONSOMMATIONS ÉNERGETIQUES",
+        "outro": "La consommation énergétique francilienne représente 12 % de la consommation nationale. Elle est majoritairement fossile et constituée de 35 % de gaz, de 30 % d’électricité et de 28 % de produits pétroliers. Le principal poste de consommation est le secteur du bâtiment (>63 %, essentiellement pour les besoins en chaleur), suivi du secteur des transports routiers (24 %).<br/>La consommation énergétique francilienne a diminué de 14 % entre 2005 et 2017, avec toutefois une légère hausse entre 2015 et 2017 (+0,4 %).<br/><br/>Les deux leviers à activer pour amplifier la réduction des consommations sont l’<b>efficacité énergétique</b> et la <b>sobriété</b>, principalement dans les secteurs:<ul><br/><li>du bâtiment, avec un enjeu majeur de réduction des besoins en chaleur via la massification de la rénovation énergétique et l’adoption de comportements adaptés ;</li><br/><li>des transports, via l’usage de véhicules moins énergivores et les changements de pratique (usage des transports en commun, des modes actifs…).",
         "datas": {
             "data1": {
                 "chiffre": "92%",
@@ -67,6 +68,7 @@
     },
     "ges": {
         "nom": "ÉMISSIONS DE GAZ À EFFET DE SERRE",
+        "outro": "Les émissions de gaz à effet de serre (GES) franciliennes (scopes 1 et 2) représentent 10 % des émissions nationales et se concentrent dans l’agglomération parisienne (78 % des émissions). Les principaux secteurs émetteurs sont le bâtiment (46 %) et les transports routiers (30 %). Comme les consommations, les émissions ont diminué entre 2005 et 2017 (-22 %) avec cependant une légère hausse entre 2015 et 2017 (+0,7 %). <br/><br/>Pour réduire les émissions de GES, les leviers à activer sont l’<b>efficacité</b> et la <b>sobriété énergétique</b>, mais également le <b>verdissement</b> des énergies consommées.<br/>Les trois grandes priorités franciliennes sont ainsi :<ul><br/><li>la rénovation énergétique des bâtiments ;</li><br/><li>le recours à des énergies décarbonées, en particulier avec le développement des réseaux de chaleur alimentés par des énergies renouvelables et de récupération ;</li><br/><li>la réduction et l’optimisation du trafic routier.",
         "datas": {
             "data1": {
                 "chiffre": "10%",
@@ -87,6 +89,8 @@
     },
     "air": {
         "nom": "QUALITÉ DE L'AIR",
+        "intro": "La pollution atmosphérique rencontrée en Île-de-France est essentiellement caractérisée par des concentrations importantes : <ul><br/><li>de dioxyde d’azote (NO2) ;</li> <br/><li>de particules fines, parmi lesquelles on distingue celles de diamètre inférieur à 10 µm (PM10) et celles de diamètre inférieur à 2,5 µm (PM2,5), qui peuvent plus facilement pénétrer dans le système respiratoire ;</li> <br/><li>d’ozone (O3). Le mécanisme de formation de ce polluant est cependant complexe et dépend de la présence d’autres polluants et des conditions climatiques.</li> <br/>Ces polluants font l’objet d’une surveillance par Airparif via un réseau de stations de mesure réparties sur la région. L’impact majeur sur la santé de la pollution de l’air résulte de l’exposition quotidienne à des concentrations de polluants élevées, qui peut contribuer au développement de pathologies chroniques ou accentuer les symptômes de pathologies existantes.",
+        "outro": "Le trafic routier constitue la principale source de NO2, alors que le secteur résidentiel-tertiaire est la principale source de particules fines, notamment du fait du chauffage au bois. À l’exception de l’ozone, les niveaux de pollution chronique (NO2, PM10, PM2,5) sont à la baisse depuis plusieurs années. Malgré cela, la qualité de l’air en Île-de-France reste dégradée : les recommandations de l’OMS sont largement dépassées, avec par exemple des niveaux de particules fines observés dix fois supérieurs aux recommandations les plus strictes. Pour le dioxyde d’azote, les concentrations à proximité des grands axes sont près de deux fois supérieures au seuil réglementaire.<br/><br/>Pour améliorer la qualité de l’air, les pouvoirs publics agissent en priorité sur :<ul><br/><li>la réduction des émissions liées au trafic routier : mise en place de ZFE, incitation au développement de véhicules à faibles émissions (voir partie Mobilité) ;</li> <br/><li>la réduction des émissions de particules liées au chauffage au bois, qui doit être restreinte à des équipements de qualité en l’absence d’autre solution de chauffage décarbonée ;</li> <br/><li>la prise en compte de la qualité de l’air dans l’urbanisme.</li>",
         "datas": {
             "data1": {
                 "chiffre": "10 000",
@@ -95,7 +99,7 @@
             },
             "data2": {
                 "chiffre": "500 000",
-                "motCle": "Franciliens exposés à des dépassements de NO²",
+                "motCle": "Franciliens exposés à des dépassements de NO2",
                 "texte": "Dépassements de la valeur limite en 2019"
             },
             "data3": {
@@ -127,6 +131,7 @@
     },
     "bati": {
         "nom": "RÉNOVATION ÉNERGÉTIQUE DU BÂTIMENT",
+        "outro": "L’Île-de-France compte 450 millions de m² de bâtiments et 5,7 millions de logements. 45 % des consommations énergétiques de la région servent à couvrir les besoins en chaleur de ces bâtiments. La réglementation thermique des bâtiments neufs favorise l’efficacité et la sobriété énergétique mais le rythme de renouvellement du parc bâti en Île-de-France est inférieur à 1 % par an.<br/><br/>La rénovation énergétique des bâtiments constitue donc le principal levier pour réduire les consommations énergétiques franciliennes et émissions de GES associées, avec les enjeux suivants :<ul><br/><li>rénover dans <b>tous les territoires et quasiment tous les bâtiments d’avant 1990 :</b> les passoires énergétiques (classes F et G des diagnostics de performance énergétique), mais aussi le reste des bâtiments, qui représentent environ 60 % des consommations du secteur ;</li><br/><li>faire de la rénovation énergétique un <b>réflexe à chaque opportunité de travaux</b> (rafraîchissement, changement de propriétaire…) en favorisant des rénovations globales, incluant une isolation des murs ;</li><br/><li>s’assurer de la <b>qualité des travaux réalisés</b>.</li><br/>Différentes aides financières existent, notamment le dispositif MaPrimeRenov’ pour la rénovation des logements, les certificats d’économie d’énergie, ou encore le soutien par la DSIL pour la rénovation du patrimoine bâti des collectivités. Le programme SARE permet d’informer et d’accompagner les particuliers et le petit tertiaire privé dans leurs projets.",
         "datas": {
             "data1": {
                 "chiffre": "72%",
@@ -146,7 +151,8 @@
         }
     },
     "mobilite": {
-        "nom": "MOBILITÉ EN ÎLE-DE-FRANCE",
+        "nom": "MOBILITÉS",
+        "outro": "En 2018, l’Île-de-France compte 43 millions de déplacements quotidiens dont plus de 35 % en voiture ou deux-roues motorisées. Les transports routiers sont responsables de 30 % des émissions de gaz à effet de serre, ainsi que d’une part importante de la pollution atmosphérique (voir rubrique qualité de l’air). Les véhicules thermiques (essence, diesel) demeurent largement majoritaires. Même si la part modale des transports collectifs et des modes actifs (marche, vélo) augmente et que les émissions de GES et polluants des transports sont en diminution, des efforts importants restent à fournir avec les enjeux suivants :<ul><br/><li><b>réduire et optimiser la circulation routière</b> en accompagnant le développement des modes actifs et les changements de pratiques (covoiturage, intermodalité,..) et en limitant les besoins en mobilités via un aménagement adapté ;</li><br/><li><b>favoriser le déploiement des véhicules à faibles émissions</b> (électriques, bioGNV, hydrogène), par un maillage renforcé en infrastructures de recharge et stations.</li></ul><br/>Des mesures spécifiques sont déployées pour lutter contre la dégradation de la qualité de l’air, avec la mise en place de zones à faibles émissions mobilité qui permettent aux collectivités de limiter la circulation des véhicules les plus polluants sur la base des vignettes Crit’Air.",
         "datas": {
             "data1": {
                 "chiffre": "43 millions",

@@ -3,6 +3,15 @@
       <div class="separateur">
         <h1 class="grand-titre">{{data.nom}}</h1>
       </div>
+      <div class="header">
+        <div id="info-logo">
+          <img :src="`${path}info.png`" width="24" height="20">
+        </div>
+        <p class="ensavoirplus">De quoi parle-t-on ?</p>
+      </div>
+      <div class="hide">
+        <p class="info-txt" v-html="data.intro"></p>
+      </div>
       <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
       <div id="air_container" style="width: 900px; height: 800px">
           <h3>Répartition des émissions par secteur</h3>
@@ -26,17 +35,26 @@
           </div>
           <div id="container_charts" style="display: inline-flex; margin-top: 40px">
             <div id="dimple_air">
-              <h4>Population francilienne exposée à des dépassements des valeurs limites</h4>
+              <h4 style="text-align: left; margin-right: 30px">Population francilienne exposée à des dépassements des valeurs limites</h4>
               <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: AIRPARIF, ROSE</a>
             </div>
             <div class="mobilite-carte" id="air_linechart_NO2">
-              <h4 style="margin-top:40px">Concentration moyenne en dioxyde d'azote (NO2) </h4>
+              <h4>Concentration moyenne en dioxyde d'azote (NO2) </h4>
               <a href="https://data-airparif-asso.opendata.arcgis.com/datasets/mes-idf-annuel-no2">Source: AIRPARIF</a>
             </div>
           </div>
         <div id="tooltip_air_pie" class="tt"></div>
         <div id="tooltip_air_pie_pm" class="tt"></div>
         <script2 :src="`${path}data/page2b_air/page2b_air.js`"></script2>
+      </div>
+      <div class="outro">
+        <div id="info-logo">
+          <img :src="`${path}info.png`" width="24" height="20">
+        </div>
+        <p class="ensavoirplus">En savoir plus</p>
+      </div>
+      <div class="hide">
+        <p class="info-txt" v-html="data.outro"></p>
       </div>
     </div>
 </template>
@@ -66,4 +84,5 @@ export default {
   padding: inherit;
   justify-items: center;
 }
+
 </style>

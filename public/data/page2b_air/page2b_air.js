@@ -39,8 +39,8 @@ function get_history_air(data){
 
 function drawDimple_air(data){
     var margin = {top: 30, right: 30, bottom: 70, left: 80};
-    var height = 300;
-    var width = 400;
+    var height = 250;
+    var width = 350;
     var svg = d3.select("#dimple_air")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -140,7 +140,7 @@ function drawDimple_air(data){
         .attr("x", 0 - (height / 2))  
         .style("font-family", "sans-serif")
         .style("font-size", "10")
-        .text("Population")
+        .text("Nombre d'habitants")
 
     svg.append('path')
         .attr('d', line(data))
