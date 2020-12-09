@@ -2,10 +2,19 @@ Promise.all([
   d3.csv("data/page4_bati/DPE_IDF.csv")
 ]).then((data)=>{
   data = data[0];
-  data_region = getRegionData(data);
-  drawBarDpe(data_region);
+  drawBarDpe(conversor(data));
   // drawAreaDpe(data);
 })
+
+function conversor(data) {
+  data = data.filter(function (d) {return d.Zone == "Région"})
+  var letters = ["A", "B", "C", "D", "E", "F", "G"];
+  letters.forEach(element => {
+    data[0][element] = +data[0][element].replace(" %", "")
+  })
+  console.log(data);
+  return (data[0])
+}
 
 function getRegionData(data)
 {
@@ -57,7 +66,6 @@ function drawBarDpe(data) {
     .call(yAxis)
     .selectAll('.tick line')
       .attr('opacity', 0.2)
-    // .tickValues(["0%", "5%", "10%", "15%", "20%", "25%", "30%", "35%", "40%", ])
 
   var letters = ["A", "B", "C", "D", "E", "F", "G"];
   var colorzZz = d3.scaleOrdinal().domain(letters)
