@@ -34,8 +34,22 @@
           </v-list>
         </v-menu>
       </v-tab>
-      <v-tab class="text-center" @click="$vuetify.goTo('#section-liens', options)">Liens Utiles</v-tab>
-      <v-tab class="text-center" @click="$vuetify.goTo('#section-contact', options)">Nous Contacter</v-tab>
+      <v-tab class="text-center" @click="$vuetify.goTo('#section-intro', options)">Territoires</v-tab>
+      <v-tab class="text-center">
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab v-bind="attrs" v-on="on">Liens Utiles</v-tab>
+          </template>
+          <v-list>
+            <v-list-item-group>
+              <v-list-item class="liens" href="https://www.roseidf.org/" target="_blank">Site du Rose</v-list-item>
+              <v-list-item class="liens" href="https://jolicharts.com/embed/dashboard/aee5c91fc238a65aaceb23777f32fcb7" target="_blank">Baromètre de la transition énergétique de l'Essonne</v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-menu>
+      </v-tab>
+      <v-tab class="mail-icon" href="mailto:florence.levy@developpement-durable.gouv.fr">
+        <v-icon>mdi-email</v-icon></v-tab>
     </v-tabs>
     <v-sheet
       id="scroll-bar"
@@ -59,5 +73,10 @@
   .home-icon {
     margin-right: 15px;
   }
+
+.liens {
+  font-size: 16px;
+  text-decoration: underline;
+}
 
 </style>
