@@ -8,7 +8,6 @@
         <h4>Répartition des logements franciliens par classe de Diagnostic de performance énergétique (DPE)</h4>
         <a href="https://www.statistiques.developpement-durable.gouv.fr/le-parc-de-logements-par-classe-de-consommation-energetique">Source: CGDD/SDES </a>
         <div id="dpe_bar_chart"></div>
-          <!-- <img :src="`${path}${img_page}/dpe_IDF.png`" width="400"> -->
         <div id="dpe_area_chart"></div>
       </div>
       <h4>Répartition géographique par classe de Diagnostic de performance énergétique (DPE)</h4>
@@ -17,6 +16,7 @@
         <img :src="`${path}${img_page}/dpe_1.png`" width="400" height="225" alt="dpe_1">
         <img :src="`${path}${img_page}/dpe_2.png`" width="400" height="225" alt="dpe_2">
       </div>
+      <div id="tooltip_bati_dpe" class="tt"></div>
       <script2 :src="`${path}data/page4_bati/page4_batiment.js`"></script2>
       <div class="outro">
         <div id="info-logo">

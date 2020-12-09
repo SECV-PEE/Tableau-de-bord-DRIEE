@@ -40,7 +40,7 @@
           </div>
         </div>
         <div id="tooltip_emission" class="tt" style="display: none; top: 4525px; left: 483px"></div>
-        <div id="tooltip_emission_pie" class="tt">Tooltip</div>
+        <div id="tooltip_emission_pie" class="tt"></div>
         <script2 :src="`${path}data/page2_emission/page2_emission.js`"></script2>
       </div>
       <div class="outro">
