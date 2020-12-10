@@ -42,7 +42,7 @@
           </template>
           <v-list>
             <v-list-item-group>
-              <v-list-item class="liens" href="https://www.roseidf.org/" target="_blank">Site du Rose</v-list-item>
+              <v-list-item class="liens" href="https://www.roseidf.org/" target="_blank">Site du ROSE</v-list-item>
               <v-list-item class="liens" href="https://jolicharts.com/embed/dashboard/aee5c91fc238a65aaceb23777f32fcb7" target="_blank">Baromètre de la transition énergétique de l'Essonne</v-list-item>
             </v-list-item-group>
           </v-list>
