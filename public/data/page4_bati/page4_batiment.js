@@ -30,7 +30,7 @@ function showBatiTooltip_Dpe(category, value, coords)
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-        .html("<b>Catégorie : </b>" + category + "<br>"
+        .html("<b>DPE : </b>" + category + "<br>"
             + "<b>Pourcentage : </b>" + Math.round(value) + " %<br>")
 }
 
@@ -84,6 +84,15 @@ function drawBarDpe(data) {
         .on("mouseleave", d=>{
           d3.select("#tooltip_bati_dpe").style("display","none")
           });
+    svg.append("text")
+          .attr("x", x(element) + x.bandwidth()/2)
+          .attr("y", y(data[element]) - 5)
+          .text(data[element].toString() + "%")
+          .attr("text-anchor", "middle")
+          .style("fill", "rgba(0, 0, 0, 0.87)")
+          .style("alignment-baseline", "middle")
+          .style("font-family", "sans-serif")
+          .style("font-size", "10")
   });
 
   space_betwEeEen = x.step() - x.bandwidth()
