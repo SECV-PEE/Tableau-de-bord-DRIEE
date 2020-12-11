@@ -30,8 +30,9 @@ d3.csv("data/page5_transport/mobilite_immatriculation.csv").then((data)=>{
     var y = myChart.addPctAxis("y", "NOMBRE");
     y.title = "Pourcentage";
     x.title = "Type de véhicule";
-    myChart.addSeries("CRIT_AIR", dimple.plot.bar);
-    myChart.addLegend(100, 10, 240, 20, "right");
+    myChart.addSeries("CRIT_AIR", dimple.plot.bar)
+        .addOrderRule(["EL", "Crit'air1", "Crit'air2", "Crit'air3", "Crit'air4", "Crit'air5", "Non classé"]);
+    myChart.addLegend(60, 10, 350, 60, "right");
     myChart.draw();
 });
 
