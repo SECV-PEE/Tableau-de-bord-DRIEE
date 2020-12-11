@@ -1,11 +1,14 @@
 Promise.all([
   d3.csv("data/page4_bati/DPE_IDF.csv"),
-  d3.csv("data/page4_bati/DPE_IDF_Conso.csv")
+  d3.csv("data/page4_bati/DPE_IDF_Conso.csv"),
+  d3.csv("data/page4_bati/CIDD.csv")
 ]).then((data)=>{
+  data_cidd = data[2];
   data_conso = data[1];
   data = data[0];
   drawBarDpe(conversor(data));
   drawAreaDpe(conversor_conso(data_conso));
+  drawPieCidd(get_BatimentInfo(data_cidd));
 })
 
 function conversor(data) {
@@ -166,12 +169,6 @@ function drawAreaDpe(data) {
   var colorzZz = d3.scaleOrdinal().domain(letters)
     .range(["#d3ee24", "#83BF74", "#22D55D", "#C9F970", "#FFFF3F", "#FFD72D", "#F3A24C", "#FF0100"])
 
-  var area = d3.area()
-  .x(function(d) { return x(d.x); })
-  .y0(height)
-  .y1(function(d) { return y(d.y); });
-  console.log(data.filter(function(d) {return y(d.y)}))
-
   var last_x = x(0)
   var last_y = y(0)
 
@@ -200,4 +197,188 @@ function drawAreaDpe(data) {
     last_x = x(data[0][element])
     last_y = y(data[1][element])
   });
+
+  svg.append("line")
+    .attr("x1", 0)
+    .attr("x2", width)
+    .attr("y1", y(100))
+    .attr("y2", y(100))
+    .attr("fill", "none")
+    .attr("stroke", "red")
+    .attr("stroke-width", 3)
+
+  svg.append("text")
+    .attr("x", x(10))
+    .attr("y", y(100) - 7)
+    .text("Niveau BBC rénovation")
+    .attr("text-anchor", "left")
+    .style("fill", "red")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "10")
+  
+  svg.append("text")
+    .attr("x", (x(data[0]["C"]) + x(data[0]["B"]))/2)
+    .attr("y", y(30))
+    .text("C")
+    .attr("text-anchor", "middle")
+    .style("fill", "black")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "12")
+    .style("font-weight", "bold")
+  svg.append("text")
+    .attr("x", (x(data[0]["D"]) + x(data[0]["C"]))/2)
+    .attr("y", y(30))
+    .text("D")
+    .attr("text-anchor", "middle")
+    .style("fill", "black")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "12")
+    .style("font-weight", "bold")
+  svg.append("text")
+    .attr("x", (x(data[0]["E"]) + x(data[0]["D"]))/2)
+    .attr("y", y(30))
+    .text("E")
+    .attr("text-anchor", "middle")
+    .style("fill", "black")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "12")
+    .style("font-weight", "bold")
+  svg.append("text")
+    .attr("x", (x(data[0]["F"]) + x(data[0]["E"]))/2)
+    .attr("y", y(30))
+    .text("E")
+    .attr("text-anchor", "middle")
+    .style("fill", "black")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "12")
+    .style("font-weight", "bold")
+  svg.append("text")
+    .attr("x", (x(data[0]["G"]) + x(data[0]["F"]))/2)
+    .attr("y", y(30))
+    .text("G")
+    .attr("text-anchor", "middle")
+    .style("fill", "black")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "12")
+    .style("font-weight", "bold")
+}
+
+function get_BatimentInfo(data){
+    var materiau_info = [{
+        "Nom": "Matériaux d'isolation des parois vitrées",
+        "Taux": data[0]["taux"]
+    },{
+        "Nom": "Chaudières",
+        "Taux": data[1]["taux"]
+    },{ 
+        "Nom": "Matériaux d'isolation des toitures",
+        "Taux": data[2]["taux"]
+    },{ 
+        "Nom": "Matériaux d'isolation des murs donnant sur l'extérieur",
+        "Taux": data[3]["taux"]
+    },{ 
+        "Nom": "Volets isolants",
+        "Taux": data[4]["taux"]
+    },{ 
+        "Nom": "Appareils de chauffage ou de production d'eau chaude - Bois ou autres biomasses",
+        "Taux": data[5]["taux"]
+    },{ 
+        "Nom": "Pompes à chaleur",
+        "Taux": data[6]["taux"]
+    },{ 
+        "Nom": "Autres actions",
+        "Taux": data[7]["taux"]
+    }];
+    return materiau_info;
+}
+
+function showBatiTooltip_pie(nom, taux, coords){
+    let x = coords[0];
+    let y = coords[1];
+
+    d3.select("#tooltip_bati_pie")
+        .style("display", "block")
+        .style("top", (y)+"px")
+        .style("left", (x)+"px")
+        .html("<b>Nom : </b>" + nom + "<br>"
+            + "<b>Taux : </b>" + taux + " %<br>")
+}
+
+function drawPieCidd(data){
+    let body = d3.select("#piechart_bati");
+    let bodyHeight = 220;
+
+    data = data.map(d => ({
+        nom: d.Nom,
+        taux: d.Taux
+    }))
+    
+    var keys = ["Matériaux d'isolation des parois vitrées",
+      "Chaudières",
+      "Matériaux d'isolation des toitures",
+      "Matériaux d'isolation des murs donnant sur l'extérieur",
+      "Volets isolants",
+      "Appareils de chauffage ou de production d'eau chaude - Bois ou autres biomasses",
+      "Pompes à chaleur",
+      "Autres actions"
+    ]
+
+    let pie = d3.pie()
+        .value(d => d.taux);
+    let colorScale_bati = d3.scaleOrdinal().domain(keys)
+        .range(["#09A785", "#FF8900", "#EE5126", "#FFB55F", "#15607A", "#1D81A2", "#18A1CD", "#0C6955"])
+    let arc = d3.arc()
+        .outerRadius(bodyHeight / 2)
+        .innerRadius(70);
+    let g = body.selectAll(".arc")
+        .data(pie(data))
+        .enter()
+        .append("g")
+        
+    // Add one dot in the legend for each name.
+    var size = 7
+    var svg = d3.select("#piechart_bati");
+    x_dot = 150;
+    y_dot = -120;
+    svg.selectAll("pie_dots")
+    .data(keys)
+    .enter()
+    .append("rect")
+        .attr("x", x_dot)
+        .attr("y", function(d,i){ return y_dot + i*(size+15)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("width", size)
+        .attr("height", size)
+        .style("fill", function(d){ return colorScale_bati(d)})
+
+    // Add one dot in the legend for each name.
+    svg.selectAll("pie_labels")
+    .data(keys)
+    .enter()
+    .append("text")
+        .attr("x", x_dot + size*2)
+        .attr("y", function(d,i){ return y_dot + i*(size+15) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", "#696969")
+        .text(function(d){ return d})
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .style("font-size", "13px")
+
+    g.append("path")
+        .attr("d", arc)
+        .attr("fill", d => {
+            return colorScale_bati(d.data.nom)
+        })
+        .style("stroke", "white")
+        .on("mousemove", (d)=>{
+            showBatiTooltip_pie(d.data.nom, d.data.taux,[d3.event.pageX + 30, d3.event.pageY - 30]);
+        })
+        .on("mouseleave", d=>{
+            d3.select("#tooltip_air_pie").style("display","none")
+        });
 }

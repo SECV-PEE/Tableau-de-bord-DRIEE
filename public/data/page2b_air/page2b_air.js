@@ -251,7 +251,7 @@ function drawPieNox(data) {
         .append("g")
     
         // Add one dot in the legend for each name.
-    var size = 5
+    var size = 7
     var svg = d3.select("#piechart_air");
     x_dot = 200;
     y_dot = -100;
