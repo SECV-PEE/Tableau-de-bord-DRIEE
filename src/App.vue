@@ -47,6 +47,8 @@ export default {
 
 .body {
   width: 1280px;
+  max-width: 1300px;
+  min-width: 1000px;
   justify-content: center;
   align-items: center;
   text-align: center;

@@ -58,6 +58,9 @@ export default {
   justify-items: center;
   padding-right: 6em;
   padding-left: 6em;
+  margin-bottom: 20em;
+  max-width: 1300px;
+  min-width: 1000px;
 }
 
 .tableau_de_bord a {

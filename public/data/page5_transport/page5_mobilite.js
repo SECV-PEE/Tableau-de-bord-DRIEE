@@ -1,19 +1,3 @@
-d3.csv("data/page5_transport/page5_chiffres_cles.csv").then((data)=>{
-    chiffre_01 = data.filter(function(d){return d.id === "chiffre_1";});
-    chiffre_02 = data.filter(function(d){return d.id === "chiffre_2";});
-    chiffre_03 = data.filter(function(d){return d.id === "chiffre_3";});
-    set_html("page5_chiffre1", chiffre_01[0].chiffre_cles);
-    set_html("page5_chiffre2", chiffre_02[0].chiffre_cles);
-    set_html("page5_chiffre3", chiffre_03[0].chiffre_cles);
-    set_html("page5_mot1", chiffre_01[0].mots_cles);
-    set_html("page5_mot2", chiffre_02[0].mots_cles);
-    set_html("page5_mot3", chiffre_03[0].mots_cles);
-    set_html("page5_des1", chiffre_01[0].description);
-    set_html("page5_des2", chiffre_02[0].description);
-    set_html("page5_des3", chiffre_03[0].description);
-});
-
-
 var svg_critair = dimple.newSvg("#mobilite_critair", 400, 330);
 d3.csv("data/page5_transport/mobilite_immatriculation.csv").then((data)=>{
     var myChart = new dimple.chart(svg_critair, data);

@@ -27,7 +27,7 @@
             <v-list-item-group>
               <v-list-item @click="$vuetify.goTo('#section-batiment', options)">Rénovation énergétique</v-list-item>
               <v-list-item @click="$vuetify.goTo('#section-preca', options)">Précarité énergétique</v-list-item>
-              <v-list-item @click="$vuetify.goTo('#section-mobilite', options)">Transports</v-list-item>
+              <v-list-item @click="$vuetify.goTo('#section-mobilite', options)">Mobilités</v-list-item>
               <v-list-item @click="$vuetify.goTo('#section-chaleur', options)">Chaleur Renouvelable</v-list-item>
               <v-list-item @click="$vuetify.goTo('#section-enr', options)">Autres ENR</v-list-item>
             </v-list-item-group>
@@ -68,6 +68,7 @@
     justify-items: center;
     width: 100%;
     text-decoration: none;
+    min-width: 1000px;
   }
 
   .home-icon {

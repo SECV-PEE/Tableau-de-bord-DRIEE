@@ -30,13 +30,15 @@ export default {
 
 <style>
   .header-title {
-    width: 100%;
+    max-width: 1300px;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     margin-bottom: 2px;
     margin-top: 1px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .header-title .title {

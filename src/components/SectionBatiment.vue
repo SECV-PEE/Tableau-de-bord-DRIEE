@@ -29,7 +29,7 @@
           </div>
           <div id="bati-container-pie" style="margin-left: 30px">
             <h4 style="text-align: middle; margin-bottom: 30px">Part des principales actions financées</h4>
-            <svg id="container_pie_bati" height="220" width="660">
+            <svg id="container_pie_bati" height="220" width="585">
               <g id="piechart_bati" transform="translate(110,110)"></g>
             </svg>
           </div>
@@ -84,23 +84,24 @@ export default {
 }
 
 .bati-text {
-  margin-top: 90px;
   vertical-align: middle;
-  text-align: center;
+  text-align: justify;
   border: solid #ff8900 2px;
   border-radius: 20px; 
-  padding: 5px;
+  padding: 10px;
+  margin: auto 0;
+  margin-right: 30px;
   max-width: 250px;
-  max-height: 100px;
+  max-height: 250px;
 }
 
 .bati-text-2 {
   margin: 20px auto;
   vertical-align: middle;
-  text-align: center;
+  text-align: justify;
   border: solid #ff8900 2px;
   border-radius: 20px; 
-  padding: 5px;
+  padding: 10px;
   max-width: 500px;
   max-height: 100px;
 }

@@ -64,6 +64,15 @@
       <div id="tooltip_prod_pie" class="tt" style="display: none; top: 12305px; left: 788px;"></div>
       <div id="tooltip_methan" class="tt" style="display: none; top: 11866px; left: 519px;"></div>
       <div id="tooltip_pv" class="tt" style="display: none; top: 13150px; left: 519px;"></div>
+      <div class="outro">
+        <div id="info-logo">
+          <img :src="`${path}info.png`" width="24" height="20">
+        </div>
+        <p class="ensavoirplus">En savoir plus</p>
+      </div>
+      <div class="hide">
+        <p class="info-txt" v-html="data.outro"></p>
+      </div>
       <script2 :src="`${path}data/page7_enr/page7_ENR_methan.js`"></script2>
       <script2 :src="`${path}data/page7_enr/page7_ENR_PV.js`"></script2>
       <script2 :src="`${path}data/page7_enr/page7_production.js`"></script2>
