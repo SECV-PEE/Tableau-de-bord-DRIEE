@@ -159,7 +159,7 @@ function drawAreaDpe(data) {
     .call(d3.axisBottom(x));
 
   var y = d3.scaleLinear()
-    .domain([0, 500])
+    .domain([0, 600])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
@@ -173,9 +173,20 @@ function drawAreaDpe(data) {
   var last_y = y(0)
 
   letters.forEach(element => {
-    console.log(data[1][element])
-    console.log("y pos = " + y(0))
-    console.log("x pos = " + x(0))
+    // console.log("last x was " + String(last_x));
+    // console.log("last y was " + String(last_y));
+    // a = (y(data[1][element]) - last_y)/(x(data[0][element]) - last_x)
+    // console.log(a)
+    // b = (y(data[1][element]) - a*x(data[0][element]))
+    // console.log(b)
+    svg.append("line")
+      .datum(data)
+      .attr("stroke", colorzZz(element))
+      .attr("stroke-width", 1.5)
+      .attr("x1", last_x)
+      .attr("x2", x(data[0][element]))
+      .attr("y1", last_y)
+      .attr("y2", y(data[1][element]))
     svg.append("path")
       .datum(data)
       .attr("fill", colorzZz(element))
@@ -186,14 +197,6 @@ function drawAreaDpe(data) {
         .y0(y(0))
         .y1(y(data[1][element]))
         )
-    svg.append("line")
-      .datum(data)
-      .attr("stroke", colorzZz(element))
-      .attr("stroke-width", 1.5)
-      .attr("x1", last_x)
-      .attr("x2", x(data[0][element]))
-      .attr("y1", last_y)
-      .attr("y2", y(data[1][element]))
     last_x = x(data[0][element])
     last_y = y(data[1][element])
   });
@@ -201,8 +204,8 @@ function drawAreaDpe(data) {
   svg.append("line")
     .attr("x1", 0)
     .attr("x2", width)
-    .attr("y1", y(100))
-    .attr("y2", y(100))
+    .attr("y1", y(90))
+    .attr("y2", y(90))
     .attr("fill", "none")
     .attr("stroke", "red")
     .attr("stroke-width", 3)
@@ -250,14 +253,14 @@ function drawAreaDpe(data) {
   svg.append("text")
     .attr("x", (x(data[0]["F"]) + x(data[0]["E"]))/2)
     .attr("y", y(30))
-    .text("E")
+    .text("F")
     .attr("text-anchor", "middle")
     .style("fill", "black")
     .style("alignment-baseline", "middle")
     .style("font-family", "sans-serif")
     .style("font-size", "12")
     .style("font-weight", "bold")
-  svg.append("text")
+    svg.append("text")
     .attr("x", (x(data[0]["G"]) + x(data[0]["F"]))/2)
     .attr("y", y(30))
     .text("G")
@@ -286,7 +289,7 @@ function get_BatimentInfo(data){
         "Nom": "Volets isolants",
         "Taux": data[4]["taux"]
     },{ 
-        "Nom": "Appareils de chauffage ou de production d'eau chaude - Bois ou autres biomasses",
+        "Nom": "Chauffage bois/biomasse",
         "Taux": data[5]["taux"]
     },{ 
         "Nom": "Pompes à chaleur",
@@ -324,7 +327,7 @@ function drawPieCidd(data){
       "Matériaux d'isolation des toitures",
       "Matériaux d'isolation des murs donnant sur l'extérieur",
       "Volets isolants",
-      "Appareils de chauffage ou de production d'eau chaude - Bois ou autres biomasses",
+      "Chauffage bois/biomasse",
       "Pompes à chaleur",
       "Autres actions"
     ]
@@ -332,7 +335,7 @@ function drawPieCidd(data){
     let pie = d3.pie()
         .value(d => d.taux);
     let colorScale_bati = d3.scaleOrdinal().domain(keys)
-        .range(["#09A785", "#FF8900", "#EE5126", "#FFB55F", "#15607A", "#1D81A2", "#18A1CD", "#0C6955"])
+        .range(["#EE5126", "#FF8901", "#FFB55F", "#FFE25F", "#32A785", "#41A8CA", "#3082A3", "#22617B"])
     let arc = d3.arc()
         .outerRadius(bodyHeight / 2)
         .innerRadius(70);
@@ -345,7 +348,7 @@ function drawPieCidd(data){
     var size = 7
     var svg = d3.select("#piechart_bati");
     x_dot = 150;
-    y_dot = -120;
+    y_dot = -100;
     svg.selectAll("pie_dots")
     .data(keys)
     .enter()
@@ -379,6 +382,6 @@ function drawPieCidd(data){
             showBatiTooltip_pie(d.data.nom, d.data.taux,[d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
-            d3.select("#tooltip_air_pie").style("display","none")
+            d3.select("#tooltip_bati_pie").style("display","none")
         });
 }
