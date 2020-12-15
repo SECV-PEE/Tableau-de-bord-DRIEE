@@ -26,7 +26,6 @@ function conversor_conso(data) {
     data[0][element] = +data[0][element].replace(" %", "")
     data[1][element] = +data[1][element]
   })
-  console.log(data)
   return (data)
 }
 

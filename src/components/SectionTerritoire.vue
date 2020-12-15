@@ -3,7 +3,8 @@
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
-      <svg id="map_MGP" width="400" height="300"></svg>
+      <svg id="map_MGP" width="450" height="450"></svg>
+      <div id="tooltip_ZFE" class="tt"></div>
       <script2 :src="`${path}data/page8_territoires/page8_territoires.js`"></script2>
     </div>
 </template>

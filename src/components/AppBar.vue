@@ -34,7 +34,7 @@
           </v-list>
         </v-menu>
       </v-tab>
-      <v-tab class="text-center" @click="$vuetify.goTo('#section-intro', options)">Territoires</v-tab>
+      <v-tab class="text-center" @click="$vuetify.goTo('#section-terr', options)">Territoires</v-tab>
       <v-tab class="text-center">
         <v-menu offset-y open-on-hover>
           <template v-slot:activator="{ on, attrs }">
