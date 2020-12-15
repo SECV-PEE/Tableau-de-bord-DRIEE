@@ -39,6 +39,8 @@
       </div>
       <div id="tooltip_chaleur" class="tt" style="display: none; top: 10503px; left: 465px;"></div>
       <div id="tooltip_biomasse" class="tt" style="display: none; top: 11107px; left: 591px;"></div>
+      <script2 :src="`${path}data/page6_chaleur/page6_chaleur_GTH.js`"></script2>
+      <script2 :src="`${path}data/page6_chaleur/page6_chaleur_biomasse.js`"></script2>
       <div class="outro">
         <div id="info-logo">
           <img :src="`${path}info.png`" width="24" height="20">
@@ -48,8 +50,6 @@
       <div class="hide">
         <p class="info-txt" v-html="data.outro"></p>
       </div>
-      <script2 :src="`${path}data/page6_chaleur/page6_chaleur_GTH.js`"></script2>
-      <script2 :src="`${path}data/page6_chaleur/page6_chaleur_biomasse.js`"></script2>
     </div>
 </template>
 
