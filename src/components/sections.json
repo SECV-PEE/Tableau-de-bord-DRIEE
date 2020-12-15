@@ -214,5 +214,8 @@
                 "texte": "production d’électricité éolienne en 2017 : 92 GWh"
             }
         }
+    },
+    "terr": {
+        "nom": "Territoires"
     }
 }

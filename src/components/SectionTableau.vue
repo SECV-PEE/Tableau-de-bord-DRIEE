@@ -10,6 +10,7 @@
     <SectionMobilite :path="publicPath" :data=SectionsJSON.mobilite></SectionMobilite>
     <SectionChaleur :path="publicPath" :data=SectionsJSON.chaleur></SectionChaleur>
     <SectionEnr :path="publicPath" :data=SectionsJSON.enr></SectionEnr>
+    <SectionTerritoire :path="publicPath" :data=SectionsJSON.terr></SectionTerritoire>
   </div>
 </template>
 
@@ -24,6 +25,7 @@ import SectionBatiment from "@/components/SectionBatiment.vue"
 import SectionMobilite from "@/components/SectionMobilite.vue"
 import SectionChaleur from "@/components/SectionChaleur.vue"
 import SectionEnr from "@/components/SectionEnr.vue"
+import SectionTerritoire from "@/components/SectionTerritoire.vue"
 
 import SectionsJSON from '@/components/sections.json';
 
@@ -40,6 +42,7 @@ export default {
     SectionMobilite: SectionMobilite,
     SectionChaleur: SectionChaleur,
     SectionEnr: SectionEnr,
+    SectionTerritoire: SectionTerritoire
   },
   data () {
     return {
