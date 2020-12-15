@@ -3,6 +3,15 @@
       <div class="separateur">
         <h1 id="page_02" class="grand-titre">{{data.nom}}</h1>
       </div>
+      <div class="header">
+        <div id="info-logo">
+          <img :src="`${path}info.png`" width="24" height="20">
+        </div>
+        <p class="ensavoirplus">De quoi parle-t-on ?</p>
+      </div>
+      <div class="hide">
+        <p class="info-txt" v-html="data.intro"></p>
+      </div>
       <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
       <div id="emission_container_generale" style="width: 900px; height: 700px">
         <h3>Émissions de gaz à effet de serre (GES) par EPCI en Île-de-France</h3>
