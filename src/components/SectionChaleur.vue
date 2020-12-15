@@ -76,6 +76,8 @@ export default {
 <style>
 
 .section-chaleur {
+  display: inline-flex;
+  flex-direction: column;
   padding: inherit;
 }
 
