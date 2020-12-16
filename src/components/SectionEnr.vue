@@ -24,7 +24,7 @@
       <div style="width: 900px; height: 600px; display: inline-flex; margin-top: 3em;">
         <div class="carte" style="width: 450px; height: 520px;">
           <h4>Production d'électricité renouvelable en 2017</h4>
-          <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a">Source: ROSE, ENERGIF</a>
+          <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: ROSE, ENERGIF</a>
           <img :src="`${path}${img_page}/legend_prod.png`" alt="legend" width="450" height="67">
           <svg id="production_container" width="450" height="400">
             <g id="body_prod"></g>
@@ -44,7 +44,7 @@
       </div>
       <div id="enr-photovoltaique">
         <h4>Nombre d'installations photovoltaïques en mars 2020</h4>
-        <a href="https://opendata.agenceore.fr/explore/dataset/nombre-dinstallations-solaires-par-commune/information/?disjunctive.1_f_code_insee_installation">Source: Open Data Réseaux Énergies</a>
+        <a href="https://opendata.agenceore.fr/explore/dataset/nombre-dinstallations-solaires-par-commune/information/?disjunctive.1_f_code_insee_installation" target="_blank">Source: Open Data Réseaux Énergies</a>
       </div>
       <div style="width: 900px; height: 375px; display: inline-flex;">
         <svg id="enr_container_2" width="450" height="375">
@@ -57,7 +57,7 @@
       </div>
       <div style="width: 450px">
         <h4>Puissance éolienne totale raccordée par département au 30 juin 2020 </h4>
-        <a href="https://www.statistiques.developpement-durable.gouv.fr/publicationweb/296">Source: SDES d’après Enedis, RTE, EDF-SEI et la CRE</a>
+        <a href="https://www.statistiques.developpement-durable.gouv.fr/publicationweb/296" target="_blank">Source: SDES d’après Enedis, RTE, EDF-SEI et la CRE</a>
         <img :src="`${path}${img_page}/carte_nat_eolien.png`" width="450">
       </div>
       <div id="tooltip_prod" class="tt" style="display: none; top: 12442px; left: 475px;"></div>

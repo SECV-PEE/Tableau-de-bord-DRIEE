@@ -40,7 +40,7 @@
             </div>
             <div class="mobilite-carte" id="air_linechart_NO2">
               <h4>Concentration moyenne en dioxyde d'azote (NO2) </h4>
-              <a href="https://data-airparif-asso.opendata.arcgis.com/datasets/mes-idf-annuel-no2">Source: AIRPARIF</a>
+              <a href="https://data-airparif-asso.opendata.arcgis.com/datasets/mes-idf-annuel-no2" target="_blank">Source: AIRPARIF</a>
             </div>
           </div>
         <div id="tooltip_air_pie" class="tt"></div>

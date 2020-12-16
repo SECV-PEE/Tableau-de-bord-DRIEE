@@ -5,7 +5,7 @@
       </div>
       <DataContainer :path="`${path}${img_page}`" :data="data" v-bind:intro="false"></DataContainer>
       <h3>Répartition des logements franciliens par classe de Diagnostic de performance énergétique (DPE)</h3>
-      <a href="https://www.statistiques.developpement-durable.gouv.fr/le-parc-de-logements-par-classe-de-consommation-energetique">Source: CGDD/SDES </a>
+      <a href="https://www.statistiques.developpement-durable.gouv.fr/le-parc-de-logements-par-classe-de-consommation-energetique" target="_blank">Source: CGDD/SDES </a>
       <div id="batiment-container1" style="display:inline-flex;">
         <div id="block1">
           <div id="dpe_bar_chart"></div>
@@ -15,14 +15,14 @@
         </div>
       </div>
       <h3>Répartition géographique par classe de Diagnostic de performance énergétique (DPE)</h3>
-      <a href="https://www.insee.fr/fr/statistiques/3678895">Source: INSEE ANALYSES ILE-DE-FRANCE</a>
+      <a href="https://www.insee.fr/fr/statistiques/3678895" target="_blank">Source: INSEE ANALYSES ILE-DE-FRANCE</a>
       <div style="margin-top: 20px; margin-bottom: 20px">
         <img :src="`${path}${img_page}/dpe_1.png`" width="400" height="225" alt="dpe_1">
         <img :src="`${path}${img_page}/dpe_2.png`" width="400" height="225" alt="dpe_2">
       </div>
       <div id="batiment-container2" style="display: inline-flex; flex-direction: column">
         <h3>Bilan du crédit d’impôt développement durable (CIDD) et transition énergétique (CITE)</h3>
-        <a href="http://www.drihl.ile-de-france.developpement-durable.gouv.fr/renovation-energetique-des-logements-en-ile-de-a602.html">Source: DRIHL</a>
+        <a href="http://www.drihl.ile-de-france.developpement-durable.gouv.fr/renovation-energetique-des-logements-en-ile-de-a602.html" target="_blank">Source: DRIHL</a>
         <div id="bati-pie-text" style="display: inline-flex; margin: 20px">
           <div class="bati-text">
             <p v-html="data.txt"></p>
