@@ -34,7 +34,18 @@
           </v-list>
         </v-menu>
       </v-tab>
-      <v-tab class="text-center" @click="$vuetify.goTo('#section-terr', options)">Territoires</v-tab>
+      <v-tab class="text-center">
+        <v-menu offset-y open-on-hover>
+          <template v-slot:activator="{ on, attrs }">
+            <v-tab v-bind="attrs" v-on="on">Territoires</v-tab>
+          </template>
+          <v-list>
+            <v-list-item-group>
+              <v-list-item @click="$vuetify.goTo('#section-terr', options)">ZFE</v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-menu>
+      </v-tab>
       <v-tab class="text-center">
         <v-menu offset-y open-on-hover>
           <template v-slot:activator="{ on, attrs }">
