@@ -4,10 +4,12 @@
     <h1 class="grand-titre">Chiffres clés</h1>
     <p>Passez le curseur sur les chiffres pour en savoir plus.</p>
     <div class="header">
-      <div id="info-logo">
-        <img :src="`${path}${img_page}/info.png`" width="24" height="20" alt="">
+      <div class="info-block">
+        <div id="info-logo">
+          <img :src="`${path}${img_page}/info.png`" width="24" height="20" alt="">
+        </div>
+        <p>Connaissiez-vous ces unités énergétiques?</p>
       </div>
-      <p>Connaissiez-vous ces unités énergétiques?</p>
       <img class="img-unite" :src="`${path}${img_page}/info-unite.png`" width="660" height="220" alt="unite">
     </div>
     <template v-for="container in SectionIntroJSON.sub1">
