@@ -9,7 +9,7 @@
       </div>
       <div id="tooltip_ZFE" class="tt"></div>
       <script2 :src="`${path}data/page8_territoires/page8_territoires.js`"></script2>
-      <div class="outro">
+      <div class="info-hover">
         <div class="info-block">
           <div id="info-logo">
             <img :src="`${path}info.png`" width="24" height="20">

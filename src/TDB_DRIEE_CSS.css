@@ -172,10 +172,11 @@ h4{
 
 .header{
   display: inline-flex;
+  flex-direction: column;
   vertical-align: middle;
 }
 
-.outro {
+.info-hover {
   display: inline-flex;
   flex-direction: column;
   vertical-align: middle;
@@ -192,12 +193,12 @@ h4{
   text-align: justify;
 }
 
-.header:hover + .hide {
+.header:hover .hide {
   display: block;
   color:  #474747;
 }
 
-.outro:hover .hide {
+.info-hover:hover .hide {
   display: block;
   color:  #474747;
 }

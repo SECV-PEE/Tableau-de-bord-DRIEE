@@ -30,7 +30,7 @@
           </div>
       </div>
       <script2 :src="`${path}data/page5_transport/page5_mobilite.js`"></script2>
-      <div class="outro">
+      <div class="info-hover">
         <div class="info-block">
           <div id="info-logo">
             <img :src="`${path}info.png`" width="24" height="20">

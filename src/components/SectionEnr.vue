@@ -64,7 +64,7 @@
       <div id="tooltip_prod_pie" class="tt" style="display: none; top: 12305px; left: 788px;"></div>
       <div id="tooltip_methan" class="tt" style="display: none; top: 11866px; left: 519px;"></div>
       <div id="tooltip_pv" class="tt" style="display: none; top: 13150px; left: 519px;"></div>
-      <div class="outro">
+      <div class="info-hover">
         <div class="info-block">
           <div id="info-logo">
             <img :src="`${path}info.png`" width="24" height="20">

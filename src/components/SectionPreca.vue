@@ -8,7 +8,7 @@
       <img class="img-precarite" :src="`${path}${img_page}/facture_energetique.png`" style="width: 600px" alt="facture_energetique">
       <h3>Nombre et part de ménages vulnérables énergétiquement dans les EPCI d'Île-de-France</h3>
       <img class="img-precarite" :src="`${path}${img_page}/precarite_idf.png`" alt="precarite_idf" style="width: 800px; height: 520px;">
-      <!-- <div class="outro">
+      <!-- <div class="info-hover">
         <div class="info-block">
           <div id="info-logo">
             <img :src="`${path}info.png`" width="24" height="20">

@@ -41,7 +41,7 @@
       <div id="tooltip_biomasse" class="tt" style="display: none; top: 11107px; left: 591px;"></div>
       <script2 :src="`${path}data/page6_chaleur/page6_chaleur_GTH.js`"></script2>
       <script2 :src="`${path}data/page6_chaleur/page6_chaleur_biomasse.js`"></script2>
-      <div class="outro">
+      <div class="info-hover">
         <div class="info-block">
           <div id="info-logo">
             <img :src="`${path}info.png`" width="24" height="20">
