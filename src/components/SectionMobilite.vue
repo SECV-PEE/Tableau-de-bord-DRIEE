@@ -24,13 +24,13 @@
         <a href="https://www.societedugrandparis.fr/" target="_blank">Source: Société du Grand Paris</a>
       </div>
       <div style="display: inline-flex; flex-direction: row">
-        <img :src="`${path}${img_page}/Carte_grand_paris_express_2.jpg`" style="margin: 30px" width=500 height=500>
-          <div class="mobi-text">
-            <p style="margin: 0px !important" v-html="data.txt"></p>
-          </div>
+        <img :src="`${path}${img_page}/Carte_grand_paris_express_2.jpg`" class="img-zoom">
+        <div class="mobi-text">
+          <p style="margin: 0px !important" v-html="data.txt"></p>
+        </div>
       </div>
       <script2 :src="`${path}data/page5_transport/page5_mobilite.js`"></script2>
-      <div class="info-hover">
+      <div id="info-hover-mobi" class="info-hover">
         <div class="info-block">
           <div id="info-logo">
             <img :src="`${path}info.png`" width="24" height="20">
@@ -82,6 +82,19 @@ export default {
   margin-left: 30px;
   max-width: 250px;
   max-height: 250px;
+  transition: transform .2s;
+}
+
+.img-zoom:hover + .mobi-text{
+  transform: translateX(80px);
+}
+
+#info-hover-mobi {
+  transition: transform .2s;
+}
+
+.img-zoom:hover + #info-hover-mobi {
+  transform: translateY(50px);
 }
 
 </style>

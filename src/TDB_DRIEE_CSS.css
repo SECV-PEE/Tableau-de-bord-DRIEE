@@ -220,6 +220,17 @@ h4{
     margin-right: 5px;
 }
 
+.img-zoom {
+    margin: 30px;
+    width: 500px;
+    height: 500px;
+    transition: transform .2s;
+}
+
+.img-zoom:hover{
+    transform: scale(1.5);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 #container_general{
     margin-top: 14em;
