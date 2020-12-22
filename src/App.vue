@@ -36,6 +36,7 @@ export default {
 .v-main__wrap {
   position: unset !important;
   margin: 0 auto;
+  overflow-x: auto !important;
 }
 
 .v-application {

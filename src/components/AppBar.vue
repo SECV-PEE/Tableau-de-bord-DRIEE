@@ -42,6 +42,7 @@
           <v-list>
             <v-list-item-group>
               <v-list-item @click="$vuetify.goTo('#section-terr', options)">ZFE</v-list-item>
+              <v-list-item @click="$vuetify.goTo('#map_pcaet', optionspcaet)">PCAET</v-list-item>
             </v-list-item-group>
           </v-list>
         </v-menu>
@@ -70,6 +71,27 @@
     </v-sheet>
   </v-app-bar>
 </template>
+
+<script>
+export default {
+  computed: {
+    options () {
+      return {
+        duration: 1000,
+        offset: +40,
+        easing: 'easeInOutQuad',
+      }
+    },
+    optionspcaet () {
+      return {
+        duration: 1000,
+        offset: +70,
+        easing: 'easeInOutQuad',
+      }
+    }
+   }
+}
+</script>
 
 <style>
 

@@ -15,16 +15,7 @@ export default {
   name: 'PageHeader',
   props: {
     path: String,
-  },
-  computed: {
-    options () {
-      return {
-        duration: 1000,
-        offset: +40,
-        easing: 'easeInOutQuad',
-      }
-    }
-   }
+  }
 }
 </script>
 
