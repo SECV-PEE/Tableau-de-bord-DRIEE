@@ -1,16 +1,18 @@
 Promise.all([
     d3.json("data/page8_territoires/L_COMMUNE_EPCI_EPT_BDT_S_R11_2018.json"),
     d3.json("data/page8_territoires/EPCI-ile-de-france.geojson"),
-    d3.csv("data/page8_territoires/PCAET.csv")
+    d3.csv("data/page8_territoires/PCAET.csv"),
+    d3.json("data/page8_territoires/MGP.geojson")
 ]).then((data)=>{
     mapInfo = data[0];
     mapEPCI = data[1];
     dataPCAET = data[2];
     mapMGP = data[0];
+    contourMGP = data[3]
     correctEPCI = split_pays_crecois(mapInfo, mapEPCI);
     preparePCAETData(dataPCAET, correctEPCI);
     newFeatures = get_new_features(dataPCAET, mapMGP);
-    drawMapPCAET(correctEPCI, newFeatures);
+    drawMapPCAET(correctEPCI, newFeatures, contourMGP);
 })
 
 function split_pays_crecois(mapInfo, mapEPCI){
@@ -72,21 +74,22 @@ function split_pays_crecois(mapInfo, mapEPCI){
     correct_epcis.features.push(union_brie)
     correct_epcis.features.push(union_europe)
 
+    //find a way to write new feature collection in file to use later
     return (correct_epcis);
 }
 
 function get_color(statut){
     if (statut === "Non concerné")
         return ("#d9d9d9");
-    if (statut === "Sans information")
+    if (statut === "Non notifié")
         return ("#fce5cd");
-    if (statut === "Gestation")
-        return ("#ffd966");
     if (statut === "Notifié")
         return ("#6fa8dc");
     if (statut === "Consultation")
         return ("#ea9999");
-    if (statut.includes("Adopté"))
+    if (statut === "Adopté")
+        return ("#94c5ad");
+    else if (statut.includes("Adopté"))
         return ("#b7e1cd");
 }
 
@@ -110,11 +113,16 @@ function preparePCAETData(dataPCAET, mapEPCI){
     mapEPCI.features = mapEPCI.features.map(d => {
         let epci = d.properties.code;
         let status = statut[epci];
+        if (statut[epci] == "Sans information" || statut[epci] == "Gestation")
+            status = "Non notifié"
         let color = get_color(status);
+        if (statut[epci] != "Adopté" && statut[epci].includes("Adopté"))
+            status = "Adopté, éval. env. manquante"
         d.properties.statut = status;
         d.properties.color = color;
         return d;
     })
+    console.log(mapEPCI);
 }
 
 function get_new_features(dataPCAET, mapMGP){
@@ -146,7 +154,11 @@ function get_new_features(dataPCAET, mapMGP){
         let union = turf.union.apply(this, this_ept);
         union.properties.nom_com = element;
         let status = statut[element];
+        if (statut[element] == "Sans information" || statut[element] == "Gestation")
+            status = "Non notifié"
         let color = get_color(status);
+        if (statut[element] != "Adopté" && statut[element].includes("Adopté"))
+            status = "Adopté, éval. env. manquante"
         union.properties.statut = status;
         union.properties.color = color;
         newFeatures.features.push(union)
@@ -154,7 +166,7 @@ function get_new_features(dataPCAET, mapMGP){
     return (newFeatures)
 }
 
-function showTooltipPCAET(epci, coords){
+function showTooltipPCAET(epci, statut, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -162,11 +174,11 @@ function showTooltipPCAET(epci, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-        .html("<b>EPCI : </b>" + epci + "<br>")
-            // + "<b>Statut : </b>" + statut + "<br>")
+        .html("<b>EPCI : </b>" + epci + "<br>"
+            + "<b>Statut : </b>" + statut + "<br>")
 }
 
-function showTooltipPCAET_EPT(ept, coords){
+function showTooltipPCAET_EPT(ept, statut, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -174,8 +186,8 @@ function showTooltipPCAET_EPT(ept, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-        .html("<b>EPT : </b>" + ept + "<br>")
-            // + "<b>Statut : </b>" + statut + "<br>")
+        .html("<b>EPT : </b>" + ept + "<br>"
+            + "<b>Statut : </b>" + statut + "<br>")
 }
 
 function drawMapPCAET(mapEPCI, newFeatures) {
@@ -186,7 +198,7 @@ function drawMapPCAET(mapEPCI, newFeatures) {
 
     // Map and projection
     var projection = d3.geoMercator()
-    .center([2.4, 48.63])                // GPS of location to zoom on
+    .center([2.0, 48.63])                // GPS of location to zoom on
     .scale(12000)                       // This is like the zoom
     .translate([ width/2, height/2 ])
 
@@ -195,10 +207,11 @@ function drawMapPCAET(mapEPCI, newFeatures) {
     .scale(25000)
     .translate([ width/2, height/2 ])
 
-    // keys = ["ZFE adoptée", "Obligation de ZFE/ZFE non encore adoptée", "ZFE adoptée sous conditions non levées", "Dérogation à l'obligation de ZFE"]
+    keys = ["Non obligé", "Non notifié", "Notifié", "En consultation", "Adopté", "Adopté -"]
 
-    // let colorScale_terr = d3.scaleOrdinal().domain(keys)
-    //     .range(["#0BC094", "#FF8300", "#FFCB8D", "#E0E0E0"])
+    let colorScale_pcaet = d3.scaleOrdinal().domain(keys)
+        .range(["#d9d9d9", "#fce5cd", "#6fa8dc", "#ea9999", "#94c5ad", "#b7e1cd"])
+
     // Draw the map
     svg.append("g")
         .selectAll("path")
@@ -211,7 +224,7 @@ function drawMapPCAET(mapEPCI, newFeatures) {
         )
         .style("stroke", "white")
         .on("mouseover", (d)=>{
-            showTooltipPCAET(d.properties.nom,
+            showTooltipPCAET(d.properties.nom, d.properties.statut,
                 [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
@@ -230,10 +243,76 @@ function drawMapPCAET(mapEPCI, newFeatures) {
         )
         .style("stroke", "white")
         .on("mouseover", (d)=>{
-            showTooltipPCAET_EPT(d.properties.nom_ept,
+            showTooltipPCAET_EPT(d.properties.nom_ept, d.properties.statut,
                 [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
             d3.select("#tooltip_PCAET").style("display","none");
         })
+
+    //add MGP
+    svg.append("g")
+        .selectAll("path")
+        .data(contourMGP.features)
+        .enter()
+        .append("path")
+        .attr("fill", "none")
+        .attr("d", d3.geoPath()
+            .projection(projectionMGP)
+        )
+        .style("stroke", "#99baea")
+        .style("stroke-width", 4)
+
+    var size = 7;
+    var x_dot = 30;
+    var y_dot = 50;
+
+    svg.selectAll("map_dots")
+    .data(keys)
+    .enter()
+    .append("rect")
+        .attr("x", x_dot)
+        .attr("y", function(d,i){ return y_dot + i*(size+15)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("width", size)
+        .attr("height", size)
+        .style("fill", function(d){ return colorScale_pcaet(d)})
+
+    // Add one dot in the legend for each name.
+    svg.selectAll("map_labels")
+    .data(keys)
+    .enter()
+    .append("text")
+        .attr("x", x_dot + size*4)
+        .attr("y", function(d,i){ return y_dot + i*(size+15) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", "#696969")
+        .text(function(d){ return d})
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .style("font-size", "13px")
+
+    svg.append("text")
+        .attr("x", x_dot + size*4 + 55)
+        .attr("y", y_dot + 5*(size+15) + size/2)
+        .text("avec évaluation environnementale manquante")
+        .style("fill", "#696969")
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .style("font-size", "10px")
+
+    svg.append("rect")
+        .attr("x", x_dot)
+        .attr("y", y_dot + 6*(size+15) + size/2)
+        .attr("width", size*2)
+        .attr("height", 3*size/4)
+        .style("fill", "#99baea")
+
+    svg.append("text")
+        .attr("x", x_dot + size*3)
+        .attr("y", y_dot + 6*(size+15) + size)
+        .style("fill", "#696969")
+        .text("Métropole du Grand Paris")
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .style("font-size", "13px")
+
 }
