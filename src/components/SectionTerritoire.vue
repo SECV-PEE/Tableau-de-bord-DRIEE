@@ -8,12 +8,13 @@
         <svg id="map_ZFE" width="900" height="450"></svg>
       </div>
       <div id="tooltip_ZFE" class="tt"></div>
+      <script2 :src="`${path}data/page8_territoires/page8_territoires.js`"></script2>
       <div id=map_pcaet style="margin-top: 30px; margin-bottom: 50px;">
         <h4>Carte d'avancement des PCAET d'Île-de-France</h4>
         <svg id="map_PCAET" width="900" height="450"></svg>
       </div>
       <div id="tooltip_PCAET" class="tt"></div>
-      <script2 :src="`${path}data/page8_territoires/page8_territoires.js`"></script2>
+      <script2 :src="`${path}data/page8_territoires/page8_pcaet.js`"></script2>
       <div class="info-hover">
         <div class="info-block">
           <div id="info-logo">
