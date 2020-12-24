@@ -16,7 +16,6 @@ Promise.all([
     dataPCAET = data[6];
     mapMGP = data[1];
     mapOld = data[1];
-    console.log(mapOld);
     prepareMapData(dataCommune, mapInfo);
     drawMapZFE(mapInfo);
 })
