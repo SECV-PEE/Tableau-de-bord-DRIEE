@@ -53,4 +53,4 @@ energie_n = [eng.replace("PP + CMS","PP_CMS") for eng in energie_n]
 epci_donnees = {"annee": annee_n, "epci": epci_n, "nom_epci": nom_epci_n,
                 "secteur": secteur_n, "energie": energie_n, "consommation": consomm_n_reelle, "consommation_normale": consomm_n_normal}
 df = pd.DataFrame(epci_donnees)
-df.to_csv("airparif_consommation_epci_test.csv")
+df.to_csv("airparif_consommation_epci.csv")

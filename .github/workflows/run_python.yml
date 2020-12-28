@@ -43,7 +43,7 @@ jobs:
         git config user.name "SECV-PEE"
         git config user.email "crcae.idf@gmail.com"
 
-    - name: push changes
+    - name: Push changes
       working-directory: python_scripts/DRIEE-TDB-traitement/
       run: |
         git add .
