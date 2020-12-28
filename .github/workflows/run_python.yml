@@ -38,3 +38,14 @@ jobs:
       working-directory: python_scripts/DRIEE-TDB-traitement/page7_production
       run: |
         python traitement_epci_prod.py
+    - name: Setup git config
+      run: |
+        git config user.name "SECV-PEE"
+        git config user.email "crcae.idf@gmail.com"
+
+    - name: push changes
+      working-directory: python_scripts/DRIEE-TDB-traitement/
+      run: |
+        git add .
+        git commit -m "add files from python scripts"
+        git push origin master
