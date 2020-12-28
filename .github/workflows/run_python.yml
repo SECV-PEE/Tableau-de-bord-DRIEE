@@ -1,6 +1,9 @@
 name: Run python scripts
 
-on: [push]
+on: 
+  push:
+    branches: master
+    paths: 'python_scripts/**'
 
 jobs:
   build:
@@ -9,14 +12,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.7 
+    - name: Set up Python 2.7  #currently on python 2, need to migrate to 3 ASAP
       uses: actions/setup-python@v2
       with:
-        python-version: 3.7 
+        python-version: 2.7 
     - name: Install dependencies
       run: |
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Test python version
+        python -m pip install --upgrade pip
+        pip install pandas
+    - name: Test python and pip version
       run: python -c "import sys; print(sys.version)"
     # - name: Execute python scripts
     #   run: |
