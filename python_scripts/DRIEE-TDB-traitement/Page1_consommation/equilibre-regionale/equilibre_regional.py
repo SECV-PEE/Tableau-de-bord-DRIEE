@@ -1,6 +1,11 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 import pandas as pd
 import numpy as np
 
+
+print("equilibre_regional")
 ###########################################################
 ######### Choisir l'annee pour trier les donnees ##########
 #
@@ -22,7 +27,7 @@ pompage = list()
 importee = list()
 consommee_locale = list()
 for i in regions:
-    filter_region = df["REGION"] == i;
+    filter_region = df["REGION"] == i
     df_temp = df.where(filter_region)
     consommation.append(df_temp.sum()["CONSOMMATION"])
     production.append(df_temp.sum()["PRODUCTION"])
@@ -43,4 +48,4 @@ df_sort = pd.DataFrame(np.array([regions,consommee_locale,pompage,importee]).T,
                        columns=['Région', 'Consommee_locale', 'Pompage','importée'])
 
 df_sort = df_sort.sort_values(by=["Consommee_locale"])
-df_sort.to_csv("equilibre-regional-TDB.csv")
+df_sort.to_csv("equilibre-regional-TDB_test.csv")

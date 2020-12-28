@@ -22,15 +22,19 @@ jobs:
         pip install pandas
     - name: Test python and pip version
       run: python -c "import sys; print(sys.version)"
-    # - name: Execute python scripts
-    #   run: |
-    #     python python_scripts/DRIEE-TDB-traitement/*/*.py
-    # - name: Lint with flake8
-    #   run: |
-    #     # stop the build if there are Python syntax errors or undefined names
-    #     flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-    #     # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-    #     flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    # - name: Test with pytest
-    #   run: |
-    #     pytest
+    - name: Execute python script 1
+      working-directory: python_scripts/DRIEE-TDB-traitement/Page1_consommation
+      run: |
+        python traitement_conso_EPCI.py
+    - name: Execute python script 2
+      working-directory: python_scripts/DRIEE-TDB-traitement/Page1_consommation/equilibre-regionale/
+      run: |
+        python equilibre_regional.py
+    - name: Execute python script 3
+      working-directory: python_scripts/DRIEE-TDB-traitement/page2_emission
+      run: |
+        python traitement_epci_emission.py
+    - name: Execute python script 4
+      working-directory: python_scripts/DRIEE-TDB-traitement/page7_production
+      run: |
+        python traitement_epci_prod.py

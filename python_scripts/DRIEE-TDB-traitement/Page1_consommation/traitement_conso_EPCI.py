@@ -1,17 +1,17 @@
 import pandas as pd
 
 
+print("traitement_conso_EPCI")
 def get_nom_epci(code):
     return list_epci.loc[list_epci["EPCI"] == code]["LIBEPCI"].unique()[0]
 
 def get_epci(commune):
     return list_epci.loc[list_epci["CODGEO"] == commune]["EPCI"].unique()[0]
 
-list_epci = pd.read_csv("liste_communes_EPCI.csv")
+list_epci = pd.read_csv("liste_communes_EPCI.csv") #this path is the one used by the "working-directory" rule in github actions file '.github/workflows/run_python.yml'
 donnees = pd.read_csv("AIRPARIF_conso.csv")
 
 annee = donnees["annee"].unique()
-print(annee)
 epci = list_epci["EPCI"].unique()
 secteurs = donnees["secteur"].unique()
 energie = donnees["energie"].unique()
