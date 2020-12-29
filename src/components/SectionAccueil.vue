@@ -1,7 +1,7 @@
 <template>
   <div id="section-accueil" class="section-accueil">
     <!-- SUBSECTION 1 -->
-    <h2 class="title-accueil">Le profil énergétique de l'Île-de-France en 5 chiffres, c'est...</h2>
+    <h2 class="title-accueil">Le profil WOW énergétique de l'Île-de-France en 5 chiffres, c'est...</h2>
     <div class="dc-accueil-up">
       <template v-for="block in SectionsJSON.accueil.up">
         <DataImgBlock :key="block.name" :path="`${path}${img_page}/`" :data="block" :img="block.img"></DataImgBlock>

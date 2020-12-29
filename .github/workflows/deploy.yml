@@ -4,23 +4,25 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2.3.1
-        with:
-          persist-credentials: false
-          
-      - name: Install
-        run: npm install
-
-      - name: Check install
-        run: npm -v
-
-      - name: Setup git config
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: Create Node Environment
+        uses: actions/setup-node@v1
+        with: 
+          node-version: 10.x
+      - name: Install Packages and Build Application
         run: |
-          git config user.name "SECV-PEE"
-          git config user.email "crcae.idf@gmail.com"
+          npm install
+          npm run build
+      - name: Add custom domain
+        run: |
+          cd dist
+          echo 'climat-energie-idf.fr' > CNAME
 
-      - name: Deploy 🚀
-        run: npm run deploy
+      - name: Deploy
+        uses: s0/git-publish-subdir-action@develop
         env:
-          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
