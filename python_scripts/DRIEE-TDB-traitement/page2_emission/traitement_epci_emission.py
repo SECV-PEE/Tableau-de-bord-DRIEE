@@ -49,7 +49,7 @@ print(emission)
 epci_donnees = {"annee": annee_n, "epci": epci_n, "epci_nom": nom_epci_n,
                 "secteur": secteur_n, "emission": emission}
 df = pd.DataFrame(epci_donnees)
-df.to_csv("public/data/page2_emission/airparif_emission_epci.csv")
+df.to_csv("../../../public/data/page2_emission/airparif_emission_epci.csv")
 
 
 
