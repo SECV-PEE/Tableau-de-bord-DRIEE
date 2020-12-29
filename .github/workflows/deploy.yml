@@ -1,0 +1,30 @@
+name: Deploy
+on: workflow_dispatch
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
+        with:
+          persist-credentials: false
+          
+      - name: Install
+        run: npm install
+
+      - name: Check install
+        run: npm -v
+
+      - name: Setup git config
+        run: |
+          git config user.name "SECV-PEE"
+          git config user.email "crcae.idf@gmail.com"
+
+      - name: Deploy 🚀
+        working-directory: ./
+        run: npm run deploy
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #   BRANCH: gh-pages # The branch the action should deploy to.
+        #   FOLDER: build # The folder the action should deploy.
+        #   CLEAN: true # Automatically remove deleted files from the deploy branch

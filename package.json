@@ -12,6 +12,7 @@
     "@turf/union": "^6.0.3",
     "bootstrap-vue": "^2.19.0",
     "core-js": "^3.6.5",
+    "pdfkit": "^0.11.0",
     "requirejs": "^2.3.6",
     "vue": "^2.6.12",
     "vue-router": "^3.4.9",
