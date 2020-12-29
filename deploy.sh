@@ -14,6 +14,6 @@ git config user.name "SECV-PEE"
 git config user.email "crcae.idf@gmail.com"
 git add -A
 git commit -m 'deploy'
-git push -f git@github.com:bounim/Tableau-de-bord-DRIEE.git master:gh-pages
+git push -f https://github.com/SECV-PEE/Tableau-de-bord-DRIEE.git master:gh-pages
 
 cd -
