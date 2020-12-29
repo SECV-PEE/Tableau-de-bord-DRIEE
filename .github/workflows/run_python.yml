@@ -27,14 +27,10 @@ jobs:
       run: |
         python traitement_conso_EPCI.py
     - name: Execute python script 2
-      working-directory: python_scripts/DRIEE-TDB-traitement/Page1_consommation/equilibre-regionale/
-      run: |
-        python equilibre_regional.py
-    - name: Execute python script 3
       working-directory: python_scripts/DRIEE-TDB-traitement/page2_emission
       run: |
         python traitement_epci_emission.py
-    - name: Execute python script 4
+    - name: Execute python script 3
       working-directory: python_scripts/DRIEE-TDB-traitement/page7_production
       run: |
         python traitement_epci_prod.py
@@ -44,7 +40,7 @@ jobs:
         git config user.email "crcae.idf@gmail.com"
 
     - name: Push changes
-      working-directory: python_scripts/DRIEE-TDB-traitement/
+      working-directory: ./
       run: |
         git add .
         git commit -m "add files from python scripts"

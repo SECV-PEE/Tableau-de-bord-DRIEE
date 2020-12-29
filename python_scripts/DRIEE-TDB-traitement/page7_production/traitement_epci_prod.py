@@ -87,13 +87,4 @@ for a in annee:
 epci_donnees = {"annee": annee_n, "epci": epci_n, "non_epci": nom_epci_n,
                 "secteur": secteur_n, "nombre_site": nb_site, "puissace": puissance, "production": production}
 df = pd.DataFrame(epci_donnees)
-df.to_csv("rose_production_epci.csv")
-
-
-
-
-
-
-
-
-
+df.to_csv("public/data/page7_enr/rose_production_epci.csv")
