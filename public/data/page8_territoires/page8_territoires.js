@@ -8,7 +8,7 @@ Promise.all([
     d3.csv("data/page8_territoires/PCAET.csv")
 ]).then((data)=>{
     dataCommune = data[0];
-    mapInfo = data[1];
+    mapTerr = data[1];
     dataA86 = data[2];
     dataMGP = data[3];
     dataPeriph = data[4];
@@ -16,8 +16,8 @@ Promise.all([
     dataPCAET = data[6];
     mapMGP = data[1];
     mapOld = data[1];
-    prepareMapData(dataCommune, mapInfo);
-    drawMapZFE(mapInfo);
+    prepareMapData(dataCommune, mapTerr);
+    drawMapZFE(mapTerr);
 })
 
 function get_statut(couleur) {
@@ -31,7 +31,7 @@ function get_statut(couleur) {
         return ("Obligation de ZFE/ZFE non encore adoptée")
 }
 
-function prepareMapData(data, mapInfo) {
+function prepareMapData(data, mapTerr) {
     const couleur = new Array();
     for(var i = 0; i < data.length; i++){
         let par_insee = {};
@@ -43,11 +43,11 @@ function prepareMapData(data, mapInfo) {
     };
 
     // Filter data
-    mapInfo.features = mapInfo.features.filter(function(d){
+    mapTerr.features = mapTerr.features.filter(function(d){
         return d.properties.nom_epci == "Métropole du Grand Paris"
     })
 
-    mapInfo.features = mapInfo.features.map(d => {
+    mapTerr.features = mapTerr.features.map(d => {
         let insee = d.properties.code_insee;
         let color = couleur[insee];
         let statut = get_statut(color);
@@ -70,7 +70,7 @@ function showTooltipZFE(nom, ept, statut, coords){
             + "<b>Statut : </b>" + statut + "<br>")
 }
 
-function drawMapZFE(mapInfo, dataMgp){
+function drawMapZFE(mapTerr, dataMgp){
     // The svg
     var svg = d3.select("#map_ZFE"),
     width = +svg.attr("width"),
@@ -89,7 +89,7 @@ function drawMapZFE(mapInfo, dataMgp){
     // Draw the map
     svg.append("g")
         .selectAll("path")
-        .data(mapInfo.features)
+        .data(mapTerr.features)
         .enter()
         .append("path")
         .attr("fill", d => d.properties.couleur)

@@ -4,18 +4,18 @@ Promise.all([
     d3.csv("data/page8_territoires/PCAET.csv"),
     d3.json("data/page8_territoires/MGP.geojson")
 ]).then((data)=>{
-    mapInfo = data[0];
+    mapPCAET = data[0];
     mapEPCI = data[1];
     dataPCAET = data[2];
     mapMGP = data[0];
     contourMGP = data[3]
-    correctEPCI = split_pays_crecois(mapInfo, mapEPCI);
+    correctEPCI = split_pays_crecois(mapPCAET, mapEPCI);
     preparePCAETData(dataPCAET, correctEPCI);
     newFeatures = get_new_features(dataPCAET, mapMGP);
     drawMapPCAET(correctEPCI, newFeatures, contourMGP);
 })
 
-function split_pays_crecois(mapInfo, mapEPCI){
+function split_pays_crecois(mapPCAET, mapEPCI){
     to_modify = ["CC Pays Créçois", "CA Coulommiers Pays de Brie", "CA du Pays de Meaux", "CA Val d'Europe Agglomération"];
     to_meaux = ["Quincy-Voisins", "Boutigny", "Saint-Fiacre", "Villemareuil"];
     to_val_europe = ["Esbly", "Montry", "Saint-Germain-sur-Morin"];
@@ -30,24 +30,24 @@ function split_pays_crecois(mapInfo, mapEPCI){
     // create new epcis where we will merge the geoms of the old cities with the added ones
     const new_pays_meaux = {};
     new_pays_meaux["type"] = "FeatureCollection";
-    new_pays_meaux["features"] = mapInfo.features.filter(function (d){
+    new_pays_meaux["features"] = mapPCAET.features.filter(function (d){
         return d.properties.nom_epci == "CA du Pays de Meaux"
     });
     const new_pays_brie = {};
     new_pays_brie["type"] = "FeatureCollection";
-    new_pays_brie["features"] = mapInfo.features.filter(function (d){
+    new_pays_brie["features"] = mapPCAET.features.filter(function (d){
         return d.properties.nom_epci == "CA Coulommiers Pays de Brie"
     });
     const new_val_europe = {};
     new_val_europe["type"] = "FeatureCollection";
-    new_val_europe["features"] = mapInfo.features.filter(function (d){
+    new_val_europe["features"] = mapPCAET.features.filter(function (d){
         return d.properties.nom_epci == "CA Val d'Europe Agglomération"
     });
 
     const old_crecois = {};
     old_crecois["type"] = "FeatureCollection";
     old_crecois["features"] = [];
-    old_crecois.features = mapInfo.features.filter(function (d){
+    old_crecois.features = mapPCAET.features.filter(function (d){
         return d.properties.nom_epci == "CC Pays Créçois"
     })
 
