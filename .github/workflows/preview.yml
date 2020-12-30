@@ -1,7 +1,7 @@
 name: Preview 🔎
 on: workflow_dispatch
 jobs:
-  deploy:
+  preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
