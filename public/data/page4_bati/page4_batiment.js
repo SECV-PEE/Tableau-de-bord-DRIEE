@@ -43,8 +43,8 @@ function showBatiTooltip_Dpe(category, value, coords)
 }
 
 function drawBarDpe(data) {
-  var margin = {top: 30, right: 30, bottom: 70, left: 50},
-    width = 460 - margin.left - margin.right,
+  var margin = {top: 30, right: 0, bottom: 70, left: 30},
+    width = 420 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
   var svg = d3.select("#dpe_bar_chart")
@@ -115,7 +115,7 @@ function drawBarDpe(data) {
 
   svg.append("text")
     .attr("x", -margin.top - 150)
-    .attr("y", -margin.left + 20)
+    .attr("y", -margin.left + 5)
     .text("Pourcentage des logements")
     .attr("text-anchor", "left")
     .attr("transform", "rotate(-90)")
@@ -138,7 +138,7 @@ function drawBarDpe(data) {
 }
 
 function drawAreaDpe(data) {
-  var margin = {top: 30, right: 30, bottom: 70, left: 30},
+  var margin = {top: 30, right: 30, bottom: 70, left: 80},
     width = 460 - margin.left - margin.right,
     height = 350 - margin.top - margin.bottom;
 
@@ -172,12 +172,6 @@ function drawAreaDpe(data) {
   var last_y = y(0)
 
   letters.forEach(element => {
-    // console.log("last x was " + String(last_x));
-    // console.log("last y was " + String(last_y));
-    // a = (y(data[1][element]) - last_y)/(x(data[0][element]) - last_x)
-    // console.log(a)
-    // b = (y(data[1][element]) - a*x(data[0][element]))
-    // console.log(b)
     svg.append("line")
       .datum(data)
       .attr("stroke", colorzZz(element))
@@ -269,6 +263,28 @@ function drawAreaDpe(data) {
     .style("font-family", "sans-serif")
     .style("font-size", "12")
     .style("font-weight", "bold")
+
+  svg.append("text")
+    .attr("x", -margin.top - 180)
+    .attr("y", -margin.left + 40)
+    .text("Consommation énergétique (kWhEP/m².an)")
+    .attr("text-anchor", "left")
+    .attr("transform", "rotate(-90)")
+    .style("fill", "rgba(0, 0, 0, 0.87)")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "10")
+
+  svg.append("text")
+    .attr("x", -margin.left + 200)
+    .attr("y", height + 30)
+    .text("% de surface cumulée")
+    .attr("text-anchor", "left")
+    .style("fill", "rgba(0, 0, 0, 0.87)")
+    .style("alignment-baseline", "middle")
+    .style("font-family", "sans-serif")
+    .style("font-size", "10")
+
 }
 
 function get_BatimentInfo(data){
