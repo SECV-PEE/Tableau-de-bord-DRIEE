@@ -6,7 +6,7 @@
     <div class="header">
       <div class="info-block">
         <div id="info-logo">
-          <img :src="`${path}${img_page}/info.png`" width="24" height="20" alt="">
+          <img :src="`${path}info.png`" width="24" height="20" alt="">
         </div>
         <p>Connaissiez-vous ces unités énergétiques?</p>
       </div>
