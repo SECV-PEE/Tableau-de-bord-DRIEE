@@ -279,19 +279,6 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
         .style("stroke", "#949494")
         .style("stroke-width", "2")
 
-    //add departements
-    svg.append("g")
-        .selectAll("path")
-        .data(depIDF.features)
-        .enter()
-        .append("path")
-        .attr("fill", "none")
-        .attr("d", d3.geoPath()
-            .projection(projection)
-        )
-        .style("stroke", "#868686")
-        .style("stroke-width", "1")
-
     for (var i = 0; i < full_array.length; i++){
         svg.append("image")
             .attr("xlink:href", function(d){
@@ -332,6 +319,26 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
                 full_array2.push([bbox, cloud]);
                 return (bbox.x);
             })
+    
+
+    depMGP = ["75", "92", "93", "94"]
+
+    depIDF.features = depIDF.features.filter(function (d) {
+        return (depMGP.includes(d.properties.code_departement))
+    })
+    //add departements
+    svg.append("g")
+        .selectAll("path")
+        .data(depIDF.features)
+        .enter()
+        .append("path")
+        .attr("fill", "none")
+        .attr("d", d3.geoPath()
+            .projection(projectionMGP)
+        )
+        .style("stroke", "#949494")
+        .style("stroke-width", "2")
+
    
     //add MGP
     svg.append("g")
