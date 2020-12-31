@@ -1,7 +1,6 @@
 import pandas as pd
 
 
-print("traitement_conso_EPCI")
 def get_nom_epci(code):
     return list_epci.loc[list_epci["EPCI"] == code]["LIBEPCI"].unique()[0]
 
