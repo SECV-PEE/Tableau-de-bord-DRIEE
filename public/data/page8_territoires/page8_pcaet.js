@@ -2,17 +2,19 @@ Promise.all([
     d3.json("data/page8_territoires/L_COMMUNE_EPCI_EPT_BDT_S_R11_2018.json"),
     d3.json("data/page8_territoires/EPCI-ile-de-france.geojson"),
     d3.csv("data/page8_territoires/PCAET.csv"),
-    d3.json("data/page8_territoires/MGP.geojson")
+    d3.json("data/page8_territoires/MGP.geojson"),
+    d3.json("data/page8_territoires/departements-ile-de-france.geojson")
 ]).then((data)=>{
     mapPCAET = data[0];
     mapEPCI = data[1];
     dataPCAET = data[2];
     mapMGP = data[0];
-    contourMGP = data[3]
+    contourMGP = data[3];
+    depIDF = data[4];
     correctEPCI = split_pays_crecois(mapPCAET, mapEPCI);
     preparePCAETData(dataPCAET, correctEPCI);
     newFeatures = get_new_features(dataPCAET, mapMGP);
-    drawMapPCAET(correctEPCI, newFeatures, contourMGP);
+    drawMapPCAET(correctEPCI, newFeatures, contourMGP, depIDF);
 })
 
 function split_pays_crecois(mapPCAET, mapEPCI){
@@ -216,7 +218,7 @@ function showTooltipPCAET_EPT(ept, statut, date, coords){
             + "<b>Plan air : </b>" + date + "<br")
 }
 
-function drawMapPCAET(mapEPCI, newFeatures) {
+function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
     // The svg
     var svg = d3.select("#map_PCAET"),
     width = +svg.attr("width"),
@@ -264,6 +266,31 @@ function drawMapPCAET(mapEPCI, newFeatures) {
                 return (bbox.x);
             })
    
+    //add departements
+    svg.append("g")
+        .selectAll("path")
+        .data(depIDF.features)
+        .enter()
+        .append("path")
+        .attr("fill", "none")
+        .attr("d", d3.geoPath()
+            .projection(projection)
+        )
+        .style("stroke", "#949494")
+        .style("stroke-width", "2")
+
+    //add departements
+    svg.append("g")
+        .selectAll("path")
+        .data(depIDF.features)
+        .enter()
+        .append("path")
+        .attr("fill", "none")
+        .attr("d", d3.geoPath()
+            .projection(projection)
+        )
+        .style("stroke", "#868686")
+        .style("stroke-width", "1")
 
     for (var i = 0; i < full_array.length; i++){
         svg.append("image")
@@ -305,7 +332,7 @@ function drawMapPCAET(mapEPCI, newFeatures) {
                 full_array2.push([bbox, cloud]);
                 return (bbox.x);
             })
-    
+   
     //add MGP
     svg.append("g")
         .selectAll("path")
@@ -386,9 +413,25 @@ function drawMapPCAET(mapEPCI, newFeatures) {
         .style("alignment-baseline", "middle")
         .style("font-size", "13px")
 
+    svg.append("rect")
+        .attr("x", x_dot)
+        .attr("y", y_dot + 7*(size+15) + size/2)
+        .attr("width", size*2)
+        .attr("height", size/2)
+        .style("fill", "#949494")
+
+    svg.append("text")
+        .attr("x", x_dot + size*3)
+        .attr("y", y_dot + 7*(size+15) + size)
+        .style("fill", "#696969")
+        .text("Départements")
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .style("font-size", "13px")
+
     svg.append("text")
         .attr("x", x_dot)
-        .attr("y", y_dot + 8*(size+15) + size)
+        .attr("y", y_dot + 9*(size+15) + size)
         .style("fill", "#696969")
         .text("Plan air à réaliser avant le")
         .attr("text-anchor", "left")
@@ -400,11 +443,11 @@ function drawMapPCAET(mapEPCI, newFeatures) {
         .attr("width", "20")
         .attr("height", "15")
         .attr("x", x_dot)
-        .attr("y", y_dot + 9*(size+15))
+        .attr("y", y_dot + 10*(size+15))
 
     svg.append("text")
         .attr("x", x_dot + size*3)
-        .attr("y", y_dot + 9*(size+15) + size)
+        .attr("y", y_dot + 10*(size+15) + size)
         .style("fill", "#696969")
         .text("1er janvier 2021")
         .attr("text-anchor", "left")
@@ -416,11 +459,11 @@ function drawMapPCAET(mapEPCI, newFeatures) {
         .attr("width", "20")
         .attr("height", "15")
         .attr("x", x_dot)
-        .attr("y", y_dot + 10*(size+15))
+        .attr("y", y_dot + 11*(size+15))
 
     svg.append("text")
         .attr("x", x_dot + size*3)
-        .attr("y", y_dot + 10*(size+15) + size)
+        .attr("y", y_dot + 11*(size+15) + size)
         .style("fill", "#696969")
         .text("1er janvier 2022")
         .attr("text-anchor", "left")
