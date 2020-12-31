@@ -26,6 +26,17 @@
       </div>
       <div id="tooltip_PCAET" class="tt"></div>
       <script2 :src="`${path}data/page8_territoires/page8_pcaet.js`"></script2>
+      <!-- <div class="info-hover">
+        <div class="info-block">
+          <div id="info-logo">
+            <img :src="`${path}info.png`" width="24" height="20">
+          </div>
+          <p class="ensavoirplus">En savoir plus</p>
+        </div>
+        <div class="hide">
+          <p class="info-txt" v-html="data.outro2"></p>
+        </div>
+      </div> -->
     </div>
 </template>
 
