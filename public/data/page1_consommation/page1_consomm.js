@@ -39,6 +39,7 @@ function set_html(id, text){
 }
 
 function draw_region(){
+    selectedEPCI = ""
     d3.select("#selected_epci")
         .style("visibility", "hidden");
     d3.select("#btn-region")
@@ -52,29 +53,38 @@ function draw_pie_tree_region(){
         var sec_info = get_secteurInfo(data);
         drawPie(sec_info);
         var eng_info = get_energieInfo(data);
-        drawTreemap(eng_info);
+        update_tree(eng_info);
     })
 }
 
 function get_secteurInfo(data){
+    if (selectedEPCI)
+    {
+        data = data.filter(function(d){
+            return (d.nom_epci == selectedEPCI);
+        })
+        currentEPCI = selectedEPCI
+    }
+    else
+        currentEPCI = "Régionale"
     var sec_info = [{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Agriculture",
         "Consommation": d3.sum(data.filter(d=>d.secteur === "AGR"),d=>d.consommation)
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Tertiaire",
         "Consommation": d3.sum(data.filter(d=>d.secteur === "TER"),d=>d.consommation)
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Industrie",
         "Consommation": d3.sum(data.filter(d=>d.secteur === "IND"),d=>d.consommation)
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Residentiel",
         "Consommation": d3.sum(data.filter(d=>d.secteur === "RES"),d=>d.consommation)
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Transport Routier",
         "Consommation": d3.sum(data.filter(d=>d.secteur === "TRAF"),d=>d.consommation)
     }];
@@ -82,6 +92,15 @@ function get_secteurInfo(data){
 }
 
 function get_energieInfo(data){
+    if (selectedEPCI)
+    {
+        data = data.filter(function(d){
+            return (d.nom_epci == selectedEPCI);
+        })
+        currentEPCI = selectedEPCI
+    }
+    else
+        currentEPCI = "Régionale"
     conso_totale = d3.sum(data, d=>d.consommation);
     conso_e = d3.sum(data.filter(d=>d.energie === "ELEC"),d=>d.consommation);
     conso_p = d3.sum(data.filter(d=>d.energie === "PP_CMS"),d=>d.consommation);
@@ -89,27 +108,27 @@ function get_energieInfo(data){
     conso_b = d3.sum(data.filter(d=>d.energie === "BOIS"),d=>d.consommation);
     conso_g = d3.sum(data.filter(d=>d.energie === "GN"),d=>d.consommation);
     var eng_info = [{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Energie": "Electricité", 
         "Consommation": conso_e,
         "Taux": conso_e/conso_totale
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Energie": "Gaz Naturel", 
         "Consommation": conso_g,
         "Taux": conso_g/conso_totale
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Energie": "Produit pétrolier et charbon", 
         "Consommation": conso_p,
         "Taux": conso_p/conso_totale
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Energie": "Chauffage urbain", 
         "Consommation": conso_u,
         "Taux": conso_u/conso_totale
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Energie": "Bois", 
         "Consommation": conso_b,
         "Taux": conso_b/conso_totale
@@ -284,6 +303,7 @@ function update_tree(eng_info){
     root = {};
     root["name"] = "root";
     children = [];
+
     for(let c of eng_info){
         obj = {
             nom: c.Nom,
@@ -435,7 +455,7 @@ function change_year(a){
                 }];
                 update_tree(tree_data);
                 drawPie(pie_data);
-                drawTreemap(tree_data);
+                // drawTreemap(tree_data);
             })
     })
 }
