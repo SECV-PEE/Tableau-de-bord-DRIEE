@@ -242,6 +242,7 @@ function drawPieEmiss(data){
 }
 
 function draw_pie_emiss_region(){
+    selectedEPCI = ""
     d3.select("#selected_epci_emiss")
         .style("visibility", "hidden");
     d3.select("#btn-region-emiss")
@@ -332,32 +333,41 @@ function change_year_emission(a){
 }
 
 function get_emissionInfo(data){
+    if (selectedEPCI)
+    {
+        data = data.filter(function(d){
+            return (d.epci_nom == selectedEPCI);
+        })
+        currentEPCI = selectedEPCI
+    }
+    else
+        currentEPCI = "Régionale"
     var sec_info = [{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Agriculture",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Agriculture"),d=>d.emission)
     },{
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Tertiaire",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Tertiaire"),d=>d.emission)
     },{ 
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Industrie",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Industrie"),d=>d.emission)
     },{ 
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Residentiel",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Residentiel"),d=>d.emission)
     },{ 
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Transport Routier",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Transport_R"),d=>d.emission)
     },{ 
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Transport Autres",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Transport_A"),d=>d.emission)
     },{ 
-        "Nom": "Régionale",
+        "Nom": currentEPCI,
         "Secteur": "Production_Energie",
         "Emission": d3.sum(data.filter(d=>d.secteur === "Production_Energie"),d=>d.emission)
     }];
