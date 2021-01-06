@@ -83,7 +83,7 @@ function split_pays_crecois(mapPCAET, mapEPCI){
 function get_color(statut){
     if (statut === "Non concerné")
         return ("#d9d9d9");
-    if (statut === "Non notifié")
+    if (statut === "Non notifié ou sans information")
         return ("#fce5cd");
     if (statut === "Notifié")
         return ("#6fa8dc");
@@ -126,7 +126,7 @@ function preparePCAETData(dataPCAET, mapEPCI){
         let date_air = date[epci];
         let air = plan_air[epci];
         if (statut[epci] == "Sans information" || statut[epci] == "Gestation")
-            status = "Non notifié"
+            status = "Non notifié ou sans information"
         let color = get_color(status);
         if (statut[epci] != "Adopté" && statut[epci].includes("Adopté"))
             status = "Adopté, éval. env. manquante"
@@ -179,7 +179,7 @@ function get_new_features(dataPCAET, mapMGP){
         let date_air = date[element];
         let air = plan_air[element];
         if (statut[element] == "Sans information" || statut[element] == "Gestation")
-            status = "Non notifié"
+            status = "Non notifié ou sans information"
         let color = get_color(status);
         if (statut[element] != "Adopté" && statut[element].includes("Adopté"))
             status = "Adopté, éval. env. manquante"
@@ -235,7 +235,7 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
     .scale(25000)
     .translate([ width/2, height/2 ])
 
-    keys = ["Non obligé", "Non notifié", "Notifié", "En consultation", "Adopté", "Adopté -"]
+    keys = ["Non obligé", "Non notifié ou sans information", "Notifié", "En consultation", "Adopté", "Adopté -"]
 
     let colorScale_pcaet = d3.scaleOrdinal().domain(keys)
         .range(["#d9d9d9", "#fce5cd", "#6fa8dc", "#ea9999", "#94c5ad", "#b7e1cd"])
