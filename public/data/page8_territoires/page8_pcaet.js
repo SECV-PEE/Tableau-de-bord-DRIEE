@@ -84,13 +84,13 @@ function get_color(statut){
     if (statut === "Non concerné")
         return ("#d9d9d9");
     if (statut === "Non notifié ou sans information")
-        return ("#fce5cd");
+        return ("#ff483a");
     if (statut === "Notifié")
-        return ("#6fa8dc");
+        return ("#ff8900");
     if (statut === "Consultation")
-        return ("#ea9999");
+        return ("#ffff00");
     if (statut === "Adopté")
-        return ("#94c5ad");
+        return ("#0bc094");
     else if (statut.includes("Adopté"))
         return ("#b7e1cd");
 }
