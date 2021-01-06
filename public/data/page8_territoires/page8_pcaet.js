@@ -84,15 +84,15 @@ function get_color(statut){
     if (statut === "Non concerné")
         return ("#d9d9d9");
     if (statut === "Non notifié ou sans information")
-        return ("#ff483a");
+        return ("#e74c3c");
     if (statut === "Notifié")
-        return ("#ff8900");
+        return ("#f39c12");
     if (statut === "Consultation")
-        return ("#ffff00");
+        return ("#fff176");
     if (statut === "Adopté")
-        return ("#0bc094");
+        return ("#00cc00");
     else if (statut.includes("Adopté"))
-        return ("#b7e1cd");
+        return ("#99ff99");
 }
 
 function preparePCAETData(dataPCAET, mapEPCI){
@@ -238,7 +238,7 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
     keys = ["Non obligé", "Non notifié ou sans information", "Notifié", "En consultation", "Adopté", "Adopté -"]
 
     let colorScale_pcaet = d3.scaleOrdinal().domain(keys)
-        .range(["#d9d9d9", "#ff483a", "#ff8900", "#ffff00", "#0bc094", "#b7e1cd"])
+        .range(["#d9d9d9", "#e74c3c", "#f39c12", "#fff176", "#00cc00", "#99ff99"])
 
     geo_path = d3.geoPath().projection(projection)
     const full_array = new Array();
