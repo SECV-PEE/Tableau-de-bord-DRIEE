@@ -238,7 +238,7 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
     keys = ["Non obligé", "Non notifié ou sans information", "Notifié", "En consultation", "Adopté", "Adopté -"]
 
     let colorScale_pcaet = d3.scaleOrdinal().domain(keys)
-        .range(["#d9d9d9", "#fce5cd", "#6fa8dc", "#ea9999", "#94c5ad", "#b7e1cd"])
+        .range(["#d9d9d9", "#ff483a", "#ff8900", "#ffff00", "#0bc094", "#b7e1cd"])
 
     geo_path = d3.geoPath().projection(projection)
     const full_array = new Array();
