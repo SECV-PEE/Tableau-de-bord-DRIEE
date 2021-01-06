@@ -16,6 +16,7 @@
       </div>
       <h3>Répartition géographique par classe de Diagnostic de performance énergétique (DPE)</h3>
       <a href="https://www.insee.fr/fr/statistiques/3678895" target="_blank">Source: INSEE ANALYSES ILE-DE-FRANCE</a>
+      <br>
       <h4>Proportion de résidences principales classées dans une étiquette ou un groupe d'étiquettes, par territoire (en %)</h4>
       <div style="margin-top: 20px; margin-bottom: 20px">
         <img :src="`${path}${img_page}/dpe_1.png`" width="400" height="225" alt="dpe_1">
