@@ -1,123 +1,141 @@
 ﻿Departement,Nom commune,Nom de la chaufferie,Annee,Production_estim_MWh
 75,PARIS 16E ARRONDISSEMENT,CPCU Suchet,2017,2500
 77,BUSSY-SAINT-GEORGES,Quartier du Sycomore,2020,6978
-77,CESSON,Maison de la petite enfance,2012,94.47138462
+77,CESSON,Maison de la petite enfance,2012,94.4713846153846
 77,CESSON,Logements route de Montbréau,2013,372.16
 77,LA CHAPELLE-LA-REINE,Résidence de la rue de Villionne,2016,1104.85
-77,LA CHAPELLE-LA-REINE,Réseau de chaleur Chapelle-la-Reine,2018,581.5
+77,LA CHAPELLE-LA-REINE,Réseau de chaleur de La Chapelle-la-Reine,2018,551
 77,LES CHAPELLES-BOURBON,Chaufferie communale Chapelles-Bourbon,2009,151.19
-77,CHÂTEAU-LANDON,DUSOGAT (SOBOGAT - Dusapt),2004,6280.2
-77,COMBS-LA-VILLE,Groupe scolaire Beausoleil,2014,35.48005147
-77,DAMMARTIN-EN-GOËLE,Batiment la chaumière (espace jeunesse),2013,23.26
+77,CHATEAU-LANDON,DUSOGAT (SOBOGAT - Dusapt),2004,6280.2
+77,COMBS-LA-VILLE,Groupe scolaire Beausoleil,2014,35.4800514705882
+77,DAMMARTIN-EN-GOELE,Batiment la chaumière (espace jeunesse),2013,23.26
+77,ÉGREVILLE,Piscine d'Égreville,2015,1100
 77,FONTAINEBLEAU,La faisandrie,2014,1558
+77,JOUY-LE-CHATEL,Trois Moulins Habitat ,,
 77,LIEUSAINT,Ferme de Servigny,2009,197.71
 77,MAY-EN-MULTIEN,Bâtiment association La Présence,2019,350
 77,MITRY-MORY,Centréal,2012,1100
 77,MONTEREAU-FAULT-YONNE,Chaufferie du quartier de la Ville Haute de Montereau,2012,23085.55
-77,NANGIS,SYTRADEM,2005,348.9
-77,NEMOURS,Centrale thermique ZUP,2013,18224.21
+77,NANGIS,SytraVal,2005,348.9
+77,NEMOURS,Centrale thermique ZUP,2013,11055
 77,NEMOURS,Quartier square Beauregard,2014,0
-77,ORMESSON,Mairie Ormesson,2014,38.22767715
+77,ORMESSON,Mairie Ormesson,2014,38.2276771492286
+77,OZOIR-LA-FERRIERE,École élémentaire Anne Franck,,2415
+77,PERTHES,École maternelle La ruche,2019,270
 77,ROISSY-EN-BRIE,Résidence La Renardière,2008,7198.97
-77,TOURNAN-EN-BRIE,Quartier HLM de la Madeleine,2011,811
-77,TOURNAN-EN-BRIE,Collège Jean-Baptiste Vermay,2014,1221.15
+77,SAINT-FARGEAU-PONTHIERRY,Collège Francois Villon,2018,308
+77,TOURNAN-EN-BRIE,Quartier de la Madeleine,2011,811
+77,TOURNAN-EN-BRIE,Gymnase Jean-Baptiste Vermay,2014,1221.15
 77,VAIRES-SUR-MARNE,Résidence et groupe scolaire Les Pêcheurs,2011,843
-77,VERT-SAINT-DENIS,Maison de l'environnement Sénart,2011,750.135
+77,VERT-SAINT-DENIS,Maison de l'environnement Sénart,2011,175
 77,VILLEPARISIS,Cité Normandie-Niemen,1989,2674.9
-78,ACHÈRES,Plantes d'hennemont,2007,9393
-78,BOISSETS,,2018,46.52
-78,LA BOISSIÈRE-ÉCOLE,Ferme de la Tremblaye,2007,1907.32
+77,LARCHANT,Ferme du Chapitre,2021,227
+77,CHENOISE,Chaufferie communale,,
+77,LIZY-SUR-OURCQ,Réseau de chaleur biomasse,2021,3866
+77,COUPVRAY,Réseaux de chaleur de Coupvray,2022,1257
+77,COURTRY,Médiathèque,,
+77,CRÉGY-LES-MEAUX,Résidence,,
+77,MONTÉVRAIN,Résidence,,
+78,ACHERES,Quartier des Champs-de-Villars,2007,5900
+78,ACHERES,Quartier des Plantes d'hennemont,2015,8532
+78,AUBERGENVILLE,Les Bains de Seine Mauldre (centre aquatique),2009,580
+78,BOISSETS,Chaufferie communale,2018,46.52
+78,LA BOISSIERE-ÉCOLE,Ferme de la Tremblaye,2007,1907.32
 78,BOUGIVAL,Groupe scolaire Monet,2012,58.15
-78,CARRIÈRES-SOUS-POISSY,Carrières Centralité,2017,2802.83
-78,CARRIÈRES-SUR-SEINE,,2021,85
-78,CARRIÈRES-SUR-SEINE,,2021,216
+78,CARRIERES-SOUS-POISSY,Carrières Centralité,2017,2802.83
+78,CARRIERES-SUR-SEINE,,2021,216
 78,CERNAY-LA-VILLE,Ecole Cernay,2008,93.04
 78,JAMBVILLE,Centre National de Formation et d'Activités,2016,325.64
-78,MAGNY-LES-HAMEAUX,Pôle médicosocial Gérondicap ,2010,55.43758042
+78,JOUY-EN-JOSAS,École Bourget Calmette,2019,
+78,MAGNY-LES-HAMEAUX,Pôle médicosocial Gérondicap ,2010,55.4375804227941
 78,MAGNY-LES-HAMEAUX,Vertdéco,2009,450
-78,MANTES-LA-JOLIE,Val Fourré,2013,82421.81
-78,MONTIGNY-LE-BRETONNEUX,Bâtiment Australia,2011,139.3859165
-78,LES MUREAUX,Astrium-ST,2014,19000
-78,LES MUREAUX,Chaufferie biomasse des Mureaux,2014,32889.64
-78,LES MUREAUX,Airbus Defence & Space,2019,16000
+78,MANTES-LA-JOLIE,Val Fourré,2013,56512
+78,MONTIGNY-LE-BRETONNEUX,Bâtiment Australia,2011,139.385916491597
+78,LES MUREAUX,Airbus Defence & Space,2014,11630
+78,LES MUREAUX,Chaufferie biomasse des Mureaux,2014,25368
+78,OINVILLE-SUR-MONTCIENT,Ecole primaire Oinville,2016,
 78,ORGEVAL,École Maternelle Picquenard,2012,197.71
-78,RAMBOUILLET,Goullard,2001,232.6
+78,RAMBOUILLET,Menuiserie Goullard,2001,232.6
 78,RAMBOUILLET,Bergerie Nationale de Rambouillet,2002,2849.35
 78,RAMBOUILLET,FAPROGI,2013,9304
-78,SAINT-CYR-L'ÉCOLE,Immeuble Saint-Cyr-L'École,2009,2593.49
-78,SAINT-GERMAIN-EN-LAYE,Chaufferie d’Enerlay,2015,28540.02
+78,SAINT-CYR-L'ÉCOLE,Résidences Dreyfus/Courtade,2009,2593.49
+78,SAINT-GERMAIN-EN-LAYE,Chaufferie d'Enerlay,2015,19456
 78,SAINT-MARTIN-DE-BRÉTHENCOURT,Centre de tri SYMIRIS,2002,465.2
-78,SAINT-RÉMY-LÈS-CHEVREUSE,Fondation de Coubertin,2003,1570.05
+78,SAINT-RÉMY-LES-CHEVREUSE,Fondation de Coubertin,2003,1570.05
 78,VERNOUILLET,École maternelle Tom pouce,2011,58.15
 78,VERT,Belbeo'ch Elagage,2002,81.41
+78,MAGNY-LES-HAMEAUX,Centre technique municipal,2016,
+78,BOIS-D'ARCY,Chaufferie communale,,
+78,SAINT-CYR-L'ÉCOLE,Chaufferie Toit et joie (habitat),,
 91,ATHIS-MONS,Lycée Saint Charles,2006,3113
-91,BONDOUFLE,Chaufferie Quartier du Grand Parc,2021,8835.19
-91,BRÉTIGNY-SUR-ORGE,Eco quartier ZAC Clause Bois-Badeau,2013,7559.5
+91,AUVERS-SAINT-GEORGES,Réseau de chaleur Auvers Saint-Georges,2018,
+91,BONDOUFLE,Chaufferie Quartier du Grand Parc,2020,8442
+91,BRÉTIGNY-SUR-ORGE,Eco quartier ZAC Clause Bois-Badeau,2013,6457
 91,CORBEIL-ESSONNES,GONCALVES,2002,162.82
 91,ÉVRY,Centre hospitalier Sud francilien,2011,29075
 91,GOMETZ-LA-VILLE,Ferme du Ragonant,2008,360.53
-91,GRIGNY,,2007,139.56
-91,MAISSE,Ecoquartier,2016,38.379
-91,MASSY,ENORIS,2009,48300
-91,MILLY-LA-FORÊT,Maison du parc du Gâtinais,2013,30.58214172
+91,GRIGNY,Chaufferie communale,2007,139.56
+91,MASSY,Chaufferie de La Bonde,2009,48300
+91,MILLY-LA-FORET,Maison du parc du Gâtinais,2013,30.5821417193829
 91,PALAISEAU,Écoquartier Camille-Claudel,2015,11292.73
+91,PALAISEAU,Résidence Sitelle et Verdier,2012,71.4
 91,PRUNAY-SUR-ESSONNE,Gâtichanvre,2017,441.94
-91,RIS-ORANGIS,Eco-quartier Docks de Ris,2012,2453.93
+91,RIS-ORANGIS,Eco-quartier Docks de Ris,2012,1676
 91,SAVIGNY-SUR-ORGE,Immeuble Savigny-sur-Orge,2011,1977.1
-91,VERRIÈRES-LE-BUISSON,Chaufferie communale,2012,340
-91,LES ULIS,Enerlis,2016,32191.84
-92,CLAMART,Piscine de Clamart,2018,818
+91,VERRIERES-LE-BUISSON,Chaufferie communale,2012,340
+91,LES ULIS,Enerlis,2016,17726
+91,LISSES,Domaine de Montauger,2016,
+91,ANGERVILLE,"Groupe scolaire ""le petit Nice""",2022,
+91,VIRY-CHATILLON,Chaufferie communale,,
+91,CORBEIL-ESSONNES,Groupe scolaire,,
+92,CLAMART,Quartier Grand Canal,2019,818
 92,CLICHY,Chaufferie Clichy,2015,33064.09
-92,COLOMBES,Résidence Colombes,2015,3081.95
-92,COLOMBES,ZAC de la Marine,2014,7780.47
-92,COURBEVOIE,Chaufferie La Défense,2021,179997.51
+92,COLOMBES,Résidence 200 rue Saint-Denis,2015,3081.95
+92,COLOMBES,ZAC de la Marine,2014,4794
+92,COURBEVOIE,Chaufferie Alençon,2021,135368
 92,FONTENAY-AUX-ROSES,Cité des Paradis,2012,4303.1
 92,GENNEVILLIERS,Chaufferie de Gennevilliers,2017,60289
 92,NANTERRE,Maison du Chemin de l'Ile,2011,116.3
-92,NANTERRE,Eco quartier Hoche,2011,4803.19
-92,RUEIL-MALMAISON,ZAC de l'Arsenal,2019,10932.2
-92,SURESNES,Site des Raguidelles,2011,2275.991
+92,NANTERRE,Chaufferie Hoche,2011,4803.19
+92,SURESNES,Centre sportif des Raguidelles,2011,2275.991
+92,VAUCRESSON,Haras de Jardy,2017,
+92,COLOMBES,Résidence 4 rue de l'agriculture,,0
+92,COURBEVOIE,Groupe scolaire,,
 93,AUBERVILLIERS,"Cités Cochennec, Tillon et Jarry",2012,2895.87
-93,BAGNOLET,Chaufferie des Roses,2015,86111
+93,BAGNOLET,Chaufferie des Roses,2015,56246
 93,BOBIGNY,Hôpital Avicenne,2014,10811
 93,BONDY,Chaufferie biomasse de Bondy,2015,26190.76
-93,BONDY,,2021,24295.07
 93,DRANCY,Centre Technique Intercommunal,2012,300
 93,DRANCY,Chaufferie biomasse du Quartier Avenir Parisien,2016,2941
 93,NOISY-LE-GRAND,Chaufferie communale de Noisy-le-Grand,2013,3605.3
-93,SAINT-DENIS,Centrale de Fort de l’Est,2016,126508
+93,SAINT-DENIS,Centrale de Fort de l'Est,2016,126508
 93,SAINT-OUEN,Saint-Ouen 2,2016,560000
-93,SEVRAN,Chaufferie biomasse de Sevran,2015,27600
+93,SEVRAN,Chaufferie biomasse de Sevran,2015,25057
 93,STAINS,Centrale Nord de Stains,2011,200000
-93,TREMBLAY-EN-FRANCE,CENTREAL,2012,1046.7
-94,FONTENAY-SOUS-BOIS,Régie du Chauffage Urbain de Fontenay,2010,28702.84
-94,IVRY-SUR-SEINE,Hôpital Chales-Foix,2017,9222.59
-94,LIMEIL-BRÉVANNES,Eco quartier des Temps Durables,2011,12527
+93,ÉPINAY-SUR-SEINE,Chaufferie communale,,
+93,SEVRAN,Chaufferie Seveo,2018,
+94,FONTENAY-SOUS-BOIS,Chaufferie du Chauffage Urbain de Fontenay,2010,28702.84
+94,IVRY-SUR-SEINE,Hôpital Charles-Foix,2017,9222.59
+94,LIMEIL-BRÉVANNES,Eco-quartier des Temps Durables,2015,12527
 94,LE PLESSIS-TRÉVISE,,2021,116.3
-94,VILLIERS-SUR-MARNE,Résidence MAGNOLIAS,2020,
-95,ARGENTEUIL,Chaufferie Orgemont,2015,9280.74
-95,CHAUSSY,Ferme de la Bergerie,2011,697.8
+94,VILLIERS-SUR-MARNE,Résidence MAGNOLIAS,2013,
+94,JOINVILLE-LE-PONT,Chaufferie communale,,
+94,VINCENNES,Chaufferie rue de Lagny,,
+95,ARGENTEUIL,Chaufferie Orgemont,2015,6259
+95,AVERNES,Réseau de chaleur Avernes,2016,
+95,CHAUSSY,ECOSITE de Villarceaux,2011,697.8
 95,ENGHIEN-LES-BAINS,Gymnase de la Coussaye,2010,337.27
 95,FRANCONVILLE,Chaufferie des Montfrais,2014,50423
-95,GARGES-LÈS-GONESSE,Collège Pablo Picasso,2009,1035.07
+95,GARGES-LES-GONESSE,Collège Pablo Picasso,2009,1035.07
 95,LASSY,Gasma,2005,2907.5
-95,MONTMORENCY,,2008,267.49
-95,NEUVILLE-SUR-OISE,SDIS,2010,1065.308
+95,LONGUESSE,Chaufferie communale,,
+95,MONTMORENCY,Chaufferie communale,2008,267.49
+95,PERSAN,Chaufferie HUTCHINSON,2023,15719.9
 95,PIERRELAYE,Picheta,2009,139.56
-95,PONTOISE,Rue Séré-Depoin,2009,117.6956
+95,PONTOISE,Copropriété rue Séré-Depoin,2009,117.6956
 95,PUISEUX-PONTOISE,Centre horticole,2011,767.58
 95,ROISSY-EN-FRANCE,Chaufferie biomasse de Roissy,2013,76839.41
-95,SAINT-LEU-LA-FORÊT,Collège LANDOWSKI,2008,802.47
-95,SAINT-OUEN-L'AUMÔNE,Chaufferie RCU Cergy-Pontoise,2009,119789
+95,SAINT-LEU-LA-FORET,Collège Wanda Landowska,2008,802.47
+95,SAINT-OUEN-L'AUMΓNE,Chaufferie des Bellevues,2009,119789
 95,THÉMÉRICOURT,Chaufferie communale Théméricourt,2010,0
 95,VIENNE-EN-ARTHIES,Ferme des Millonets,2007,58.15
-92,VAUCRESSON,Haras de Jardy,,
-92,VAUCRESSON,Club Housse Vaucresson,,
-77,JOUY-LE-CHÂTEL,,,
-78,AUBERGENVILLE,Les Bains de Seine Mauldre (centre aquatique),2009,580
-78,ACHÈRES,Champs de Villars,2015,8532
-77,SAINT-FARGEAU-PONTHIERRY,Collège Francois Villon,2018,308
-77,OZOIR-LA-FERRIÈRE,Anne Franck,,2415
-77,ÉGREVILLE,Piscine d'Égreville,2015,1100
-91,PALAISEAU,Résidence Sitelle et Verdier,2012,71.4
-95,PERSAN,Chaufferie Persan,2021,15719.9
