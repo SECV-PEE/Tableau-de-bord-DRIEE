@@ -3,7 +3,7 @@
 // Parametre a modifier
 // Choisir l'annee afficher par defaut
 
-var annee_dernier = 2020;
+var annee_dernier = 2021;
 
 ///////////////////////////////////////////
 
