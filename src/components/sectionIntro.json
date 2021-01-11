@@ -175,16 +175,16 @@
             "img": "chaleur_logo.png",
             "datas":{
                 "data1": {
-                    "chiffre": "52%",
+                    "chiffre": "53%",
                     "motCle": "",
                     "texte": "part d’ENR&R dans les réseaux de chaleur",
                     "description": "chaleur fatale (28%), géothermie (11%), biomasse (9%), autres ENR&R (4%) (données SNCU)"
                 },
                 "data2": {
-                    "chiffre": "110",
+                    "chiffre": "113",
                     "motCle": "réseaux",
                     "texte": "de chaleur et de froid en 2018",
-                    "description": "15 % des réseaux français"
+                    "description": "14 % des réseaux français"
                 },
                 "data3": {
                     "chiffre": "1,1 millions",
