@@ -336,8 +336,8 @@ function drawLineChartNo2() {
         var linechart_NO2 = new dimple.chart(svg_NO2, data);
         linechart_NO2.setBounds(45, 70, 300, 205);
         linechart_NO2.defaultColors = [
-            new dimple.color("#FF8900", "#EA8000", 1),
             new dimple.color("#DF3500", "#DF3500", 1),
+            new dimple.color("#FF8900", "#EA8000", 1),
             new dimple.color("#1D81A2", "#186F8A", 1)
         ];
         var x = linechart_NO2.addCategoryAxis("x", "ANNEE");
