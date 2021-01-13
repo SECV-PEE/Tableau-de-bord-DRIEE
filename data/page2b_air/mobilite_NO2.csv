@@ -1,31 +1,34 @@
-﻿ANNEE,NO2,SOURCE
-2013,41.2,NO2_IDF
-2014,40.3125,NO2_IDF
-2015,38.3125,NO2_IDF
-2016,37.5,NO2_IDF
-2017,37.6875,NO2_IDF
-2018,35.98125,NO2_IDF
-2013,74.25,NO2_Paris
-2014,72.75,NO2_Paris
-2015,68.75,NO2_Paris
-2016,73,NO2_Paris
-2017,66.75,NO2_Paris
-2018,64.9,NO2_Paris
-2013,40,"Seuil
-Réglementaire
-"
-2014,40,"Seuil
-Réglementaire
-"
-2015,40,"Seuil
-Réglementaire
-"
-2016,40,"Seuil
-Réglementaire
-"
-2017,40,"Seuil
-Réglementaire
-"
-2018,40,"Seuil
-Réglementaire
-"
+ANNEE,NO2,SOURCE
+2018,33,"Fond agglomeration"
+2017,35,"Fond agglomeration"
+2016,35,"Fond agglomeration"
+2015,36,"Fond agglomeration"
+2014,37,"Fond agglomeration"
+2013,38,"Fond agglomeration"
+2012,38,"Fond agglomeration"
+2011,38,"Fond agglomeration"
+2010,39,"Fond agglomeration"
+2009,40,"Fond agglomeration"
+2008,40,"Fond agglomeration"
+2018,65,Trafic
+2017,70,Trafic
+2016,73,Trafic
+2015,75,Trafic
+2014,75,Trafic
+2013,78,Trafic
+2012,82,Trafic
+2011,85,Trafic
+2010,87,Trafic
+2009,86,Trafic
+2008,85,Trafic
+2008,40,"Seuil Réglementaire"
+2009,40,"Seuil Réglementaire"
+2010,40,Seuil Réglementaire"
+2011,40,Seuil Réglementaire"
+2012,40,Seuil Réglementaire"
+2013,40,Seuil Réglementaire"
+2014,40,Seuil Réglementaire"
+2015,40,Seuil Réglementaire"
+2016,40,Seuil Réglementaire"
+2017,40,Seuil Réglementaire"
+2018,40,Seuil Réglementaire"
