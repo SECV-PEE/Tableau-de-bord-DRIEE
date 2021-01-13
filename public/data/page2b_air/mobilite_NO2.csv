@@ -1,15 +1,15 @@
 ANNEE,NO2,SOURCE
-2018,33,Fond agglomeration
-2017,35,Fond agglomeration
-2016,35,Fond agglomeration
-2015,36,Fond agglomeration
-2014,37,Fond agglomeration
-2013,38,Fond agglomeration
-2012,38,Fond agglomeration
-2011,38,Fond agglomeration
-2010,39,Fond agglomeration
-2009,40,Fond agglomeration
-2008,40,Fond agglomeration
+2018,33,"Fond agglomeration"
+2017,35,"Fond agglomeration"
+2016,35,"Fond agglomeration"
+2015,36,"Fond agglomeration"
+2014,37,"Fond agglomeration"
+2013,38,"Fond agglomeration"
+2012,38,"Fond agglomeration"
+2011,38,"Fond agglomeration"
+2010,39,"Fond agglomeration"
+2009,40,"Fond agglomeration"
+2008,40,"Fond agglomeration"
 2018,65,Trafic
 2017,70,Trafic
 2016,73,Trafic
@@ -21,36 +21,14 @@ ANNEE,NO2,SOURCE
 2010,87,Trafic
 2009,86,Trafic
 2008,85,Trafic
-2008,40,"Seuil
-Réglementaire
-"
-2009,40,"Seuil
-Réglementaire
-"
-2010,40,"Seuil
-Réglementaire
-"
-2011,40,"Seuil
-Réglementaire
-"
-2012,40,"Seuil
-Réglementaire
-"
-2013,40,"Seuil
-Réglementaire
-"
-2014,40,"Seuil
-Réglementaire
-"
-2015,40,"Seuil
-Réglementaire
-"
-2016,40,"Seuil
-Réglementaire
-"
-2017,40,"Seuil
-Réglementaire
-"
-2018,40,"Seuil
-Réglementaire
-"
+2008,40,"Seuil Réglementaire"
+2009,40,"Seuil Réglementaire"
+2010,40,Seuil Réglementaire"
+2011,40,Seuil Réglementaire"
+2012,40,Seuil Réglementaire"
+2013,40,Seuil Réglementaire"
+2014,40,Seuil Réglementaire"
+2015,40,Seuil Réglementaire"
+2016,40,Seuil Réglementaire"
+2017,40,Seuil Réglementaire"
+2018,40,Seuil Réglementaire"
