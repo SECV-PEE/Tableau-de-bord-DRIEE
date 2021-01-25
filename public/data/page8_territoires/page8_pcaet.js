@@ -3,7 +3,8 @@ Promise.all([
     d3.json("data/page8_territoires/EPCI-ile-de-france.geojson"),
     d3.csv("data/page8_territoires/PCAET.csv"),
     d3.json("data/page8_territoires/MGP.geojson"),
-    d3.json("data/page8_territoires/departements-ile-de-france.geojson")
+    d3.json("data/page8_territoires/departements-ile-de-france.geojson"),
+    d3.json("data/page8_territoires/EPT_MGP_2021.geojson")
 ]).then((data)=>{
     mapPCAET = data[0];
     mapEPCI = data[1];
@@ -11,10 +12,11 @@ Promise.all([
     mapMGP = data[0];
     contourMGP = data[3];
     depIDF = data[4];
+    eptMGP = data[5];
     correctEPCI = split_pays_crecois(mapPCAET, mapEPCI);
     preparePCAETData(dataPCAET, correctEPCI);
-    newFeatures = get_new_features(dataPCAET, mapMGP);
-    drawMapPCAET(correctEPCI, newFeatures, contourMGP, depIDF);
+    get_new_features(dataPCAET, eptMGP);
+    drawMapPCAET(correctEPCI, eptMGP, contourMGP, depIDF);
 })
 
 function split_pays_crecois(mapPCAET, mapEPCI){
@@ -138,7 +140,7 @@ function preparePCAETData(dataPCAET, mapEPCI){
     })
 }
 
-function get_new_features(dataPCAET, mapMGP){
+function get_new_features(dataPCAET, eptMGP){
     epts = ["T1", "T2", "T3", "T4", "T5", "T6", "T7", "T8", "T9", "T10", "T11", "T12"];
 
     dataPCAET = dataPCAET.filter(function(d){
@@ -162,34 +164,43 @@ function get_new_features(dataPCAET, mapMGP){
                 plan_air[element] = 0;
         }
     });
-    mapMGP.features = mapMGP.features.filter(function(d){
-        return d.properties.nom_epci == "Métropole du Grand Paris"
-    })
-
-    const newFeatures = {};
-    newFeatures["type"] = "FeatureCollection";
-    newFeatures["features"] = [];
-    epts.forEach(element => {
-        let this_ept = mapMGP.features.filter(function(d){
-            return d.properties.id_ept === element;
-        })
-        let union = turf.union.apply(this, this_ept);
-        union.properties.nom_com = element;
-        let status = statut[element];
-        let date_air = date[element];
-        let air = plan_air[element];
-        if (statut[element] == "Sans information" || statut[element] == "Gestation")
+    // epts.forEach(element => {
+    //     let this_ept = mapMGP.features.filter(function(d){
+    //         return d.properties.id_ept === element;
+    //     })
+    //     let union = turf.union.apply(this, this_ept);
+    //     union.properties.nom_com = element;
+    //     let status = statut[element];
+    //     let date_air = date[element];
+    //     let air = plan_air[element];
+    //     if (statut[element] == "Sans information" || statut[element] == "Gestation")
+    //         status = "Non notifié ou sans information"
+    //     let color = get_color(status);
+    //     if (statut[element] != "Adopté" && statut[element].includes("Adopté"))
+    //         status = "Adopté, éval. env. manquante"
+    //     union.properties.statut = status;
+    //     union.properties.color = color;
+    //     union.properties.plan_air = air;
+    //     union.properties.date = date_air;
+    //     newFeatures.features.push(union)
+    // })
+    eptMGP.features = eptMGP.features.map(d => {
+        let ept = d.properties.id_ept;
+        let status = statut[ept];
+        let date_air = date[ept];
+        let air = plan_air[ept];
+        if (statut[ept] == "Sans information" || statut[ept] == "Gestation")
             status = "Non notifié ou sans information"
         let color = get_color(status);
-        if (statut[element] != "Adopté" && statut[element].includes("Adopté"))
+        if (statut[ept] != "Adopté" && statut[ept].includes("Adopté"))
             status = "Adopté, éval. env. manquante"
-        union.properties.statut = status;
-        union.properties.color = color;
-        union.properties.plan_air = air;
-        union.properties.date = date_air;
-        newFeatures.features.push(union)
+        d.properties.statut = status;
+        d.properties.color = color;
+        d.properties.plan_air = air;
+        d.properties.date = date_air;
+        return d;
+
     })
-    return (newFeatures)
 }
 
 function showTooltipPCAET(epci, statut, date, coords){
@@ -218,7 +229,7 @@ function showTooltipPCAET_EPT(ept, statut, date, coords){
             + "<b>Plan air : </b>" + date + "<br")
 }
 
-function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
+function drawMapPCAET(mapEPCI, eptMGP, contourMGP, depIDF) {
     // The svg
     var svg = d3.select("#map_PCAET"),
     width = +svg.attr("width"),
@@ -294,79 +305,80 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
             .attr("y", (full_array[i][0].y + full_array[i][0].height/3))
     }
   
-    const full_array2 = new Array();
-    svg.append("g")
-        .selectAll("path")
-        .data(newFeatures.features)
-        .enter()
-        .append("path")
-        .attr("fill", d => d.properties.color)
-        .attr("d", d3.geoPath()
-            .projection(projectionMGP)
-        )
-        .style("stroke", "white")
-        .on("mouseover", (d)=>{
-            showTooltipPCAET_EPT(d.properties.nom_ept, d.properties.statut,
-                d.properties.date, [d3.event.pageX + 30, d3.event.pageY - 30]);
-        })
-        .on("mouseleave", d=>{
-            d3.select("#tooltip_PCAET").style("display","none");
-        })
-        .append("image")
-            .attr("x", function(d) {
-                let bbox = d3.select(this.parentNode).node().getBBox();
-                let cloud = d.properties.plan_air;
-                full_array2.push([bbox, cloud]);
-                return (bbox.x);
-            })
+    // const full_array2 = new Array();
+    // svg.append("g")
+    //     .selectAll("path")
+    //     .data(eptMGP.features)
+    //     .enter()
+    //     .append("path")
+    //     .attr("fill", "none")
+    //     // .attr("fill", d => d.properties.color)
+    //     .attr("d", d3.geoPath()
+    //         .projection(projectionMGP)
+    //     )
+    //     .style("stroke", "grey")
+        // .on("mouseover", (d)=>{
+        //     showTooltipPCAET_EPT(d.properties.nom_ept, d.properties.statut,
+        //         d.properties.date, [d3.event.pageX + 30, d3.event.pageY - 30]);
+        // })
+        // .on("mouseleave", d=>{
+        //     d3.select("#tooltip_PCAET").style("display","none");
+        // })
+        // .append("image")
+        //     .attr("x", function(d) {
+        //         let bbox = d3.select(this.parentNode).node().getBBox();
+        //         let cloud = d.properties.plan_air;
+        //         full_array2.push([bbox, cloud]);
+        //         return (bbox.x);
+        //     })
     
 
-    depMGP = ["75", "92", "93", "94"]
+    // depMGP = ["75", "92", "93", "94"]
 
-    depIDF.features = depIDF.features.filter(function (d) {
-        return (depMGP.includes(d.properties.code_departement))
-    })
-    //add departements
-    svg.append("g")
-        .selectAll("path")
-        .data(depIDF.features)
-        .enter()
-        .append("path")
-        .attr("fill", "none")
-        .attr("d", d3.geoPath()
-            .projection(projectionMGP)
-        )
-        .style("stroke", "#949494")
-        .style("stroke-width", "2")
+    // depIDF.features = depIDF.features.filter(function (d) {
+    //     return (depMGP.includes(d.properties.code_departement))
+    // })
+    // //add departements
+    // svg.append("g")
+    //     .selectAll("path")
+    //     .data(depIDF.features)
+    //     .enter()
+    //     .append("path")
+    //     .attr("fill", "none")
+    //     .attr("d", d3.geoPath()
+    //         .projection(projectionMGP)
+    //     )
+    //     .style("stroke", "#949494")
+    //     .style("stroke-width", "2")
 
    
-    //add MGP
-    svg.append("g")
-        .selectAll("path")
-        .data(contourMGP.features)
-        .enter()
-        .append("path")
-        .attr("fill", "none")
-        .attr("d", d3.geoPath()
-            .projection(projectionMGP)
-        )
-        .style("stroke", "#99baea")
-        .style("stroke-width", 4)
+    // //add MGP
+    // svg.append("g")
+    //     .selectAll("path")
+    //     .data(contourMGP.features)
+    //     .enter()
+    //     .append("path")
+    //     .attr("fill", "none")
+    //     .attr("d", d3.geoPath()
+    //         .projection(projectionMGP)
+    //     )
+    //     .style("stroke", "#99baea")
+    //     .style("stroke-width", 4)
 
-    for (var i = 0; i < full_array2.length; i++){
-        svg.append("image")
-            .attr("xlink:href", function(d){
-                if (full_array2[i][1] == 1)
-                    return ("data/page8_territoires/cloud.png")
-                else if (full_array2[i][1] == 2)
-                    return ("data/page8_territoires/cloudgray.png")
-            })
-            .attr("width", "20")
-            .attr("height", "15")
-            .style("pointer-events", "none")
-            .attr("x", (full_array2[i][0].x + full_array2[i][0].width/3))
-            .attr("y", (full_array2[i][0].y + full_array2[i][0].height/3))
-    }
+    // for (var i = 0; i < full_array2.length; i++){
+    //     svg.append("image")
+    //         .attr("xlink:href", function(d){
+    //             if (full_array2[i][1] == 1)
+    //                 return ("data/page8_territoires/cloud.png")
+    //             else if (full_array2[i][1] == 2)
+    //                 return ("data/page8_territoires/cloudgray.png")
+    //         })
+    //         .attr("width", "20")
+    //         .attr("height", "15")
+    //         .style("pointer-events", "none")
+    //         .attr("x", (full_array2[i][0].x + full_array2[i][0].width/3))
+    //         .attr("y", (full_array2[i][0].y + full_array2[i][0].height/3))
+    // }
 
     var size = 7;
     var x_dot = 0;
@@ -404,21 +416,21 @@ function drawMapPCAET(mapEPCI, newFeatures, contourMGP, depIDF) {
         .style("alignment-baseline", "middle")
         .style("font-size", "10px")
 
-    svg.append("rect")
-        .attr("x", x_dot)
-        .attr("y", y_dot + 6*(size+15) + size/2)
-        .attr("width", size*2)
-        .attr("height", 3*size/4)
-        .style("fill", "#99baea")
+    // svg.append("rect")
+    //     .attr("x", x_dot)
+    //     .attr("y", y_dot + 6*(size+15) + size/2)
+    //     .attr("width", size*2)
+    //     .attr("height", 3*size/4)
+    //     .style("fill", "#99baea")
 
-    svg.append("text")
-        .attr("x", x_dot + size*3)
-        .attr("y", y_dot + 6*(size+15) + size)
-        .style("fill", "#696969")
-        .text("Métropole du Grand Paris")
-        .attr("text-anchor", "left")
-        .style("alignment-baseline", "middle")
-        .style("font-size", "13px")
+    // svg.append("text")
+    //     .attr("x", x_dot + size*3)
+    //     .attr("y", y_dot + 6*(size+15) + size)
+    //     .style("fill", "#696969")
+    //     .text("Métropole du Grand Paris")
+    //     .attr("text-anchor", "left")
+    //     .style("alignment-baseline", "middle")
+    //     .style("font-size", "13px")
 
     svg.append("rect")
         .attr("x", x_dot)
