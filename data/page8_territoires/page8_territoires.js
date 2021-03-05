@@ -29,7 +29,7 @@ function get_statut(couleur) {
         return ("ZFE adoptée")
     if (couleur === "#FF8300")
         return ("Obligation de ZFE/ZFE non encore adoptée")
-    if (couleur === "#DFF2FF")
+    if (couleur === "#73C2FB")
         return ("Hors périmètre souhaitant rejoindre la ZFE")
 }
 
@@ -87,7 +87,7 @@ function drawMapZFE(mapTerr, dataMgp){
     keys = ["ZFE adoptée", "Obligation de ZFE/ZFE non encore adoptée", "ZFE adoptée sous conditions non levées", "Dérogation à l'obligation de ZFE", "Hors périmètre souhaitant rejoindre la ZFE"]
 
     let colorScale_terr = d3.scaleOrdinal().domain(keys)
-        .range(["#0BC094", "#FF8300", "#FFCB8D", "#E0E0E0", "#DFF2FF"])
+        .range(["#0BC094", "#FF8300", "#FFCB8D", "#E0E0E0", "#73C2FB"])
     // Draw the map
     svg.append("g")
         .selectAll("path")
