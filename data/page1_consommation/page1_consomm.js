@@ -158,7 +158,7 @@ function showTooltip(nom, conso, coords){
             + "<b>Année : </b>" + annee_c + "<br>")
 }
 
-function showTooltipPie(nom, sec, conso, coords){
+function showTooltipPie(nom, sec, conso, taux, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -169,6 +169,7 @@ function showTooltipPie(nom, sec, conso, coords){
         .html("<b>EPCI : </b>" + nom + "<br>"
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
+        + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>"
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -247,7 +248,7 @@ function drawTreemap(data){
         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
         .text(function(d){ 
-            if(d.data.taux > 0.1){
+            if(d.data.taux > 0.01){
                 return d.data.energie;
             }else{
                 return " ";
@@ -266,7 +267,8 @@ function drawPie(data){
     data = data.map(d => ({
         nom: d.Nom,
         secteur: d.Secteur,
-        consommation: +d.Consommation
+        consommation: +d.Consommation,
+        taux: d.Taux
     }))
 
     let pie = d3.pie()
@@ -289,7 +291,7 @@ function drawPie(data){
             return colorScale(d.data.secteur)
         })
         .on("mousemove", (d)=>{
-            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation,[d3.event.pageX + 30, d3.event.pageY - 30]);})
+            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation,d.data.taux, [d3.event.pageX + 30, d3.event.pageY - 30]);})
         .on("mouseleave", d=>{
             d3.select("#tooltip2").style("display","none")});
 }
@@ -344,7 +346,7 @@ function update_tree(eng_info){
         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
         .text(function(d){ 
-            if(d.data.taux > 0.1){
+            if(d.data.taux > 0.01){
                 return d.data.energie;
             }else{
                 return " ";
@@ -589,23 +591,28 @@ function drawMap(data, mapInfo, sec){
             let pie_data = [{
                 "Nom": d.properties.nom,
                 "Secteur": "Agriculture",
-                "Consommation": d.properties.conso_agr
+                "Consommation": d.properties.conso_agr,
+                "Taux": d.properties.conso_agr/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Tertiaire",
-                "Consommation": d.properties.conso_ter
+                "Consommation": d.properties.conso_ter,
+                "Taux": d.properties.conso_ter/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Industrie",
-                "Consommation": d.properties.conso_ind
+                "Consommation": d.properties.conso_ind,
+                "Taux": d.properties.conso_ind/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Residentiel",
-                "Consommation": d.properties.conso_res
+                "Consommation": d.properties.conso_res,
+                "Taux": d.properties.conso_res/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Routier",
-                "Consommation": d.properties.conso_traf
+                "Consommation": d.properties.conso_traf,
+                "Taux": d.properties.conso_traf/conso_totale
             }];
             let tree_data = [{
                 "Nom": d.properties.nom,
