@@ -157,7 +157,7 @@ function showTooltip(nom, conso, coords){
             + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
 }
-
+//sector
 function showTooltipPie(nom, sec, conso, coords){
     let x = coords[0];
     let y = coords[1];
@@ -166,7 +166,7 @@ function showTooltipPie(nom, sec, conso, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-        .html("<b>EPCI : </b>" + nom + "<br>"
+        .html("<b>EPCI : </b>" + nom + "<br>" 8
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
 
