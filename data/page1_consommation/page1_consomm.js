@@ -78,13 +78,9 @@ function get_secteurInfo(data){
     var sec_info = [{
         "Nom": currentEPCI,
         "Secteur": "Agriculture",
-<<<<<<< HEAD
         "Consommation": conso_a,
         "Taux": conso_a/conso_totale
-=======
-        
-        "Consommation": d3.sum(data.filter(d=>d.secteur === "AGR"),d=>d.consommation)
->>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
+
     },{
         "Nom": currentEPCI,
         "Secteur": "Tertiaire",
@@ -176,13 +172,10 @@ function showTooltip(nom, conso, coords){
             //+"<b>Taux : </b>" + Math.round(conso/1000) + "<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
 }
-<<<<<<< HEAD
+
 
 function showTooltipPie(nom, sec, conso, taux, coords){
-=======
-//section pour le premier cercle Repartition par secteur
-function showTooltipPie(nom, sec, conso, coords){
->>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
+
     let x = coords[0];
     let y = coords[1];
 
@@ -190,17 +183,13 @@ function showTooltipPie(nom, sec, conso, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-<<<<<<< HEAD
+
         .html("<b>EPCI : </b>" + nom + "<br>" 
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
         + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>"
-=======
-        .html("<b>EPCI : </b>" + nom + "<br>"
-        + "<b>Secteur : </b>" + sec + "<br>"
-        + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
+
         
->>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -652,13 +641,9 @@ function drawMap(data, mapInfo, sec){
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Routier",
-<<<<<<< HEAD
                 "Consommation": d.properties.conso_traf,
                 "Taux": d.properties.conso_traf/conso_totale
-=======
-                "Consommation": d.properties.conso_traf
-               
->>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
+
             }];
             let tree_data = [{
                 "Nom": d.properties.nom,
