@@ -40,6 +40,7 @@
         </div>
       </div>
     </div>
+     
     <div style="text-align: left;">
       <h4>Répartition de la consommation par type d'énergie</h4>
       <svg id="container_treemap" height="300" width="900"></svg>

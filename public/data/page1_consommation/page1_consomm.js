@@ -70,6 +70,7 @@ function get_secteurInfo(data){
     var sec_info = [{
         "Nom": currentEPCI,
         "Secteur": "Agriculture",
+        
         "Consommation": d3.sum(data.filter(d=>d.secteur === "AGR"),d=>d.consommation)
     },{
         "Nom": currentEPCI,
@@ -144,7 +145,7 @@ function showSelectedEPCI(nom)
     d3.select("#btn-region")
         .style("background-color", "#15607A")
 }
-
+//section pour la premiere carte
 function showTooltip(nom, conso, coords){
     let x = coords[0];
     let y = coords[1];
@@ -155,9 +156,10 @@ function showTooltip(nom, conso, coords){
         .style("left", (x)+"px")
         .html("<b>EPCI : </b>" + nom + "<br>"
             + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
+            //+"<b>Taux : </b>" + Math.round(conso/1000) + "<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
 }
-
+//section pour le premier cercle Repartition par secteur
 function showTooltipPie(nom, sec, conso, coords){
     let x = coords[0];
     let y = coords[1];
@@ -169,6 +171,7 @@ function showTooltipPie(nom, sec, conso, coords){
         .html("<b>EPCI : </b>" + nom + "<br>"
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
+        
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -246,13 +249,13 @@ function drawTreemap(data){
         .append("text")
         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-        .text(function(d){ 
-            if(d.data.taux > 0.1){
+        .text(function(d){      
+            if(d.data.taux > 0.01){
                 return d.data.energie;
             }else{
                 return " ";
             }
-        })
+        })//taill img
         .attr("font-size", "15px")
         .attr("fill", "white")
 
@@ -266,9 +269,9 @@ function drawPie(data){
     data = data.map(d => ({
         nom: d.Nom,
         secteur: d.Secteur,
-        consommation: +d.Consommation
+        consommation: +d.Consommation,
+        taux: d.Taux
     }))
-
     let pie = d3.pie()
         .value(d => d.consommation);
     let colorScale = d3.scaleOrdinal()
@@ -289,7 +292,7 @@ function drawPie(data){
             return colorScale(d.data.secteur)
         })
         .on("mousemove", (d)=>{
-            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation,[d3.event.pageX + 30, d3.event.pageY - 30]);})
+            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation, [d3.event.pageX + 30, d3.event.pageY - 30]);})
         .on("mouseleave", d=>{
             d3.select("#tooltip2").style("display","none")});
 }
@@ -303,7 +306,6 @@ function update_tree(eng_info){
     root = {};
     root["name"] = "root";
     children = [];
-
     for(let c of eng_info){
         obj = {
             nom: c.Nom,
@@ -337,6 +339,7 @@ function update_tree(eng_info){
         .on("mouseleave", d=>{
             d3.select("#tooltip_tree").style("display","none")});
     
+
     // and to add the text labels
     svg_tree
         .selectAll("text")
@@ -344,7 +347,7 @@ function update_tree(eng_info){
         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
         .text(function(d){ 
-            if(d.data.taux > 0.1){
+            if(d.data.taux > 0.01){
                 return d.data.energie;
             }else{
                 return " ";
@@ -352,6 +355,8 @@ function update_tree(eng_info){
         })
         .attr("font-size", "15px")
         .attr("fill", "white")
+        //rotation du text
+        //.attr("transform", function(d){ return "rotate(90,"+ d.x0 +","+ d.y0 + ")"})
 }
 
 function change_btn_year(a)
@@ -382,6 +387,7 @@ function change_year(a){
         drawTreemap(eng_info);
         drawPie(sec_info);
         prepare_data(mapInfo, data_n);
+
 
         change_btn_year(a);
         let maxConso = d3.max(mapInfo.features,
@@ -580,7 +586,7 @@ function drawMap(data, mapInfo, sec){
         })
         .on("mouseleave", d=>{
             d3.select("#tooltip").style("display","none");
-        })
+        }) // Onclick send data to the pie
         .on("click", d=> {
             selectedEPCI = d.properties.nom;
             showSelectedEPCI(selectedEPCI);
@@ -606,6 +612,7 @@ function drawMap(data, mapInfo, sec){
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Routier",
                 "Consommation": d.properties.conso_traf
+               
             }];
             let tree_data = [{
                 "Nom": d.properties.nom,
