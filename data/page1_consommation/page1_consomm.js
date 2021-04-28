@@ -67,27 +67,44 @@ function get_secteurInfo(data){
     }
     else
         currentEPCI = "Régionale"
+        conso_totale = d3.sum(data, d=>d.consommation);
+        conso_a = d3.sum(data.filter(d=>d.secteur === "AGR"),d=>d.consommation);
+        conso_t = d3.sum(data.filter(d=>d.secteur === "TER"),d=>d.consommation);
+        conso_i = d3.sum(data.filter(d=>d.secteur === "IND"),d=>d.consommation);
+        conso_r = d3.sum(data.filter(d=>d.secteur === "RES"),d=>d.consommation);
+        conso_tr = d3.sum(data.filter(d=>d.secteur === "TRAF"),d=>d.consommation);
+        
+
     var sec_info = [{
         "Nom": currentEPCI,
         "Secteur": "Agriculture",
+<<<<<<< HEAD
+        "Consommation": conso_a,
+        "Taux": conso_a/conso_totale
+=======
         
         "Consommation": d3.sum(data.filter(d=>d.secteur === "AGR"),d=>d.consommation)
+>>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
     },{
         "Nom": currentEPCI,
         "Secteur": "Tertiaire",
-        "Consommation": d3.sum(data.filter(d=>d.secteur === "TER"),d=>d.consommation)
+        "Consommation": conso_t,
+        "Taux": conso_t/conso_totale
     },{
         "Nom": currentEPCI,
         "Secteur": "Industrie",
-        "Consommation": d3.sum(data.filter(d=>d.secteur === "IND"),d=>d.consommation)
+        "Consommation": conso_i,
+        "Taux": conso_i/conso_totale
     },{
         "Nom": currentEPCI,
         "Secteur": "Residentiel",
-        "Consommation": d3.sum(data.filter(d=>d.secteur === "RES"),d=>d.consommation)
+        "Consommation": conso_r,
+        "Taux": conso_r/conso_totale
     },{
         "Nom": currentEPCI,
         "Secteur": "Transport Routier",
-        "Consommation": d3.sum(data.filter(d=>d.secteur === "TRAF"),d=>d.consommation)
+        "Consommation": conso_tr,
+        "Taux": conso_tr/conso_totale
     }];
     return sec_info;
 }
@@ -159,8 +176,13 @@ function showTooltip(nom, conso, coords){
             //+"<b>Taux : </b>" + Math.round(conso/1000) + "<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
 }
+<<<<<<< HEAD
+
+function showTooltipPie(nom, sec, conso, taux, coords){
+=======
 //section pour le premier cercle Repartition par secteur
 function showTooltipPie(nom, sec, conso, coords){
+>>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
     let x = coords[0];
     let y = coords[1];
 
@@ -168,10 +190,17 @@ function showTooltipPie(nom, sec, conso, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
+<<<<<<< HEAD
+        .html("<b>EPCI : </b>" + nom + "<br>" 
+        + "<b>Secteur : </b>" + sec + "<br>"
+        + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
+        + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>"
+=======
         .html("<b>EPCI : </b>" + nom + "<br>"
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
         
+>>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -186,7 +215,7 @@ function showTooltipTree(nom, sec, conso, taux, coords){
         .html("<b>EPCI : </b>" + nom + "<br>"
             + "<b>Energie : </b>" + sec + "<br>"
             + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
-            + "<b>Taux : </b>" + Math.round(taux*100)  + "%<br>"
+            + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
         
 }
@@ -295,7 +324,7 @@ function drawPie(data){
             return colorScale(d.data.secteur)
         })
         .on("mousemove", (d)=>{
-            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation, [d3.event.pageX + 30, d3.event.pageY - 30]);})
+            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation, d.data.taux,  [d3.event.pageX + 30, d3.event.pageY - 30]);})
         .on("mouseleave", d=>{
             d3.select("#tooltip2").style("display","none")});
 }
@@ -418,23 +447,28 @@ function change_year(a){
                 let pie_data = [{
                     "Nom": d.properties.nom,
                     "Secteur": "Agriculture",
-                    "Consommation": d.properties.conso_agr
+                    "Consommation": d.properties.conso_agr,
+                    "Taux": d.properties.conso_agr/conso_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Tertiaire",
-                    "Consommation": d.properties.conso_ter
+                    "Consommation": d.properties.conso_ter,
+                    "Taux": d.properties.conso_ter/conso_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Industrie",
-                    "Consommation": d.properties.conso_ind
+                    "Consommation": d.properties.conso_ind,
+                    "Taux": d.properties.conso_ind/conso_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Residentiel",
-                    "Consommation": d.properties.conso_res
+                    "Consommation": d.properties.conso_res,
+                    "Taux": d.properties.conso_res/conso_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Transport Routier",
-                    "Consommation": d.properties.conso_traf
+                    "Consommation": d.properties.conso_traf,
+                    "Taux": d.properties.conso_traf/conso_totale
                 }];
                 let tree_data = [{
                     "Nom": d.properties.nom,
@@ -598,24 +632,33 @@ function drawMap(data, mapInfo, sec){
             let pie_data = [{
                 "Nom": d.properties.nom,
                 "Secteur": "Agriculture",
-                "Consommation": d.properties.conso_agr
+                "Consommation": d.properties.conso_agr,
+                "Taux": d.properties.conso_agr/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Tertiaire",
-                "Consommation": d.properties.conso_ter
+                "Consommation": d.properties.conso_ter,
+                "Taux": d.properties.conso_ter/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Industrie",
-                "Consommation": d.properties.conso_ind
+                "Consommation": d.properties.conso_ind,
+                "Taux": d.properties.conso_ind/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Residentiel",
-                "Consommation": d.properties.conso_res
+                "Consommation": d.properties.conso_res,
+                "Taux": d.properties.conso_res/conso_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Routier",
+<<<<<<< HEAD
+                "Consommation": d.properties.conso_traf,
+                "Taux": d.properties.conso_traf/conso_totale
+=======
                 "Consommation": d.properties.conso_traf
                
+>>>>>>> 21b5f8830556b4930eedbb62c64dd1192c5b70af
             }];
             let tree_data = [{
                 "Nom": d.properties.nom,
