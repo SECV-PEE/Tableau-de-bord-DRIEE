@@ -159,11 +159,7 @@ function showTooltip(nom, conso, coords){
             //+"<b>Taux : </b>" + Math.round(conso/1000) + "<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
 }
-<<<<<<< HEAD
 //section pour le premier cercle Repartition par secteur
-=======
-//sector
->>>>>>> 5d1bf17ede44cf2e2e2bee2ce306a397620b0627
 function showTooltipPie(nom, sec, conso, coords){
     let x = coords[0];
     let y = coords[1];
@@ -172,14 +168,10 @@ function showTooltipPie(nom, sec, conso, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-        .html("<b>EPCI : </b>" + nom + "<br>" 8
+        .html("<b>EPCI : </b>" + nom + "<br>"
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
-<<<<<<< HEAD
         
-=======
-
->>>>>>> 5d1bf17ede44cf2e2e2bee2ce306a397620b0627
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -257,11 +249,8 @@ function drawTreemap(data){
         .append("text")
         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
-<<<<<<< HEAD
-        .text(function(d){      
-=======
         .text(function(d){ 
->>>>>>> 5d1bf17ede44cf2e2e2bee2ce306a397620b0627
+            
             if(d.data.taux > 0.01){
                 return d.data.energie;
             }else{
@@ -270,6 +259,8 @@ function drawTreemap(data){
         })//taill img
         .attr("font-size", "15px")
         .attr("fill", "white")
+        //rotation du text
+        //.attr("transform", function(d){ return "rotate(90,"+ d.x0 +","+ d.y0 + ")"})
 
 }
 
@@ -645,9 +636,8 @@ function drawMap(data, mapInfo, sec){
                 "Nom": d.properties.nom,
                 "Energie": "Chauffage urbain", 
                 "Consommation": d.properties.conso_urb,
-                "Taux": d.properties.conso_urb / conso_totale
-                
-            },{//e
+                "Taux": d.properties.conso_urb/conso_totale
+            },{
                 "Nom": d.properties.nom,
                 "Energie": "Bois", 
                 "Consommation": d.properties.conso_bois,
