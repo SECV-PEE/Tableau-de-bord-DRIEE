@@ -158,7 +158,7 @@ function showTooltip(nom, conso, coords){
             + "<b>Année : </b>" + annee_c + "<br>")
 }
 
-function showTooltipPie(nom, sec, conso, taux, coords){
+function showTooltipPie(nom, sec, conso, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -169,7 +169,7 @@ function showTooltipPie(nom, sec, conso, taux, coords){
         .html("<b>EPCI : </b>" + nom + "<br>"
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
-        + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>"
+
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -291,7 +291,7 @@ function drawPie(data){
             return colorScale(d.data.secteur)
         })
         .on("mousemove", (d)=>{
-            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation,d.data.taux, [d3.event.pageX + 30, d3.event.pageY - 30]);})
+            showTooltipPie(d.data.nom, d.data.secteur, d.data.consommation, [d3.event.pageX + 30, d3.event.pageY - 30]);})
         .on("mouseleave", d=>{
             d3.select("#tooltip2").style("display","none")});
 }
@@ -591,28 +591,23 @@ function drawMap(data, mapInfo, sec){
             let pie_data = [{
                 "Nom": d.properties.nom,
                 "Secteur": "Agriculture",
-                "Consommation": d.properties.conso_agr,
-                "Taux": d.properties.conso_agr/conso_totale
+                "Consommation": d.properties.conso_agr
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Tertiaire",
-                "Consommation": d.properties.conso_ter,
-                "Taux": d.properties.conso_ter/conso_totale
+                "Consommation": d.properties.conso_ter
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Industrie",
-                "Consommation": d.properties.conso_ind,
-                "Taux": d.properties.conso_ind/conso_totale
+                "Consommation": d.properties.conso_ind
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Residentiel",
-                "Consommation": d.properties.conso_res,
-                "Taux": d.properties.conso_res/conso_totale
+                "Consommation": d.properties.conso_res
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Routier",
-                "Consommation": d.properties.conso_traf,
-                "Taux": d.properties.conso_traf/conso_totale
+                "Consommation": d.properties.conso_traf
             }];
             let tree_data = [{
                 "Nom": d.properties.nom,
