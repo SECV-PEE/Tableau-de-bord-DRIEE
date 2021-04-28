@@ -159,7 +159,11 @@ function showTooltip(nom, conso, coords){
             //+"<b>Taux : </b>" + Math.round(conso/1000) + "<br>"
             + "<b>Année : </b>" + annee_c + "<br>")
 }
+<<<<<<< HEAD
 //section pour le premier cercle Repartition par secteur
+=======
+//sector
+>>>>>>> 5d1bf17ede44cf2e2e2bee2ce306a397620b0627
 function showTooltipPie(nom, sec, conso, coords){
     let x = coords[0];
     let y = coords[1];
@@ -168,10 +172,14 @@ function showTooltipPie(nom, sec, conso, coords){
         .style("display", "block")
         .style("top", (y)+"px")
         .style("left", (x)+"px")
-        .html("<b>EPCI : </b>" + nom + "<br>"
+        .html("<b>EPCI : </b>" + nom + "<br>" 8
         + "<b>Secteur : </b>" + sec + "<br>"
         + "<b>Consommation : </b>" + Math.round(conso/1000) + "GWh<br>"
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 5d1bf17ede44cf2e2e2bee2ce306a397620b0627
         + "<b>Année : </b>" + annee_c + "<br>")
 }
 
@@ -249,7 +257,11 @@ function drawTreemap(data){
         .append("text")
         .attr("x", function(d){ return d.x0+10})    // +10 to adjust position (more right)
         .attr("y", function(d){ return d.y0+20})    // +20 to adjust position (lower)
+<<<<<<< HEAD
         .text(function(d){      
+=======
+        .text(function(d){ 
+>>>>>>> 5d1bf17ede44cf2e2e2bee2ce306a397620b0627
             if(d.data.taux > 0.01){
                 return d.data.energie;
             }else{
