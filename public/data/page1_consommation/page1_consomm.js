@@ -633,7 +633,8 @@ function drawMap(data, mapInfo, sec){
                 "Nom": d.properties.nom,
                 "Energie": "Chauffage urbain", 
                 "Consommation": d.properties.conso_urb,
-                "Taux": d.properties.conso_urb/conso_totale
+                "Taux": d.properties.conso_urb / conso_totale
+                
             },{
                 "Nom": d.properties.nom,
                 "Energie": "Bois", 
