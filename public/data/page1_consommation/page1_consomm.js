@@ -635,7 +635,7 @@ function drawMap(data, mapInfo, sec){
                 "Consommation": d.properties.conso_urb,
                 "Taux": d.properties.conso_urb / conso_totale
                 
-            },{
+            },{//e
                 "Nom": d.properties.nom,
                 "Energie": "Bois", 
                 "Consommation": d.properties.conso_bois,
