@@ -134,34 +134,43 @@ function drawEmissMap(mapInfo){
         .on("click", d=> {
             selectedEPCI = d.properties.nom;
             showSelectedEPCIEmiss(selectedEPCI);
+            emiss_totale = d.properties.emiss_agr+d.properties.emiss_ind+d.properties.emiss_res+
+                d.properties.emiss_trR+d.properties.emiss_trA+d.properties.emiss_ter+d.properties.emiss_prd;
             let pie_data = [{
                 "Nom": d.properties.nom,
                 "Secteur": "Agriculture",
-                "Emission": d.properties.emiss_agr
+                "Emission": d.properties.emiss_agr,
+                "Taux": d.properties.emiss_agr/emiss_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Tertiaire",
-                "Emission": d.properties.emiss_ter
+                "Emission": d.properties.emiss_ter,
+                "Taux": d.properties.emiss_ter/emiss_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Industrie",
-                "Emission": d.properties.emiss_ind
+                "Emission": d.properties.emiss_ind,
+                "Taux": d.properties.emiss_ind/emiss_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Residentiel",
-                "Emission": d.properties.emiss_res
+                "Emission": d.properties.emiss_res,
+                "Taux": d.properties.emiss_res/emiss_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Routier",
-                "Emission": d.properties.emiss_trR
+                "Emission": d.properties.emiss_trR,
+                "Taux": d.properties.emiss_trR/emiss_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Transport Autres",
-                "Emission": d.properties.emiss_trA
+                "Emission": d.properties.emiss_trA,
+                "Taux": d.properties.emiss_trA/emiss_totale
             },{
                 "Nom": d.properties.nom,
                 "Secteur": "Production_Energie",
-                "Emission": d.properties.emiss_prd
+                "Emission": d.properties.emiss_prd,
+                "Taux": d.properties.emiss_prd/emiss_totale
             }];
         drawPieEmiss(pie_data);
 
@@ -177,7 +186,7 @@ function showSelectedEPCIEmiss(nom)
         .style("background-color", "#15607A")
 }
 
-function showEmissTooltip_pie(nom, sec, emiss, coords){
+function showEmissTooltip_pie(nom, sec, emiss, taux, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -188,9 +197,10 @@ function showEmissTooltip_pie(nom, sec, emiss, coords){
         .html("<b>EPCI : </b>" + nom + "<br>"
             + "<b>Secteur : </b>" + sec + "<br>"
             + "<b>Emission : </b>" + Math.round(emiss) + "kteq CO2<br>"
+            + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>"
             + "<b>Année : </b>" + annee_e + "<br>")
 }
-
+//carte
 function showEmissTooltip(nom, emiss, coords){
     let x = coords[0];
     let y = coords[1];
@@ -211,7 +221,8 @@ function drawPieEmiss(data){
     data = data.map(d => ({
         nom: d.Nom,
         secteur: d.Secteur,
-        emission: +d.Emission
+        emission: +d.Emission,
+        taux: d.Taux
     }))
     
     let pie = d3.pie()
@@ -234,7 +245,7 @@ function drawPieEmiss(data){
         })
         .style("stroke", "white")
         .on("mousemove", (d)=>{
-            showEmissTooltip_pie(d.data.nom, d.data.secteur, d.data.emission,[d3.event.pageX + 30, d3.event.pageY - 30]);
+            showEmissTooltip_pie(d.data.nom, d.data.secteur, d.data.emission, d.data.taux, [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
             d3.select("#tooltip_emission_pie").style("display","none")
@@ -298,34 +309,46 @@ function change_year_emission(a){
             .on("click", d=> {
                 selectedEPCI = d.properties.nom;
                 showSelectedEPCIEmiss(selectedEPCI);
+
+                emiss_totale = d.properties.emiss_agr+d.properties.emiss_ind+d.properties.emiss_res+
+                    d.properties.emiss_trR+d.properties.emiss_trA+d.properties.emiss_ter+d.properties.emiss_prd;
+
+
                 let pie_data = [{
                     "Nom": d.properties.nom,
                     "Secteur": "Agriculture",
-                    "Emission": d.properties.emiss_agr
+                    "Emission": d.properties.emiss_agr,
+                    "Taux": d.properties.emiss_agr/ emiss_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Tertiaire",
-                    "Emission": d.properties.emiss_ter
+                    "Emission": d.properties.emiss_ter,
+                    "Taux": d.properties.emiss_ter/ emiss_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Industrie",
-                    "Emission": d.properties.emiss_ind
+                    "Emission": d.properties.emiss_ind,
+                    "Taux": d.properties.emiss_ind/ emiss_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Residentiel",
-                    "Emission": d.properties.emiss_res
+                    "Emission": d.properties.emiss_res,
+                    "Taux": d.properties.emiss_res/ emiss_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Transport Routier",
-                    "Emission": d.properties.emiss_trR
+                    "Emission": d.properties.emiss_trR,
+                    "Taux": d.properties.emiss_trR/ emiss_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Transport Autres",
-                    "Emission": d.properties.emiss_trA
+                    "Emission": d.properties.emiss_trA,
+                    "Taux": d.properties.emiss_trA/ emiss_totale
                 },{
                     "Nom": d.properties.nom,
                     "Secteur": "Production_Energie",
-                    "Emission": d.properties.emiss_prd
+                    "Emission": d.properties.emiss_prd,
+                    "Taux": d.properties.emiss_prd/ emiss_totale
                 }];
             drawPieEmiss(pie_data);
             });
@@ -342,34 +365,52 @@ function get_emissionInfo(data){
     }
     else
         currentEPCI = "Régionale"
+
+        emiss_totale = d3.sum(data, d=>d.emission);
+        emiss_a = d3.sum(data.filter(d=>d.secteur === "Agriculture"),d=>d.emission);
+        emiss_t = d3.sum(data.filter(d=>d.secteur === "Tertiaire"),d=>d.emission);
+        emiss_i = d3.sum(data.filter(d=>d.secteur === "Industrie"),d=>d.emission);
+        emiss_r = d3.sum(data.filter(d=>d.secteur === "Residentiel"),d=>d.emission);
+        emiss_tr = d3.sum(data.filter(d=>d.secteur === "Transport_R"),d=>d.emission);
+        emiss_ta = d3.sum(data.filter(d=>d.secteur === "Transport_A"),d=>d.emission);
+        emiss_pe = d3.sum(data.filter(d=>d.secteur === "Production_Energie"),d=>d.emission);
+
+
     var sec_info = [{
         "Nom": currentEPCI,
         "Secteur": "Agriculture",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Agriculture"),d=>d.emission)
+        "Emission":emiss_a,
+        "Taux": emiss_a/emiss_totale
     },{
         "Nom": currentEPCI,
         "Secteur": "Tertiaire",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Tertiaire"),d=>d.emission)
+        "Emission": emiss_t,
+        "Taux": emiss_t/emiss_totale  
     },{ 
         "Nom": currentEPCI,
         "Secteur": "Industrie",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Industrie"),d=>d.emission)
+        "Emission": emiss_i,
+        "Taux": emiss_i/emiss_totale 
     },{ 
         "Nom": currentEPCI,
         "Secteur": "Residentiel",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Residentiel"),d=>d.emission)
+        "Emission": emiss_r,
+        "Taux": emiss_r/emiss_totale 
     },{ 
         "Nom": currentEPCI,
         "Secteur": "Transport Routier",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Transport_R"),d=>d.emission)
+        "Emission": emiss_tr,
+        "Taux": emiss_tr/emiss_totale 
     },{ 
         "Nom": currentEPCI,
         "Secteur": "Transport Autres",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Transport_A"),d=>d.emission)
+        "Emission": emiss_ta,
+        "Taux": emiss_ta/emiss_totale
     },{ 
         "Nom": currentEPCI,
         "Secteur": "Production_Energie",
-        "Emission": d3.sum(data.filter(d=>d.secteur === "Production_Energie"),d=>d.emission)
+        "Emission": emiss_pe,
+        "Taux": emiss_pe/emiss_totale 
     }];
     return sec_info;
 }

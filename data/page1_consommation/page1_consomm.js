@@ -212,6 +212,9 @@ function showTooltipTree(nom, sec, conso, taux, coords){
 function drawTreemap(data){
     let width_map = 900;
     let height_map = 250;
+    
+
+
     var svg_tree = d3.select("#container_treemap")
         .attr("transform", "translate(" + 10 + ", " + 10 + ")");
         
@@ -277,8 +280,8 @@ function drawTreemap(data){
         })//taill img
         .attr("font-size", "15px")
         .attr("fill", "white")
-        //rotation du text
-        //.attr("transform", function(d){ return "rotate(90,"+ d.x0 +","+ d.y0 + ")"})
+        
+
 
 }
 
@@ -323,7 +326,7 @@ function update_tree(eng_info){
         .domain(["Electricité", "Produit pétrolier et charbon", "Gaz Naturel", "Chauffage urbain", "Bois"])
         .range(["#18A1CD", "#525252", "#09BB9F", "#F67272", "#09A785"]);
     var svg_tree = d3.select("#container_treemap")
-        .attr("transform", "translate(" + 10 + ", " + 10 + ")");
+        //.attr("transform", "translate(" + 10 + ", " + 10 + ")");
     root = {};
     root["name"] = "root";
     children = [];
