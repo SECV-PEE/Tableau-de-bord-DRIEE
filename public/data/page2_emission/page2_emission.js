@@ -311,7 +311,7 @@ function change_year_emission(a){
                 showSelectedEPCIEmiss(selectedEPCI);
 
                 emiss_totale = d.properties.emiss_agr+d.properties.emiss_ind+d.properties.emiss_res+
-                    d.properties.emiss_trR+d.properties.emiss_trA+d.properties.emiss_ter+d.properties.emiss_prd;
+                d.properties.emiss_trR+d.properties.emiss_trA+d.properties.emiss_ter+d.properties.emiss_prd;
 
 
                 let pie_data = [{
@@ -363,10 +363,13 @@ function get_emissionInfo(data){
         })
         currentEPCI = selectedEPCI
     }
-    else
+    else{
         currentEPCI = "Régionale"
+    }
+        
 
-        emiss_totale = d3.sum(data, d=>d.emission);
+        //emiss_totale = d3.sum(data, d=> parseInt(d.emission));
+
         emiss_a = d3.sum(data.filter(d=>d.secteur === "Agriculture"),d=>d.emission);
         emiss_t = d3.sum(data.filter(d=>d.secteur === "Tertiaire"),d=>d.emission);
         emiss_i = d3.sum(data.filter(d=>d.secteur === "Industrie"),d=>d.emission);
@@ -375,6 +378,9 @@ function get_emissionInfo(data){
         emiss_ta = d3.sum(data.filter(d=>d.secteur === "Transport_A"),d=>d.emission);
         emiss_pe = d3.sum(data.filter(d=>d.secteur === "Production_Energie"),d=>d.emission);
 
+        emiss_totale = emiss_a + emiss_t + emiss_i + emiss_r + emiss_tr + emiss_ta + emiss_pe
+
+       
 
     var sec_info = [{
         "Nom": currentEPCI,

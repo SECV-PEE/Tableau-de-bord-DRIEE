@@ -16,10 +16,11 @@ Promise.all([
     data_air = data[0];
     data_pop = data[1];
     var sec_info = get_airInfo(data_air);
+    var sec_infop = get_airInfoP(data_air);
     dimple_data = get_history_air(data_pop);
     drawDimple_air(dimple_data);
     drawPieNox(sec_info);
-    drawPiePm(sec_info);
+    drawPiePm(sec_infop);
     drawLineChartNo2();
 })
 
@@ -154,55 +155,141 @@ function secteur_filter_air(data, secteur){
 }
 
 function get_airInfo(data){
+
+    //NOx_totale = data, d=>d.nox;
+    
+    NOx_i = data.filter(function(d){return d.Secteur === "Industrie"})[0].NOx;
+    NOx_br = data.filter(function(d){return d.Secteur === "Branche énergie"})[0].NOx;
+    NOx_d = data.filter(function(d){return d.Secteur === "Déchets"})[0].NOx;
+    NOx_r = data.filter(function(d){return d.Secteur === "Résidentiel"})[0].NOx;
+    NOx_t = data.filter(function(d){return d.Secteur === "Tertiaire"})[0].NOx;
+    NOx_c = data.filter(function(d){return d.Secteur === "Chantiers"})[0].NOx;
+    NOx_tr = data.filter(function(d){return d.Secteur === "Transport routier"})[0].NOx;
+    NOx_tff = data.filter(function(d){return d.Secteur === "Transport ferroviaire et fluvial"})[0].NOx;
+    NOx_pa = data.filter(function(d){return d.Secteur === "Plateformes aéroportuaires"})[0].NOx;
+    NOx_a = data.filter(function(d){return d.Secteur === "Agriculture"})[0].NOx;
+    NOx_en = data.filter(function(d){return d.Secteur === "Émissions naturelles"})[0].NOx;
+
+    //NOx_totale = NOx_i+NOx_br+NOx_d+NOx_r+NOx_t+NOx_c+NOx_tr+NOx_tff+NOx_pa+NOx_a+NOx_en;
+    
+    NOx_totale = parseInt(NOx_i) + parseInt(NOx_br)+ parseInt(NOx_d)+ parseInt(NOx_r)+ parseInt(NOx_t)+ parseInt(NOx_c) +parseInt(NOx_tr)+parseInt(NOx_tff)+ parseInt(NOx_pa)+parseInt(NOx_a)+ parseInt(NOx_en);
+    
     var air_info = [{
         "Secteur": "Industrie",
-        "NOx": data.filter(function(d){return d.Secteur === "Industrie"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Industrie"})[0]["PM10"],
+        "NOx":NOx_i,
+        "Taux": parseInt(NOx_i) /NOx_totale
     },{
         "Secteur": "Branche énergie",
-        "NOx": data.filter(function(d){return d.Secteur === "Branche énergie"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Branche énergie"})[0]["PM10"],
+        "NOx": NOx_br,
+        "Taux": parseInt(NOx_br) /NOx_totale
     },{
         "Secteur": "Déchets",
-        "NOx": data.filter(function(d){return d.Secteur === "Déchets"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Déchets"})[0]["PM10"],
+        "NOx": NOx_d,
+        "Taux": parseInt(NOx_d) /NOx_totale
     },{
         "Secteur": "Résidentiel",
-        "NOx": data.filter(function(d){return d.Secteur === "Résidentiel"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Résidentiel"})[0]["PM10"],
+        "NOx": NOx_r,
+        "Taux": parseInt(NOx_r) /NOx_totale
     },{
         "Secteur": "Tertiaire",
-        "NOx": data.filter(function(d){return d.Secteur === "Tertiaire"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Tertiaire"})[0]["PM10"],
+        "NOx": NOx_t,
+        "Taux": parseInt(NOx_t) /NOx_totale
     },{
         "Secteur": "Chantiers",
-        "NOx": data.filter(function(d){return d.Secteur === "Chantiers"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Chantiers"})[0]["PM10"],
+        "NOx": NOx_c,
+        "Taux": parseInt(NOx_c) /NOx_totale
     },{
         "Secteur": "Transport routier",
-        "NOx": data.filter(function(d){return d.Secteur === "Transport routier"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Transport routier"})[0]["PM10"],
+        "NOx": NOx_tr,
+        "Taux": parseInt(NOx_tr)/NOx_totale
     },{
         "Secteur": "Transport ferroviaire et fluvial",
-        "NOx": data.filter(function(d){return d.Secteur === "Transport ferroviaire et fluvial"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Transport ferroviaire et fluvial"})[0]["PM10"],
+        "NOx": NOx_tff,
+        "Taux": parseInt(NOx_tff) /NOx_totale
     },{
         "Secteur": "Plateformes aéroportuaires",
-        "NOx": data.filter(function(d){return d.Secteur === "Plateformes aéroportuaires"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Plateformes aéroportuaires"})[0]["PM10"],
+        "NOx": NOx_pa,
+        "Taux": parseInt(NOx_pa) /NOx_totale
     },{
         "Secteur": "Agriculture",
-        "NOx": data.filter(function(d){return d.Secteur === "Agriculture"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Agriculture"})[0]["PM10"],
+        "NOx": NOx_a,
+        "Taux": parseInt(NOx_a) /NOx_totale
+    
     },{
         "Secteur": "Émissions naturelles",
-        "NOx": data.filter(function(d){return d.Secteur === "Émissions naturelles"})[0].NOx,
-        "pm": data.filter(function(d){return d.Secteur === "Émissions naturelles"})[0]["PM10"],
+        "NOx": NOx_en,
+        "Taux": parseInt(NOx_en) /NOx_totale
+        
     }];
     return air_info;
 }
 
-function showAirTooltip_pie(sec, emiss, coords){
+function get_airInfoP(data){
+
+    Pm_i = data.filter(function(d){return d.Secteur === "Industrie"})[0]["PM10"];
+    Pm_br = data.filter(function(d){return d.Secteur === "Branche énergie"})[0]["PM10"];
+    Pm_d  = data.filter(function(d){return d.Secteur === "Déchets"})[0]["PM10"];
+    Pm_r = data.filter(function(d){return d.Secteur === "Résidentiel"})[0]["PM10"];
+    Pm_t = data.filter(function(d){return d.Secteur === "Tertiaire"})[0]["PM10"];
+    Pm_c = data.filter(function(d){return d.Secteur === "Chantiers"})[0]["PM10"];
+    Pm_tr = data.filter(function(d){return d.Secteur === "Transport routier"})[0]["PM10"];
+    Pm_tff = data.filter(function(d){return d.Secteur === "Transport ferroviaire et fluvial"})[0]["PM10"];
+    Pm_pa = data.filter(function(d){return d.Secteur === "Plateformes aéroportuaires"})[0]["PM10"];
+    Pm_a = data.filter(function(d){return d.Secteur === "Agriculture"})[0]["PM10"];
+    Pm_en = data.filter(function(d){return d.Secteur === "Émissions naturelles"})[0]["PM10"];
+
+    Pm_totale = parseInt(Pm_i) + parseInt(Pm_br) + parseInt(Pm_d) + parseInt(Pm_r) + parseInt(Pm_t) + parseInt(Pm_c) + parseInt(Pm_tr) + parseInt(Pm_tff) + parseInt(Pm_pa) + parseInt(Pm_a) + parseInt(Pm_en);
+    var air_infop = [{
+        "Secteur": "Industrie",
+        "pm": Pm_i,
+        "Taux": parseInt(Pm_i)/Pm_totale
+    },{
+        "Secteur": "Branche énergie",
+        "pm": Pm_br,
+        "Taux": parseInt(Pm_br)/Pm_totale
+    },{
+        "Secteur": "Déchets",
+        "pm": Pm_d,
+        "Taux": parseInt(Pm_d)/Pm_totale
+    },{
+        "Secteur": "Résidentiel",
+        "pm": Pm_r,
+        "Taux": parseInt(Pm_r)/Pm_totale
+    },{
+        "Secteur": "Tertiaire",
+        "pm": Pm_t,
+        "Taux": parseInt(Pm_t)/Pm_totale
+    },{
+        "Secteur": "Chantiers",
+        "pm": Pm_c,
+        "Taux": parseInt(Pm_c)/Pm_totale
+    },{
+        "Secteur": "Transport routier",
+        "pm": Pm_tr,
+        "Taux": parseInt(Pm_tr)/Pm_totale
+    },{
+        "Secteur": "Transport ferroviaire et fluvial",
+        "pm": Pm_tff,
+        "Taux": parseInt(Pm_tff)/Pm_totale
+    },{
+        "Secteur": "Plateformes aéroportuaires",
+        "pm": Pm_pa,
+        "Taux": parseInt(Pm_pa)/Pm_totale
+    },{
+        "Secteur": "Agriculture",
+        "pm": Pm_a,
+        "Taux": parseInt(Pm_a)/Pm_totale
+    
+    },{
+        "Secteur": "Émissions naturelles",
+        "pm": Pm_en,
+        "Taux":  + parseInt(Pm_en)/Pm_totale
+        
+    }];
+    return air_infop;
+
+}
+function showAirTooltip_pie(sec, emiss, taux, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -211,10 +298,11 @@ function showAirTooltip_pie(sec, emiss, coords){
         .style("top", (y)+"px")
         .style("left", (x)+"px")
         .html("<b>Secteur : </b>" + sec + "<br>"
-            + "<b>Emission : </b>" + Math.round(emiss) + " tonnes par an<br>")
+            + "<b>Emission : </b>" + Math.round(emiss) + " tonnes par an<br>"
+            + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>")
 }
 
-function showAirTooltip_pie_pm(sec, emiss, coords){
+function showAirTooltip_pie_pm(sec, emiss, taux, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -223,8 +311,9 @@ function showAirTooltip_pie_pm(sec, emiss, coords){
         .style("top", (y)+"px")
         .style("left", (x)+"px")
         .html("<b>Secteur : </b>" + sec + "<br>"
-            + "<b>Emission : </b>" + Math.round(emiss) + " tonnes par an<br>")
-}
+            + "<b>Emission : </b>" + Math.round(emiss) + " tonnes par an<br>"
+            + "<b>Taux : </b>" + Math.round(taux*100) + "%<br>")
+} 
 
 function drawPieNox(data) {
     let body_air = d3.select("#piechart_air");
@@ -235,7 +324,8 @@ function drawPieNox(data) {
     data = data.map(d => ({
         secteur: d.Secteur,
         nox: +d.NOx,
-        pm: +d.pm
+        pm: +d.pm,
+        taux: d.Taux
     }))
     let pie = d3.pie()
         .value(d => d.nox);
@@ -284,7 +374,7 @@ function drawPieNox(data) {
         })
         .style("stroke", "white")
         .on("mousemove", (d)=>{
-            showAirTooltip_pie(d.data.secteur, d.data.nox,[d3.event.pageX + 30, d3.event.pageY - 30]);
+            showAirTooltip_pie(d.data.secteur, d.data.nox, d.data.taux, [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
             d3.select("#tooltip_air_pie").style("display","none")
@@ -298,7 +388,8 @@ function drawPiePm(data) {
     data = data.map(d => ({
         secteur: d.Secteur,
         nox: +d.NOx,
-        pm: +d.pm
+        pm: +d.pm,
+        taux: d.Taux
     }))
     let pie = d3.pie()
         .value(d => d.pm);
@@ -321,7 +412,7 @@ function drawPiePm(data) {
         })
         .style("stroke", "white")
         .on("mousemove", (d)=>{
-            showAirTooltip_pie_pm(d.data.secteur, d.data.pm,[d3.event.pageX + 30, d3.event.pageY - 30]);
+            showAirTooltip_pie_pm(d.data.secteur, d.data.pm, d.data.taux,[d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
             d3.select("#tooltip_air_pie_pm").style("display","none")
