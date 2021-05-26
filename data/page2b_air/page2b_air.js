@@ -30,7 +30,7 @@ function get_history_air(data){
     let history = []
     for (let y of years){
         history.push({
-            annee: y,
+            annee: y, 
             "NO2": data.filter(function(d){return d["ANNEE"] === y})[0]["NO2"],
             "PM": data.filter(function(d){return d["ANNEE"] === y})[0]["PM10"]
         });
@@ -38,10 +38,26 @@ function get_history_air(data){
     return history;
 }
 
+
+function showAirTooltip_bar(nom,annee, nb_Hbts, coords){
+    let x = coords[0];
+    let y = coords[1];
+
+    d3.select("#dimple_air_tool")
+        .style("display", "block")
+        .style("top", (y)+"px")
+        .style("left", (x)+"px")
+        .html(
+              "<b>Nom: </b>" + nom + " <br>"
+            + "<b>Annee: </b>" + annee + " <br>"
+            + "<b>Nb_Hbts : </b>" + Intl.NumberFormat().format(nb_Hbts) + "<br>")
+}
+
 function drawDimple_air(data){
     var margin = {top: 30, right: 30, bottom: 70, left: 80};
     var height = 250;
-    var width = 350;
+    var width = 400;
+    
     var svg = d3.select("#dimple_air")
         .append("svg")
             .attr("width", width + margin.left + margin.right)
@@ -49,14 +65,15 @@ function drawDimple_air(data){
         .append("g")
             .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
-    
+//modif
+
     var x = d3.scaleBand()
         .range([0, width])
         .domain(data.map(function(d) {return d.annee;}))
-        .padding(0.2);
+        .padding(0.3);
         svg.append("g")
           .attr("transform", "translate(0," + height + ")")
-          .call(d3.axisBottom(x))
+          .call(d3.axisBottom(x) )
           .selectAll("text")
             .attr("transform", "translate(-10,0)rotate(-45)")
             .style("text-anchor", "end");
@@ -72,16 +89,42 @@ function drawDimple_air(data){
         .range([height, 0])
     svg.append("g")
         .call(d3.axisLeft(y));
-
+   
     svg.selectAll("mybar")
         .data(data)
         .enter()
         .append("rect")
-            .attr("x", function(d) { return x(d.annee); })
-            .attr("y", function(d) { return y(d["PM"]); })
-            .attr("width", x.bandwidth())
-            .attr("height", function(d) { return height - y(d["PM"]); })
+            .attr("x", function(d) { return x(d.annee) ; })
+            .attr("y", function(d) { return y(d["PM"] ); })
+            .attr("width", x.bandwidth() / 2)
+            .attr("height", function(d) { return height - y(d["PM"]  ); })
             .attr("fill", "#69b3a2")
+            .on("mousemove", (d)=>{
+                showAirTooltip_bar("PM10",d.annee,d["PM"], [d3.event.pageX + 30, d3.event.pageY - 30]);
+                
+                 })
+              .on("mouseleave", d=>{
+                d3.select("#dimple_air_tool").style("display","none")
+                });
+
+    svg.selectAll("mybar1")
+        .data(data)
+        .enter()
+        .append("rect")
+            .attr("x", function(d) { return x(d.annee); })
+            .attr("y", function(d) { return y(d["NO2"]); })
+            .attr("width", x.bandwidth()/2)
+            .attr("height", function(d) { return height - y(d["NO2"]); })
+            .attr("fill", "red")
+            .attr("transform",
+                  "translate(" + x.bandwidth()/2 + ")")
+            .on("mousemove", (d)=>{
+                showAirTooltip_bar("NO2",d.annee,d["NO2"], [d3.event.pageX + 30, d3.event.pageY - 30]);
+                 })
+              .on("mouseleave", d=>{
+                d3.select("#dimple_air_tool").style("display","none")
+                });
+                  
 
     var size = 10
     var x_dot = width - margin.right - 70
@@ -92,13 +135,12 @@ function drawDimple_air(data){
             .attr("width", x.bandwidth())
             .attr("height", size)
             .style("fill", "#69b3a2")
-    svg.append("line")
-            .attr("x1", x_dot)
-            .attr("y1", y_dot + 2*(size+5) + size/2)
-            .attr("x2", x_dot + x.bandwidth())
-            .attr("y2", y_dot + 2*(size+5) + size/2)
-            .style("stroke-width", 2)
-            .style("stroke", "red")
+    svg.append("rect")
+            .attr("x", x_dot)
+            .attr("y", y_dot + 2*(size+5))
+            .attr("width", x.bandwidth())
+            .style("height", size)
+            .style("fill", "red")
     svg.append("text")
             .attr("x", x_dot + x.bandwidth()*1.2)
             .attr("y", y_dot + 1*(size+5) + (size/2))
@@ -119,11 +161,12 @@ function drawDimple_air(data){
             .style("font-size", "10")
 
 
-    var line = d3.line()
+   /* var line = d3.line()
         .x(function(d) {return x(d.annee); })
-        .y(function(d) {return y(d["NO2"])})
+        .y(function(d) {return y(d["NO2"])})*/
 
     // X axis label:
+   
     svg.append("text")
         .attr("text-anchor", "middle")
         .attr("transform",
@@ -134,7 +177,7 @@ function drawDimple_air(data){
         .text("Année");
 
     // Y axis label:
-    svg.append("text")
+   svg.append("text")
         .attr("text-anchor", "middle")
         .attr("transform", "rotate(-90)")
         .attr("y", 0 - margin.left + 20)
@@ -143,11 +186,11 @@ function drawDimple_air(data){
         .style("font-size", "10")
         .text("Nombre d'habitants")
 
-    svg.append('path')
+  /*  svg.append('path')
         .attr('d', line(data))
         .attr("stroke-width", 2)
         .attr('stroke', 'red')
-        .attr('fill', 'none');
+        .attr('fill', 'none');*/
 }
 
 function secteur_filter_air(data, secteur){
@@ -373,6 +416,7 @@ function drawPieNox(data) {
             return colorScale_nox(d.data.secteur)
         })
         .style("stroke", "white")
+
         .on("mousemove", (d)=>{
             showAirTooltip_pie(d.data.secteur, d.data.nox, d.data.taux, [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
@@ -420,10 +464,12 @@ function drawPiePm(data) {
 }
 
 function drawLineChartNo2() {
-    var height = 300;
+    var height = 400;
     var width = 400;
     var svg_NO2 = dimple.newSvg("#air_linechart_NO2", width, height);
-        d3.csv("data/page2b_air/mobilite_NO2.csv").then((data)=>{
+        d3.csv("data/page2b_air/mobilite_NO2.csv").then((data)=>{ 
+        //    data_clean = data.filter(data_var => data_var.SOURCE !="Seuil Réglementaire");
+        //    data_blue = data.filter(data_var => data_var.SOURCE =="Seuil Réglementaire");
         var linechart_NO2 = new dimple.chart(svg_NO2, data);
         linechart_NO2.setBounds(45, 70, 300, 205);
         linechart_NO2.defaultColors = [
@@ -435,8 +481,9 @@ function drawLineChartNo2() {
         var y = linechart_NO2.addMeasureAxis("y", "NO2");
         y.title = "Concentration de NO2 (µg/m³)";
         x.title = "Année";
-        var s = linechart_NO2.addSeries("SOURCE", dimple.plot.line);
-        s.lineMarkers = true;
+        var s1 = linechart_NO2.addSeries("SOURCE", dimple.plot.line);
+        s1.lineMarkers = true;
+        
         linechart_NO2.addLegend(10, 50, 400, 20, "middle");
         linechart_NO2.draw();
     });
