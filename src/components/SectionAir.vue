@@ -47,6 +47,7 @@
             </div>
           </div>
         <div id="tooltip_air_pie" class="tt"></div>
+        <div id="dimple_air_tool" class="tt"></div>
         <div id="tooltip_air_pie_pm" class="tt"></div>
         <script2 :src="`${path}data/page2b_air/page2b_air.js`"></script2>
       </div>
