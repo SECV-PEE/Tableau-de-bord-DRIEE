@@ -1,4 +1,4 @@
-,annee,epci,non_epci,secteur,nombre_site,puissace,production
+,annee,epci,nom_epci,secteur,nombre_site,puissace,production
 0,2017,200054781,Métropole du Grand Paris,hyd,0.0,0.0,0.0
 1,2017,200054781,Métropole du Grand Paris,eol,0.0,0.0,0.0
 2,2017,200054781,Métropole du Grand Paris,coge,43.0,184640.0,586404685.0
