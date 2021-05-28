@@ -44,7 +44,7 @@
           <g id="body_prod"></g>
           </svg>
           
-          
+          <div></div>
         </div>
        
         <div class="production-subcarte" style="width: 450px; height: 600px;">
