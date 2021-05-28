@@ -12,7 +12,7 @@ var selectedEPCI = undefined;
 
 Promise.all([
     d3.csv("data/page7_enr/rose_production_epci.csv"),
-    d3.json("data/page7_enr/EPCI-ile-de-france.geojson")
+    d3.json("data/page7_enr/EPCI-ile-de-france.geojson") 
 ]).then((datasources)=>{
     mapInfo = datasources[1];
     data_prod = datasources[0];
@@ -22,10 +22,33 @@ Promise.all([
     prod_par_sec = get_ProdInfo(data_prod);
     drawPieProd(prod_par_sec);
     prepare_prod_data(mapInfo, data_prod);
+
     drawProdMap(data_prod, mapInfo, "prod_tot");
+
 })
 
+function set_html(id, text){
+    document.getElementById(id).innerHTML = text;
+}
+function draw_region(){
+    selectedEPCI = ""
+    d3.select("#selected_epci")
+        .style("visibility", "hidden");
+    d3.select("#btn-region")
+        .style("background-color", "#FF8900")
+    draw_pie_tree_region();
+    
+}
 
+function draw_pie_tree_region(){
+    d3.csv("data/page7_enr/rose_production_epci.csv").then((data)=>{
+        data = annee_filter(data);
+        var prod_par_sec = get_ProdInfo(data);
+        drawPieProd(prod_par_sec);
+        
+        
+    })
+}
 
 function get_prod_history(data){
     data = data.filter(function(d){return d.secteur !== "coge";});
@@ -64,30 +87,71 @@ function annee_filter_prod(data){
 }
 
 function get_ProdInfo(data){
+    
+    if (selectedEPCI)
+    {
+        data = data.filter(function(d){
+            return (d.nom_epci == selectedEPCI);
+        })
+        currentEPCI = selectedEPCI
+    }
+    else
+    currentEPCI = "Régionale"
+    prod_pv = d3.sum(data.filter(d=>d.secteur === "pv"),d=>d.production) ;
+    prod_hyd = d3.sum(data.filter(d=>d.secteur === "hyd"),d=>d.production) ;
+    prod_eol = d3.sum(data.filter(d=>d.secteur === "eol"),d=>d.production);
+    prod_bionrj = d3.sum(data.filter(d=>d.secteur === "bionrj"),d=>d.production);
+    prod_autres = d3.sum(data.filter(d=>d.secteur === "autres"),d=>d.production) ;
+    
+    prod_totale = (prod_pv + prod_hyd + prod_eol + prod_bionrj + prod_autres);
+
     var prod_info = [{
         "Secteur": "Photovoltaïque",
-        "Production": d3.sum(data.filter(d=>d.secteur === "pv"),d=>d.production)
+        "Nom": currentEPCI,
+        "Production": prod_pv,
+        "Taux" : prod_pv/prod_totale
     },{
         "Secteur": "Hydraulique",
-        "Production": d3.sum(data.filter(d=>d.secteur === "hyd"),d=>d.production)
+        "Nom": currentEPCI,
+        "Production": prod_hyd,
+        "Taux" : prod_hyd/prod_totale
     },{
         "Secteur": "Eolien",
-        "Production": d3.sum(data.filter(d=>d.secteur === "eol"),d=>d.production)
+        "Nom": currentEPCI,
+        "Production": prod_eol,
+        "Taux" : prod_eol/prod_totale
     },{
         "Secteur": "Bioénergie",
-        "Production": d3.sum(data.filter(d=>d.secteur === "bionrj"),d=>d.production)
+        "Nom": currentEPCI,
+        "Production": prod_bionrj,
+        "Taux" : prod_bionrj/prod_totale
     },{
         "Secteur": "Autres",
-        "Production": d3.sum(data.filter(d=>d.secteur === "autres"),d=>d.production)
+        "Nom": currentEPCI,
+        "Production": prod_autres,
+        "Taux" : prod_autres/prod_totale
     }];
+    
     return prod_info;
 }
 
+function showSelectedEPCI(nom)
+{
+    d3.select("#selected_epci")
+        .style("visibility", "visible")
+        .html(nom);
+    d3.select("#btn-region")
+        .style("background-color", "#15607A")
+}
+
 function prepare_prod_data(mapInfo, data){
+    
+  
     data = data.filter(d=>d.secteur !== "coge");
     let energie=["hyd","pv","eol","bionrj","autres"];
     let dataEnergie = {};
     for(let c of data){
+      //  let par_secteur = {};
         let par_energie = {};
         let epci = c.epci;
         for(let e of energie){
@@ -101,13 +165,15 @@ function prepare_prod_data(mapInfo, data){
     mapInfo.features = mapInfo.features.map(d => {
         let epci = d.properties.code;
         let prod = dataEnergie[epci];
-
+      
         d.properties.prod_pv = Math.round(prod.pv);
+        
         d.properties.prod_hyd = Math.round(prod.hyd);
         d.properties.prod_eol = Math.round(prod.eol);
-        d.properties.prod_bionrj = Math.round(prod.bonrj);
+        d.properties.prod_bionrj = Math.round(prod.bionrj);
         d.properties.prod_autres = Math.round(prod.autres);
         d.properties.prod_tot = Math.round(prod.tot);
+   
         return d;
     });
 }
@@ -146,8 +212,53 @@ function drawProdMap(data, mapInfo, sec){
                 [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
-            d3.select("#tooltip_prod").style("display","none")
-        });
+            d3.select("#tooltip_prod").style("display","none");
+        })
+
+        .on("click", d=> {
+            
+            selectedEPCI = d.properties.nom;
+            showSelectedEPCI(selectedEPCI);
+       
+            
+            
+            prod_totale = d.properties.prod_pv +d.properties.prod_hyd+
+            d.properties.prod_eol+d.properties.prod_bionrj+d.properties.prod_autres;
+           
+            let pie_data = [{
+                
+                "Secteur": "Photovoltaïque",
+                "Nom": d.properties.nom,
+                "Production": d.properties.prod_pv,
+                "Taux" : d.properties.prod_pv/prod_totale
+            },{
+                "Secteur": "Hydraulique",
+                "Nom": d.properties.nom,
+                "Production": d.properties.prod_hyd,
+                "Taux" : d.properties.prod_hyd/prod_totale
+            },{
+                "Secteur": "Eolien",
+                "Nom": d.properties.nom,
+                "Production": d.properties.prod_eol,
+                "Taux" : d.properties.prod_eol/prod_totale
+            },{
+                "Secteur": "Bioénergie",
+                "Nom": d.properties.nom,
+                "Production": d.properties.prod_bionrj,
+                "Taux" : d.properties.prod_bionrj/prod_totale
+            },{
+                "Secteur": "Autres",
+                "Nom": d.properties.nom,
+                "Production": d.properties.prod_autres,
+                "Taux" : d.properties.prod_autres/prod_totale   
+            }];
+                        
+            
+            drawPieProd(pie_data);
+                    
+        }
+        
+        );
 }
 
 function showPordTooltip(nom, prod, coords){
@@ -160,10 +271,11 @@ function showPordTooltip(nom, prod, coords){
         .style("left", (x)+"px")
         .html("<b>EPCI : </b>" + nom + "<br>"
             + "<b>Production d'électricité : </b>" + Math.round(prod/10000)/100 + "GWh<br>")
+            
         
 }
 
-function showPordTooltip_pie(sec, prod, coords){
+function showPordTooltip_pie(sec, nom, prod, taux, coords){
     let x = coords[0];
     let y = coords[1];
 
@@ -172,7 +284,10 @@ function showPordTooltip_pie(sec, prod, coords){
         .style("top", (y)+"px")
         .style("left", (x)+"px")
         .html("<b>Source : </b>" + sec + "<br>"
-        + "<b>Production d'électricité : </b>" + Math.round(prod/10000)/100 + "GWh<br>")
+        +"<b>EPCI : </b>" + nom + "<br>"
+        +"<b>Production d'électricité : </b>" + Math.round(prod/10000)/100 + "GWh<br>"
+        
+        +"<b>Taux : </b>" + (taux * 100 ).toFixed(2)  + " %<br>")
         
 }
 
@@ -183,9 +298,10 @@ function drawPieProd(data){
 
     data = data.map(d => ({
         secteur: d.Secteur,
-        production: +d.Production
-    }))
-    
+        nom: d.Nom,
+        production: +d.Production,
+        taux : d.Taux 
+    }))   
     let pie = d3.pie()
         .value(d => d.production);
     let colorScale = d3.scaleOrdinal().domain(["Photovoltaïque","Hydraulique","Eolien","Bioénergie","Autres"])
@@ -205,7 +321,7 @@ function drawPieProd(data){
             return colorScale(d.data.secteur)
         })
         .on("mousemove", (d)=>{
-            showPordTooltip_pie(d.data.secteur, d.data.production,[d3.event.pageX + 30, d3.event.pageY - 30]);
+            showPordTooltip_pie(d.data.secteur, d.data.nom, d.data.production, d.data.taux, [d3.event.pageX + 30, d3.event.pageY - 30]);
         })
         .on("mouseleave", d=>{
             d3.select("#tooltip_prod_pie").style("display","none")
