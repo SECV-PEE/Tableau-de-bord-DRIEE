@@ -21,25 +21,44 @@
           <svg id="enr_container_1_2" height="350" width="420"></svg>
         </div>
       </div>
-      <div style="width: 900px; height: 600px; display: inline-flex; margin-top: 3em;">
-        <div class="carte" style="width: 450px; height: 520px;">
+      <div style="width: 900px; height: 700px; display: inline-flex; margin-top: 3em;">
+        <div class="carte" style="width: 450px; height: 670px;">
           <h4>Production d'électricité renouvelable en 2017</h4>
           <a href="http://sigr.iau-idf.fr/webapps/cartes/rose/?op=a" target="_blank">Source: ROSE, ENERGIF</a>
+
+
+          <div id="container_prod" class="container">
+            <div id="container_carte_conso" style="width: 450px;">
+              <div class="area-button-container">
+                <h4 style="color: #696969; font-size: 0.8em;">Territoire sélectionné</h4>
+                <div class="sep_small"></div>
+                <button class="button-region" id="btn-region" onclick="draw_region()">Régional</button>
+                <button class="button-epci" id="selected_epci"></button>
+              </div>
+              
+            </div>
+          </div>
+                      
           <img :src="`${path}${img_page}/legend_prod.png`" alt="legend" width="450" height="67">
           <svg id="production_container" width="450" height="400">
-            <g id="body_prod"></g>
+          <g id="body_prod"></g>
           </svg>
+          
+          
         </div>
+       
         <div class="production-subcarte" style="width: 450px; height: 600px;">
-          <h4>Répartition de la production régionale d'électricité renouvelable par source d'énergie</h4>
+          <h4 >Évolution de la production annuelle régionale d'électricité renouvelable</h4>
+          <svg id="linechart_prod" height="180" width="420"></svg>
+
+
+           <h4 style="margin-top:30px">Répartition de la production régionale d'électricité renouvelable par source d'énergie</h4>
           <div id="container-pie">
             <svg id="container-pie-prod" height="200" width="220">
               <g id="piechart_prod" transform="translate(100, 100)"></g>
             </svg>
             <img :src="`${path}${img_page}/legend_prod_pie.png`" width="115" height="200" alt="legend">
           </div>
-          <h4 style="margin-top:30px">Évolution de la production annuelle régionale d'électricité renouvelable</h4>
-          <svg id="linechart_prod" height="180" width="420"></svg>
         </div>
       </div>
       <div id="enr-photovoltaique">
