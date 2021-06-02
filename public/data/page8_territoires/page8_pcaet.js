@@ -84,8 +84,8 @@ function split_pays_crecois(mapPCAET, mapEPCI){
 
     //push the new epcis to the old correct ones
     correct_epcis.features.push(union_meaux)
-    //features.push(union_brie)
-    //correct_epcis.features.push(union_europe)
+    correct_epcis.features.push(union_brie)
+    correct_epcis.features.push(union_europe)
 
     //find a way to write new feature collection in file to use later
     return (correct_epcis);
