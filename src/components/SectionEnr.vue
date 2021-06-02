@@ -52,7 +52,7 @@
           <svg id="linechart_prod" height="180" width="420"></svg>
 
 
-           <h4 style="margin-top:30px">Répartition de la production régionale d'électricité renouvelable par source d'énergie</h4>
+           <h4 style="margin-top:30px">Répartition de la production d'électricité renouvelable par source d'énergie</h4>
           <div id="container-pie">
             <svg id="container-pie-prod" height="200" width="220">
               <g id="piechart_prod" transform="translate(100, 100)"></g>
