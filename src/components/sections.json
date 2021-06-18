@@ -2,10 +2,10 @@
     "accueil": {
         "up": {
             "data1": {
-                "chiffre": "92%",
+                "chiffre": "90%",
                 "motCle": "d'énergie importée",
                 "texte": "",
-                "description": "L’Île-de-France est la région française qui présente la plus forte dépendance énergétique. La production locale d’énergie renouvelable et de récupération ne couvre que 6,8 % des consommations.",
+                "description": "L’Île-de-France est la région française qui présente la plus forte dépendance énergétique. La production locale d’énergie renouvelable et de récupération ne couvre que 7.4 % des consommations.",
                 "img": "pylone2.png",
                 "img_size": ["80", "80"]
             },
@@ -21,7 +21,7 @@
                 "chiffre": "45%",
                 "motCle": "des consommations",
                 "texte": "liées au chauffage des bâtiments",
-                "description": "Les consommations énergétiques franciliennes sont majoritairement rattachées au secteur du bâtiment (63 %) et servent surtout à couvrir les besoins en chaleur des bâtiments (eau chaude et chauffage). Vient ensuite le secteur des transports, responsable de 24 % des consommations.",
+                "description": "Les consommations énergétiques franciliennes sont majoritairement rattachées au secteur du bâtiment (66 %) et servent surtout à couvrir les besoins en chaleur des bâtiments (eau chaude et chauffage). Vient ensuite le secteur des transports, responsable de 21 % des consommations.",
                 "img": "immeubles.png",
                 "img_size": ["80", "80"]
             }
@@ -31,7 +31,7 @@
                 "chiffre": "113",
                 "motCle": "réseaux de chaleur",
                 "texte": "",
-                "description": "L’Île-de-France est la première région française en nombre de réseaux de chaleur (14 % des réseaux français) et en livraison annuelle de chaleur par ces réseaux, avec 11,3 TWh en 2019 soit 44 % des livraisons françaises. Le taux moyen d’ENR&R de ces réseaux est de 53 %.",
+                "description": "L’Île-de-France est la première région française en nombre de réseaux de chaleur (14 % des réseaux français) et en livraison annuelle de chaleur par ces réseaux, avec 11,3 TWh en 2019 soit 44 % des livraisons françaises. Le taux moyen d’ENR&R de ces réseaux est de 51 %.",
                 "img": "reseaux_chaleur.png",
                 "img_size": ["110", "110"]
             },
@@ -39,7 +39,7 @@
                 "chiffre": "1 million",
                 "motCle": "d'habitants",
                 "texte": "chauffés par la géothermie",
-                "description": "L’Île-de-France bénéficie d’un potentiel exceptionnel pour la géothermie. Avec une soixantaine d’installations de géothermie profonde en fonctionnement, elle présente la plus grande densité d’opérations au monde et représente plus de 80 % de la production géothermique nationale.",
+                "description": "L’Île-de-France bénéficie d’un potentiel exceptionnel pour la géothermie. Avec une cinquantaine d’installations de géothermie profonde en fonctionnement, elle présente la plus grande densité d’opérations au monde et représente plus de 80 % de la production géothermique nationale.",
                 "img": "geothermie.png",
                 "img_size": ["100", "100"]
             }
