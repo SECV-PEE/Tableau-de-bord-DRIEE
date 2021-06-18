@@ -37,14 +37,14 @@
                 "data2": {
                     "chiffre": "-22%",
                     "motCle": "",
-                    "texte": "d’émissions de GES en 2017 par rapport à 2005",
+                    "texte": "d’émissions de GES en 2018 par rapport à 2005",
                     "description": "objectif SRCAE : -28 % en 2020 par rapport à 2005"
                 },
                 "data3": {
-                    "chiffre": "54%",
+                    "chiffre": "47%",
                     "motCle": "",
                     "texte": "part des GES émise par le secteur du bâtiment",
-                    "description": "30% sont émis par les transports routiers"
+                    "description": "29% sont émis par les transports routiers"
                 }
             }
         },
@@ -77,13 +77,13 @@
             "img": "prod_logo.png",
             "datas":{
                 "data1": {
-                    "chiffre": "6,8%",
+                    "chiffre": "7,4%",
                     "motCle": "",
-                    "texte": "des consommations énergétiques couvertes par des ENR&R produites localement",
+                    "texte": "des consommations énergétiques couvertes par des ENR&R produites localement en 2018",
                     "description": "contre 18 % au niveau national"
                 },
                 "data2": {
-                    "chiffre": "92%",
+                    "chiffre": "91%",
                     "motCle": "",
                     "texte": "part de la chaleur dans la production locale d’ENR&R",
                     "description": "reste de la production : 7,4 % d’électricité, 4,6 % de gaz"
@@ -175,10 +175,10 @@
             "img": "chaleur_logo.png",
             "datas":{
                 "data1": {
-                    "chiffre": "53%",
+                    "chiffre": "51%",
                     "motCle": "",
                     "texte": "part d’ENR&R dans les réseaux de chaleur",
-                    "description": "chaleur fatale (29%), géothermie (12%), biomasse (9%), autres ENR&R (3%) (données SNCU)"
+                    "description": "chaleur fatale (27%), géothermie (11%), biomasse (10%), autres ENR&R (3%) (données SNCU)"
                 },
                 "data2": {
                     "chiffre": "113",
@@ -199,22 +199,22 @@
             "section": "#section-enr",
             "datas":{
                 "data1": {
-                    "chiffre": "22%",
+                    "chiffre": "+40%",
                     "motCle": "",
-                    "texte": "de l’objectif à 2030 fixé par le SCRAE pour la méthanisation atteint en 2019",
-                    "description": "capacité de production des sites de méthanisation en 2019 : 888 GWh"
+                    "texte": "d'injection de biométhane issu de la méthanisation en 2019 par rapport à 2013",
+                    "description": "quantité de biométhane injectée en 2019 : 158 GWh"
                 },
                 "data2": {
-                    "chiffre": "3,2%",
+                    "chiffre": "18%",
                     "motCle": "",
-                    "texte": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2017",
-                    "description": "production d’électricité photovoltaïque en 2017 : 76 GWh"
+                    "texte": "de l’objectif à 2020 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2019",
+                    "description": "production d’électricité photovoltaïque en 2019 : 93 GWh"
                 },
                 "data3": {
-                    "chiffre": "3,4%",
+                    "chiffre": "23%",
                     "motCle": "",
-                    "texte": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité éolienne atteint en 2017",
-                    "description": "production d’électricité éolienne en 2017 : 92 GWh"
+                    "texte": "de l’objectif à 2020 fixé par le SCRAE pour l’électricité éolienne atteint en 2019",
+                    "description": "production d’électricité éolienne en 2019 : 186 GWh"
                 }
             }
         }
