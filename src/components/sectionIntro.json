@@ -5,10 +5,10 @@
             "img": "consomm_logo.png",
             "datas":{
                 "data1": {
-                    "chiffre": "92%",
+                    "chiffre": "90%",
                     "motCle": "",
                     "texte": "d’énergie importée",
-                    "description": "seulement 8% de l'énergie consommée est produite localement.\nSource: SDES (2017)"
+                    "description": "seulement 10% de l'énergie consommée est produite localement.\nSource: ROSE (2018)"
                 },
                 "data2": {
                     "chiffre": "45%",
@@ -86,7 +86,7 @@
                     "chiffre": "91%",
                     "motCle": "",
                     "texte": "part de la chaleur dans la production locale d’ENR&R",
-                    "description": "reste de la production : 7,4 % d’électricité, 4,6 % de gaz"
+                    "description": "reste de la production d'ENR&R : 8.2 % d’électricité, 0.8 % de gaz"
                 },
                 "data3": {
                     "chiffre": "1ère",
@@ -163,10 +163,10 @@
                     "description": "+14% d’usage de transports collectifs en 2018 par rapport à 2010 (source : EGT H2020-IDF Mobilité-OMNIL-DRIEA)"
                 },
                 "data3": {
-                    "chiffre": "-12%",
+                    "chiffre": "-16%",
                     "motCle": "",
-                    "texte": "d'énergie consommée par les transports routiers en 2017 par rapport à 2005",
-                    "description": "dont -3% par rapport à 2015. Source : ROSE"
+                    "texte": "d'énergie consommée par les transports routiers en 2018 par rapport à 2005",
+                    "description": "dont -5% par rapport à 2015. Source : ROSE"
                 }
             }
         },
