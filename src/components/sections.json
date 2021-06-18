@@ -50,9 +50,9 @@
         "outro": "La consommation énergétique francilienne représente 12 % de la consommation nationale. Elle est majoritairement fossile et constituée de 35 % de gaz, de 30 % d’électricité et de 28 % de produits pétroliers. Le principal poste de consommation est le secteur du bâtiment (> 63 %, essentiellement pour les besoins en chaleur), suivi du secteur des transports routiers (24 %). La consommation énergétique francilienne a diminué de 14 % entre 2005 et 2017, avec toutefois une légère hausse entre 2015 et 2017 (+0,4 %).<br/><br/>Les deux leviers à activer pour amplifier la réduction des consommations sont l’<b>efficacité énergétique</b> et la <b>sobriété</b>, principalement dans les secteurs:<ul><br/><li>du bâtiment, avec un enjeu majeur de réduction des besoins en chaleur via la massification de la rénovation énergétique et l’adoption de comportements adaptés ;</li><br/><li>des transports, via l’usage de véhicules moins énergivores et les changements de pratique (usage des transports en commun, des modes actifs…).",
         "datas": {
             "data1": {
-                "chiffre": "92%",
+                "chiffre": "90%",
                 "motCle": "d’énergie importée",
-                "texte": "seulement 8% de l'énergie consommée est produite localement"
+                "texte": "seulement 10% de l'énergie consommée est produite localement"
             },
             "data2": {
                 "chiffre": "45%",
@@ -74,17 +74,17 @@
             "data1": {
                 "chiffre": "10%",
                 "motCle": "des émissions de gaz à effet de serre nationales",
-                "texte": "42 MteqCO2 émis en Île-de-France en 2017 (scopes 1 et 2)"
+                "texte": "41 MteqCO2 émis en Île-de-France en 2018 (scopes 1 et 2)"
             },
             "data2": {
                 "chiffre": "-22%",
-                "motCle": "d’émissions de GES en 2017 par rapport à 2005",
+                "motCle": "d’émissions de GES en 2018 par rapport à 2005",
                 "texte": "objectif SRCAE : -28 % en 2020 par rapport à 2005"
             },
             "data3": {
-                "chiffre": "54%",
+                "chiffre": "47%",
                 "motCle": "part des GES émise par le secteur du bâtiment",
-                "texte": "30% sont émis par les transports routiers"
+                "texte": "29% sont émis par les transports routiers"
             }
         }
     },
@@ -170,9 +170,9 @@
                 "texte": "+14% d’usage de transports collectifs en 2018 par rapport à 2010 (source : EGT H2020-IDF Mobilité-OMNIL-DRIEA)"
             },
             "data3": {
-                "chiffre": "-12%",
-                "motCle": "d'énergie consommée par les transports routiers en 2017 par rapport à 2005",
-                "texte": "dont -3% par rapport à 2015"
+                "chiffre": "-16%",
+                "motCle": "d'énergie consommée par les transports routiers en 2018 par rapport à 2005",
+                "texte": "dont -5% par rapport à 2015"
             }
         }
     },
@@ -181,9 +181,9 @@
         "outro": "Les consommations énergétiques franciliennes servent pour 45 % à couvrir les besoins en chaleur des bâtiments, or la région dispose d’un important potentiel de production de chaleur renouvelable ainsi que de milieux urbains denses propices à une alimentation des bâtiments par des réseaux de chaleur. <b>Le développement de réseaux de chaleur alimentés par des ENR&R constitue donc un levier majeur pour verdir les consommations énergétiques franciliennes et réduire les émissions de gaz à effet de serre associées.</b><br/><br/> En 2019, <b>113 réseaux alimentent 1,1 millions d’équivalent-logements, avec un taux d’ENR&R de 53 %. 2,5 millions d’équivalent-logements sont encore raccordables</b> : 1 million sur les réseaux existants, 1 million sur des extensions de réseaux et 500 000 sur des réseaux à créer.<br/><br/>Le déploiement et l’optimisation des réseaux (densification, interconnexion, extension, création de nouveaux réseaux) doivent s’accompagner de leur verdissement avec un recours accru aux ENR&R dans le respect de la démarche EnR’Choix. Celle-ci préconise l’exploitation par ordre de priorité : <ul><br/><li> des nombreux <b>gisements de chaleur fatale</b> (unités d’incinération des ordures ménagères, sites industriels, data centers) ;</li><br/><li> de la <b>géothermie</b>, pour laquelle la région dispose d’un <b>potentiel exceptionnel</b> avec des nappes accessibles à différentes profondeurs sur tout le territoire ;</li><br/><li> de la <b>biomasse</b>, dans des installations équipées de systèmes de dépollution de qualité.</li></ul><br/> Il est à noter que la production de chaleur renouvelable par la <b>géothermie profonde</b> et par des <b>installations collectives de biomasse</b> a connu une <b>forte hausse</b> depuis une dizaine d’années mais reste inférieure aux objectifs fixés par le SRCAE.",
         "datas": {
             "data1": {
-                "chiffre": "53%",
+                "chiffre": "51%",
                 "motCle": "part d’ENR&R dans les réseaux de chaleur",
-                "texte": "chaleur fatale (29%), géothermie (12%), biomasse (9%), autres ENR&R (3%) (Source : SNCU)"
+                "texte": "chaleur fatale (27%), géothermie (11%), biomasse (10%), autres ENR&R (3%) (Source : SNCU)"
             },
             "data2": {
                 "chiffre": "113",
@@ -202,19 +202,19 @@
         "outro": "La <b>méthanisation</b>, qui permet de produire du biogaz à partir de la dégradation de matière organique en conditions anaérobie, est en plein essor en Île-de-France. Le biogaz peut être purifié et injecté sur le réseau de gaz naturel (injection), ou valorisé sous forme de chaleur ou électricité par cogénération. Au vu du faible rendement de la cogénération, c’est l’<b>injection</b> qui est soutenue et encouragée par l’État et qui connaît actuellement le plus fort développement.<br/><br/>L’Île-de-France compte 27 installations de méthanisation en fonctionnement en 2020. La moitié de ces installations sont <b>agricoles</b>, le reste étant constitué de stations d’épuration et d’unités traitant des déchets non dangereux. 15 unités injectent du <b>biométhane</b> dans les réseaux de gaz, et 95 % des projets à l’étude ou en cours de construction sont des projets d’injection. Le potentiel de développement francilien pour la méthanisation est important, avec toutefois différents défis à relever : acceptabilité locale, maîtrise des impacts, non-concurrence des usages de la biomasse pour d’autres besoins (gestion des cultures énergétiques).<br/><br/>La production d’<b>électricité renouvelable</b> francilienne est l’une des plus faibles au niveau national. En 2017, seulement <b>0,3 % de la consommation électrique</b> régionale est <b>couverte par la production locale  photovoltaïque et éolienne</b>, malgré un potentiel significatif. Les principaux enjeux relatifs au développement de ces énergies concernent l’acceptabilité, la préservation de la biodiversité, la consommation d'espace et la répartition d'usage du foncier, l’intégration paysagère et patrimoniale, la soutenabilité financière. Pour le photovoltaïque, une intégration au bâti ou sur sites déjà artificialisés est à privilégier.",
         "datas": {
             "data1": {
-                "chiffre": "22%",
-                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour la méthanisation atteint en 2019",
-                "texte": "capacité de production des sites de méthanisation en 2019 : 888 GWh"
+                "chiffre": "+40%",
+                "motCle": "de biométhane issu de la méthanisation injecté en 2019 par rapport à 2013",
+                "texte": "quantité de biométhane injecté en 2019 : 158 GWh"
             },
             "data2": {
-                "chiffre": "3,2%",
-                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2017",
-                "texte": "production d’électricité photovoltaïque en 2017 : 76 GWh"
+                "chiffre": "18%",
+                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité photovoltaïque atteint en 2019",
+                "texte": "production d’électricité photovoltaïque en 2019 : 93 GWh"
             },
             "data3": {
-                "chiffre": "3,4%",
-                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité éolienne atteint en 2017",
-                "texte": "production d’électricité éolienne en 2017 : 92 GWh"
+                "chiffre": "23%",
+                "motCle": "de l’objectif à 2030 fixé par le SCRAE pour l’électricité éolienne atteint en 2019",
+                "texte": "production d’électricité éolienne en 2019 : 186 GWh"
             }
         }
     },
