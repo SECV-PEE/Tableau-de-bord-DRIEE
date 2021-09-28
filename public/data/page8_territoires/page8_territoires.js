@@ -24,7 +24,7 @@ function get_statut(couleur) {
     if (couleur === "#E0E0E0")
         return ("Dérogation à l'obligation de ZFE")
     if (couleur === "#FFCB8D")
-        return ("ZFE adoptée sous conditions non levées")
+        return ("ZFE adoptée, mise en place différée")
     if (couleur === "#0BC094")
         return ("ZFE adoptée")
     if (couleur === "#FF8300")
