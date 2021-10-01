@@ -54,11 +54,11 @@ Code géographique,statut,couleur
 94079,commune libérée de l’obligation car en dehors du périmètre de la ZFEm de la MGP,#E0E0E0
 95018,commune libérée de l’obligation car en dehors du périmètre de la ZFEm de la MGP,#E0E0E0
 94034,commune obligée sans ZFEm,#FF8300
-94037,commune obligée avec ZFEm avec mise en place différée,#FFCB8D
+94037,commune obligée sans ZFEm,#FF8300
 94038,commune obligée avec ZFEm avec mise en place différée,#FFCB8D
 92002,commune obligée avec ZFEm en vigueur,#0BC094
 92004,commune obligée avec ZFEm en vigueur,#0BC094
-92012,commune obligée avec ZFEm en vigueur,#0BC094
+92012,commune obligée sans ZFEm,#FF8300
 92014,commune obligée avec ZFEm en vigueur,#0BC094
 92022,commune obligée avec ZFEm en vigueur,#0BC094
 92024,commune obligée avec ZFEm en vigueur,#0BC094
@@ -82,7 +82,7 @@ Code géographique,statut,couleur
 93048,commune obligée avec ZFEm en vigueur,#0BC094
 93055,commune obligée avec ZFEm en vigueur,#0BC094
 93061,commune obligée sans ZFEm,#FF8300
-93064,commune obligée avec ZFEm en vigueur,#0BC094
+93064,commune obligée sans ZFEm,#FF8300
 93070,commune obligée avec ZFEm en vigueur,#0BC094
 94002,commune obligée avec ZFEm en vigueur,#0BC094
 94003,commune obligée avec ZFEm en vigueur,#0BC094
@@ -93,7 +93,7 @@ Code géographique,statut,couleur
 94067,commune obligée avec ZFEm en vigueur,#0BC094
 94069,commune obligée avec ZFEm en vigueur,#0BC094
 94073,commune obligée avec ZFEm en vigueur,#0BC094
-94076,commune obligée avec ZFEm en vigueur,#0BC094
+94076,commune obligée sans ZFEm,#FF8300
 94080,commune obligée avec ZFEm en vigueur,#0BC094
 75056,commune obligée avec ZFEm en vigueur,#0BC094
 92007,commune obligée sans ZFEm,#FF8300
@@ -112,12 +112,12 @@ Code géographique,statut,couleur
 92064,commune obligée avec ZFEm en vigueur,#0BC094
 92073,commune obligée avec ZFEm en vigueur,#0BC094
 92078,commune obligée avec ZFEm en vigueur,#0BC094
-93006,commune obligée avec ZFEm en vigueur,#0BC094
+93006,commune obligée sans ZFEm,#FF8300
 93008,commune obligée sans ZFEm,#FF8300
 93010,commune obligée sans ZFEm,#FF8300
 93027,commune obligée sans ZFEm,#FF8300
 93029,commune obligée sans ZFEm,#FF8300
-93053,commune obligée avec ZFEm en vigueur,#0BC094
+93053,commune obligée sans ZFEm,#FF8300
 93063,commune obligée avec ZFEm en vigueur,#0BC094
 93066,commune obligée avec ZFEm en vigueur,#0BC094
 94017,commune obligée sans ZFEm,#FF8300
@@ -129,4 +129,4 @@ Code géographique,statut,couleur
 94042,commune obligée sans ZFEm,#FF8300
 94046,commune obligée sans ZFEm,#FF8300
 94065,commune obligée avec ZFEm en vigueur,#0BC094
-94081,commune obligée avec ZFEm en vigueur,#0BC094
+94081,commune obligée sans ZFEm,#FF8300
