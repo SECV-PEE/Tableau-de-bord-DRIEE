@@ -53,7 +53,7 @@ Code géographique,statut,couleur
 94078,commune libérée de l’obligation car en dehors du périmètre de la ZFEm de la MGP,#E0E0E0
 94079,commune libérée de l’obligation car en dehors du périmètre de la ZFEm de la MGP,#E0E0E0
 95018,commune libérée de l’obligation car en dehors du périmètre de la ZFEm de la MGP,#E0E0E0
-94034,commune obligée avec ZFEm en vigueur,#0BC094
+94034,commune obligée sans ZFEm,#FF8300
 94037,commune obligée avec ZFEm avec mise en place différée,#FFCB8D
 94038,commune obligée avec ZFEm avec mise en place différée,#FFCB8D
 92002,commune obligée avec ZFEm en vigueur,#0BC094
@@ -63,7 +63,7 @@ Code géographique,statut,couleur
 92022,commune obligée avec ZFEm en vigueur,#0BC094
 92024,commune obligée avec ZFEm en vigueur,#0BC094
 92026,commune obligée avec ZFEm en vigueur,#0BC094
-92032,commune obligée avec ZFEm en vigueur,#0BC094
+92032,commune obligée sans ZFEm,#FF8300
 92040,commune obligée avec ZFEm en vigueur,#0BC094
 92046,commune obligée avec ZFEm en vigueur,#0BC094
 92047,commune obligée avec ZFEm en vigueur,#0BC094
@@ -104,7 +104,7 @@ Code géographique,statut,couleur
 92025,commune obligée avec ZFEm en vigueur,#0BC094
 92033,commune obligée avec ZFEm en vigueur,#0BC094
 92035,commune obligée avec ZFEm en vigueur,#0BC094
-92036,commune obligée avec ZFEm avec mise en place différée,#FFCB8D
+92036,commune obligée sans ZFEm,#FF8300
 92044,commune obligée avec ZFEm en vigueur,#0BC094
 92049,commune obligée avec ZFEm en vigueur,#0BC094
 92060,commune obligée avec ZFEm en vigueur,#0BC094
@@ -120,10 +120,10 @@ Code géographique,statut,couleur
 93053,commune obligée avec ZFEm en vigueur,#0BC094
 93063,commune obligée avec ZFEm en vigueur,#0BC094
 93066,commune obligée avec ZFEm en vigueur,#0BC094
-94017,commune obligée avec ZFEm en vigueur,#0BC094
-94021,commune obligée avec ZFEm en vigueur,#0BC094
+94017,commune obligée sans ZFEm,#FF8300
+94021,commune obligée sans ZFEm,#FF8300
 94022,commune obligée sans ZFEm,#FF8300
-94028,commune obligée avec ZFEm en vigueur,#0BC094
+94028,commune obligée sans ZFEm,#FF8300
 94033,commune obligée avec ZFEm en vigueur,#0BC094
 94041,commune obligée avec ZFEm en vigueur,#0BC094
 94042,commune obligée avec ZFEm en vigueur,#0BC094
